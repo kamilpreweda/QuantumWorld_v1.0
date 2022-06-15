@@ -117,9 +117,9 @@ namespace QuantumWorld_v1._0.Model
 
         // Initializing starting values for a new player
 
-        public PlayerModel(string name)
+        public PlayerModel()
         {
-            Name = name;
+            Name = "Kamil
 
             PlayerResources = new ResourceModel[]
             {
@@ -155,14 +155,22 @@ namespace QuantumWorld_v1._0.Model
                 Multipliers[CarbonFiberBuilding]++;
             }
 
-            public bool canUpgradeBuilding(BuildingModel building)
+        public bool canUpgradeBuilding(BuildingModel building)
+        {
+            for (int i = 0; i < PlayerResources.Length; i++)
             {
-                for (int i = 0; i < PlayerResources.Length; i++)
-                {
-                    if (this.PlayerResources[i].Value < building.Cost[i].Value) { return false; }
-                }
-                return true;
+                if (this.PlayerResources[i].Value < building.Cost[i].Value) { return false; }
             }
+            return true;
+        }
+
+        public void StableResourceIncome()
+        {
+            this.PlayerResources[0].AddTo(this.Multipliers[CarbonFiberBuilding]);
+            this.PlayerResources[1].AddTo(this.Multipliers[QuantumGlassBuilding]);
+            this.PlayerResources[2].AddTo(this.Multipliers[HiggsBosonBuilding]);
+            this.PlayerResources[3].AddTo(this.Multipliers[SolarEnergyBuilding]);
+        }
 
 
 

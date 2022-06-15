@@ -31,5 +31,9 @@ namespace QuantumWorld_v1._0.Model
             Value *= multiplier;
         }
 
+        public void AddTo(int value)
+        {
+            Value += value;
+        }
     }
 }

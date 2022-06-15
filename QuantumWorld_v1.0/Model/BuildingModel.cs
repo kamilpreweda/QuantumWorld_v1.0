@@ -19,5 +19,11 @@ namespace QuantumWorld_v1._0.Model
             Cost = cost;
             Level = level;
         }
+
+        public void SetNewCost(int index, int multiplier)
+        {
+           
+            Cost[index].MultiplyBy(multiplier);
+        }
     }
 }

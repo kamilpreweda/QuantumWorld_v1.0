@@ -20,7 +20,7 @@ namespace QuantumWorld_v1._0.Model
 
         // Resource multipliers
 
-        public Dictionary<string, int> Multipliers { get; private set; }    
+        public Dictionary<BuildingModel, int> Multipliers { get; private set; }
 
         // Buildings
 
@@ -116,10 +116,10 @@ namespace QuantumWorld_v1._0.Model
                 new ResourceModel("Higgs Boson", 0),
                 new ResourceModel("Solar Energy", 0),
             };
-            Multipliers = new Dictionary<string, int>();
-            Multipliers.Add("Carbon Fiber", 3);
-            Multipliers.Add("Quantum Glass", 2);
-            Multipliers.Add("Higgs Boson", 1);
+            Multipliers = new Dictionary<BuildingModel, int>();
+            Multipliers.Add(CarbonFiberBuilding, 3);
+            Multipliers.Add(QuantumGlassBuilding, 2);
+            Multipliers.Add(HiggsBosonBuilding, 1);
 
             CarbonFiberBuilding = new BuildingModel("Carbon Fiber Building", CarbonFiberBuilding_StartingCost, 0);
             QuantumGlassBuilding = new BuildingModel("Quantum Glass Building", QuantumGlassBuilding_StartingCost, 0);
@@ -132,12 +132,20 @@ namespace QuantumWorld_v1._0.Model
             UnlockShipsResearch = new ResearchModel("Unlock Ships", UnlockShipsResearch_StartingCost, 0);
             FasterShipsResearch = new ResearchModel("Faster Ships", FasterShipsResearch_StartingCost, 0);
 
+            void upgradeBuilding(BuildingModel building)
+            {
+                for (int i = 0; i < PlayerResources.Length; i++)
+                {
+                    this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
+                    building.SetNewCost(i, Multipliers[building]);
+                }
+            }
 
 
 
+
+        }
 
 
     }
-
-
 }

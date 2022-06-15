@@ -16,5 +16,20 @@ namespace QuantumWorld_v1._0.Model
             Name = name;
             Value = value;
         }
+
+        /// <summary>
+        /// This method calculates new values for resources used to upgrade building
+        /// </summary>
+        /// <param name="value">Cost that we need to subtract from Resources</param>
+        public void SubtractFromResources(int value)
+        {
+            Value -= value;
+        }
+        
+        public void MultiplyBy(int multiplier)
+        {
+            Value *= multiplier;
+        }
+
     }
 }

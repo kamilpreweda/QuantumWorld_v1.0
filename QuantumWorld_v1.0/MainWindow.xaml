@@ -1,12 +1,35 @@
-﻿<Window x:Class="QuantumWorld_v1._0.MainWindow"
+﻿<Window x:Name="QuantumWorld_v1_0" x:Class="QuantumWorld_v1._0.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuantumWorld_v1._0"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="QuantumWorld_v1.0" Height="600" Width="920">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="menuStackPanel" Grid.Row="1">
+            <Button x:Name="menuOverviewButton" Content="Overview" Margin="10,10,10,10"/>
+            <Button x:Name="menuBuildingsButton" Content="Buildings" Margin="10,10,10,10"/>
+            <Button x:Name="menuResearchButton" Content="Research" Margin="10,10,10,10"/>
+        </StackPanel>
+        <StackPanel x:Name="resourcesStackPanel" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Center">
+            <Label x:Name="carbonFiberTextLabel" Content="Carbon Fiber:" Margin="10,10,10,10"/>
+            <Label x:Name="carbonFiberValueLabel" Content="0" Margin="10,10,10,10"/>
+            <Label x:Name="quantumGlassTextLabel" Content="Quantum Glass:" Margin="10,10,10,10"/>
+            <Label x:Name="quantumGlassValueLabel" Content="0" Margin="10,10,10,10"/>
+            <Label x:Name="higgsBosonTextLabel" Content="Higgs Boson:" Margin="10,10,10,10"/>
+            <Label x:Name="higgsBosonValueLabel" Content="0" Margin="10,10,10,10"/>
+            <Label x:Name="solarEnergyTextLabel" Content="Solar Energy:" Margin="10,10,10,10"/>
+            <Label x:Name="solarEnergyValueLabel" Content="0 / 0" Margin="10,10,10,10"/>
+        </StackPanel>
 
     </Grid>
 </Window>

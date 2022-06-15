@@ -30,6 +30,7 @@
             <Label x:Name="solarEnergyTextLabel" Content="Solar Energy:" Margin="10,10,10,10"/>
             <Label x:Name="solarEnergyValueLabel" Content="0 / 0" Margin="10,10,10,10"/>
         </StackPanel>
+        <ContentControl Grid.Column="1" Grid.Row="1" Content="ContentControl" Margin="10"/>
 
     </Grid>
 </Window>

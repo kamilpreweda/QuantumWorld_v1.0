@@ -44,6 +44,7 @@ namespace QuantumWorld_v1._0.Model
         {
             new ResourceModel("Carbon Fiber", 50),
             new ResourceModel("Quantum Glass", 20),
+            new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 5),
         };
 
@@ -51,6 +52,7 @@ namespace QuantumWorld_v1._0.Model
         {
             new ResourceModel("Carbon Fiber", 75),
             new ResourceModel("Quantum Glass", 30),
+            new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 10),
 
         };
@@ -59,6 +61,7 @@ namespace QuantumWorld_v1._0.Model
        {
             new ResourceModel("Carbon Fiber", 100),
             new ResourceModel("Quantum Glass", 50),
+            new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 15),
         };
 
@@ -66,6 +69,8 @@ namespace QuantumWorld_v1._0.Model
         {
             new ResourceModel("Carbon Fiber", 75),
             new ResourceModel("Quantum Glass", 75),
+            new ResourceModel("Higgs Boson", 0),
+            new ResourceModel("Solar Energy", 0),
         };
 
         // Setting 'starting cost' for each research
@@ -74,12 +79,16 @@ namespace QuantumWorld_v1._0.Model
         {
             new ResourceModel("Carbon Fiber", 100),
             new ResourceModel("Quantum Glass", 100),
+            new ResourceModel("Higgs Boson", 0),
+            new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] MoreResourcesResearch_StartingCost =
         {
             new ResourceModel("Carbon Fiber", 150),
             new ResourceModel("Quantum Glass", 150),
+            new ResourceModel("Higgs Boson", 0),
+            new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] FasterInnovationResearch_StartingCost =
@@ -87,6 +96,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Carbon Fiber", 200),
             new ResourceModel("Quantum Glass", 200),
             new ResourceModel("Higgs Boson", 100),
+            new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] UnlockShipsResearch_StartingCost =
@@ -94,6 +104,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Carbon Fiber", 250),
             new ResourceModel("Quantum Glass", 250),
             new ResourceModel("Higgs Boson", 150),
+            new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] FasterShipsResearch_StartingCost =
@@ -101,6 +112,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Carbon Fiber", 300),
             new ResourceModel("Quantum Glass", 300),
             new ResourceModel("Higgs Boson", 200),
+            new ResourceModel("Solar Energy", 0),
         };
 
         // Initializing starting values for a new player
@@ -139,8 +151,18 @@ namespace QuantumWorld_v1._0.Model
                     this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
                     building.SetNewCost(i, Multipliers[building]);
                 }
+                building.IncreaseLevel();
+                Multipliers[CarbonFiberBuilding]++;
             }
 
+            bool canUpgradeBuilding(BuildingModel building)
+            {
+                for (int i = 0; i < PlayerResources.Length; i++)
+                {
+                    if (this.PlayerResources[i].Value < building.Cost[i].Value) { return false; }
+                }
+                return true;
+            }
 
 
 

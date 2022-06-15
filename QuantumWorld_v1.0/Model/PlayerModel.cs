@@ -143,8 +143,8 @@ namespace QuantumWorld_v1._0.Model
             FasterInnovationResearch = new ResearchModel("Faster Innovation", FasterInnovationResearch_StartingCost, 0);
             UnlockShipsResearch = new ResearchModel("Unlock Ships", UnlockShipsResearch_StartingCost, 0);
             FasterShipsResearch = new ResearchModel("Faster Ships", FasterShipsResearch_StartingCost, 0);
-
-            void upgradeBuilding(BuildingModel building)
+        }
+            public void upgradeBuilding(BuildingModel building)
             {
                 for (int i = 0; i < PlayerResources.Length; i++)
                 {
@@ -155,7 +155,7 @@ namespace QuantumWorld_v1._0.Model
                 Multipliers[CarbonFiberBuilding]++;
             }
 
-            bool canUpgradeBuilding(BuildingModel building)
+            public bool canUpgradeBuilding(BuildingModel building)
             {
                 for (int i = 0; i < PlayerResources.Length; i++)
                 {
@@ -170,4 +170,4 @@ namespace QuantumWorld_v1._0.Model
 
 
     }
-}
+

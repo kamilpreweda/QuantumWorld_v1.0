@@ -30,5 +30,12 @@ namespace QuantumWorld_v1._0.Model
         {
             Level++;
         }
+
+        public void SetBuilding(BuildingModel building)
+        {
+            this.Name = building.Name;
+            this.Cost = building.Cost;
+            this.Level = building.Level;
+        }
     }
 }

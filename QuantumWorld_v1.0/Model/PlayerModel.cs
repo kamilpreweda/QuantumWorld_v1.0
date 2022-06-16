@@ -119,7 +119,7 @@ namespace QuantumWorld_v1._0.Model
 
         public PlayerModel()
         {
-            Name = "Kamil
+            Name = "Kamil";
 
             PlayerResources = new ResourceModel[]
             {
@@ -128,15 +128,16 @@ namespace QuantumWorld_v1._0.Model
                 new ResourceModel("Higgs Boson", 0),
                 new ResourceModel("Solar Energy", 0),
             };
-            Multipliers = new Dictionary<BuildingModel, int>();
-            Multipliers.Add(CarbonFiberBuilding, 3);
-            Multipliers.Add(QuantumGlassBuilding, 2);
-            Multipliers.Add(HiggsBosonBuilding, 1);
-
+           
             CarbonFiberBuilding = new BuildingModel("Carbon Fiber Building", CarbonFiberBuilding_StartingCost, 0);
             QuantumGlassBuilding = new BuildingModel("Quantum Glass Building", QuantumGlassBuilding_StartingCost, 0);
             HiggsBosonBuilding = new BuildingModel("Higgs Boson Building", HiggsBosonBuilding_StartingCost, 0);
             SolarEnergyBuilding = new BuildingModel("Solar Energy Building", SolarEnergyBuilding_StartingCost, 0);
+
+            Multipliers = new Dictionary<BuildingModel, int>();
+            Multipliers.Add(CarbonFiberBuilding, 2);
+            Multipliers.Add(QuantumGlassBuilding, 1);
+            Multipliers.Add(HiggsBosonBuilding, 0);
 
             FasterBuildingsResearch = new ResearchModel("Faster Buildings", FasterBuildingsResearch_StartingCost, 0);
             MoreResourcesResearch = new ResearchModel("More Resources", MoreResourcesResearch_StartingCost, 0);
@@ -169,7 +170,7 @@ namespace QuantumWorld_v1._0.Model
             this.PlayerResources[0].AddTo(this.Multipliers[CarbonFiberBuilding]);
             this.PlayerResources[1].AddTo(this.Multipliers[QuantumGlassBuilding]);
             this.PlayerResources[2].AddTo(this.Multipliers[HiggsBosonBuilding]);
-            this.PlayerResources[3].AddTo(this.Multipliers[SolarEnergyBuilding]);
+            
         }
 
 

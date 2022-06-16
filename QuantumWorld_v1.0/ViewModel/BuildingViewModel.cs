@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace QuantumWorld_v1._0.ViewModel
 {
-    public class BuildingViewModel : ObservableObject
+    public class BuildingsViewModel : ObservableObject
     {
         private PlayerModel _player;
         public PlayerModel Player
@@ -31,7 +31,7 @@ namespace QuantumWorld_v1._0.ViewModel
             }
         }
         public RelayCommand UpgradeCarbonFiberBuilding { get; set; }
-        public BuildingViewModel(PlayerModel player)
+        public BuildingsViewModel(PlayerModel player)
         {
             Player = player;
 

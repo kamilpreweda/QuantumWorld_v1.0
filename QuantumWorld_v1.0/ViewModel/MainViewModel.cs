@@ -16,7 +16,7 @@ namespace QuantumWorld_v1._0.ViewModel
         public RelayCommand OverviewViewCommand { get; set; }
         public RelayCommand BuildingsViewCommand { get; set; }
         public OverviewViewModel OverviewVM { get; set; }
-        public BuildingViewModel BuildingsVM { get; set; }
+        public BuildingsViewModel BuildingsVM { get; set; }
 
        
         private PlayerModel _player;
@@ -43,7 +43,7 @@ namespace QuantumWorld_v1._0.ViewModel
             _player = new PlayerModel();
 
             OverviewVM = new OverviewViewModel(Player);
-            BuildingsVM = new BuildingViewModel(Player);
+            BuildingsVM = new BuildingsViewModel(Player);
 
             CurrentView = OverviewVM;
 
@@ -72,4 +72,4 @@ namespace QuantumWorld_v1._0.ViewModel
             }
         }
     }
-}
+

@@ -18,21 +18,25 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="CarbonFiberBuildingStackPanel" Margin="10,10,10,10">
+        <StackPanel x:Name="CarbonFiberBuildingStackPanel" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel x:Name="CarbonFiberNameAndLevelStackPanel" Margin="10,10,10,10" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label x:Name="CarbonFiberBuildingNameLabel" Content="CarbonFiberBuilding"/>
                 <Label x:Name="CarbonFiberBuildingLevelLabel" Content="Level:"/>
-                <Label x:Name="CarbonFiberBuildingLeveValueLabel" Content="0"/>
+                <Label x:Name="CarbonFiberBuildingLeveValueLabel" Content="{Binding CarbonFiberBuilding.Level}"/>
             </StackPanel>
             <StackPanel x:Name="CarbonFiberBuildingImageAndDescriptionStackPanel" Margin="10,10,10,10" Orientation="Horizontal">
                 <Image x:Name="CarbonFiberBuildingImage" Height="100" Width="100" HorizontalAlignment="Left" Margin="10,10,10,10"/>
-                <TextBox x:Name="CarbonFiberBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Carbon Fiber Building Description"/>
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <TextBox x:Name="CarbonFiberBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Carbon Fiber Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" Margin="10,10,10,10" Width="180" Height="90"/>
+                </Border>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label x:Name="CarbonFiberBuildingCarbonFiberCostLabel" Content="CF: "/>
+                <Label x:Name="CarbonFiberBuildingCarbonFiberCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[0].Value}"/>
                 <Label x:Name="CarbonFiberBuildingQuantumGlassCostLabel" Content="QG:"/>
+                <Label x:Name="CarbonFiberBuildingQuantumGlassCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[1].Value}"/>
                 <Label x:Name="CarbonFiberBuildingTimeToBuildLabel" Content="0:0:10"/>
-                <Button x:Name="CarbonFiberBuildingUpgradeButton" Content="Upgrade"/>
+                <Button x:Name="CarbonFiberBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeCarbonFiberBuilding}"/>
             </StackPanel>
         </StackPanel>
 

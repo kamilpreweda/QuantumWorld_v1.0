@@ -8,10 +8,10 @@ namespace QuantumWorld_v1._0.Model
 {
     public class BuildingModel
     {
-        public int Level { get; private set; }
-        public string Name { get; private set; }
+        public int Level { get; set; } // private set?
+        public string Name { get; set; } // private set?
 
-        public ResourceModel[] Cost { get; private set; }
+        public ResourceModel[] Cost { get; set; } // private set?
 
         public BuildingModel(string name, ResourceModel[] cost, int level)
         {
@@ -19,23 +19,24 @@ namespace QuantumWorld_v1._0.Model
             Cost = cost;
             Level = level;
         }
-
+        
         public void SetNewCost(int index, int multiplier)
         {
            
             Cost[index].MultiplyBy(multiplier);
         }
-
+    
+        
         public void IncreaseLevel()
         {
             Level++;
         }
-
+        
         public void SetBuilding(BuildingModel building)
-        {
-            this.Name = building.Name;
-            this.Cost = building.Cost;
-            this.Level = building.Level;
-        }
-    }
+{
+    this.Name = building.Name;
+    this.Cost = building.Cost;
+    this.Level = building.Level;
+}
+}
 }

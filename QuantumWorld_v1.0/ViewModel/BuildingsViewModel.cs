@@ -26,7 +26,7 @@ namespace QuantumWorld_v1._0.ViewModel
             get => _player.CarbonFiberBuilding;
             set
             {
-                _player.CarbonFiberBuilding = value; //SetBuilding(CarbonFiberBuilding);
+                _player.CarbonFiberBuilding.SetBuilding(CarbonFiberBuilding);
                 OnPropertyChanged(nameof(CarbonFiberBuilding));
             }
         }

@@ -26,9 +26,9 @@
             </StackPanel>
             <StackPanel x:Name="CarbonFiberBuildingImageAndDescriptionStackPanel" Margin="10,10,10,10" Orientation="Horizontal">
                 <Image x:Name="CarbonFiberBuildingImage" Height="100" Width="100" HorizontalAlignment="Left" Margin="10,10,10,10"/>
-                <Border BorderBrush="Black" BorderThickness="1">
-                    <TextBox x:Name="CarbonFiberBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Carbon Fiber Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" Margin="10,10,10,10" Width="180" Height="90"/>
-                </Border>
+                
+                    <TextBox x:Name="CarbonFiberBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Carbon Fiber Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" Margin="10,10,10,10" Width="180" Height="90" BorderThickness="0"/>
+                
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label x:Name="CarbonFiberBuildingCarbonFiberCostLabel" Content="CF: "/>

@@ -11,33 +11,35 @@ namespace QuantumWorld_v1._0.Model
         public string Name { get; set; } // private set?
 
         // Resources
-        public ResourceModel CarbonFiber { get; set; } // private set?
-        public ResourceModel QuantumGlass { get; set; } // private set?
-        public ResourceModel HiggsBoson { get; set; } // private set?
-        public ResourceModel SolarEnergy { get; set; } // private set?
+        public ResourceModel CarbonFiber { get; private set; } // private set?
+        public ResourceModel QuantumGlass { get; private set; } // private set?
+        public ResourceModel HiggsBoson { get; private set; } // private set?
+        public ResourceModel SolarEnergy { get; private set; } // private set?
 
-        public ResourceModel[] PlayerResources { get; set; } // private set?
+        public ResourceModel[] PlayerResources { get; private set; } // private set?
 
         // Resource multipliers
 
-        public int[] Multipliers { get; set; } // private set?
+        //public int[] Multipliers { get; set; } // private set?
+
+        public Dictionary<BuildingModel, int> Multipliers { get; private set; }
 
        
         // Buildings
 
-        public BuildingModel CarbonFiberBuilding { get;  set; } //private set?
-        public BuildingModel QuantumGlassBuilding { get;  set; } //private set?
-        public BuildingModel HiggsBosonBuilding { get;  set; } //private set?
-        public BuildingModel SolarEnergyBuilding { get;  set; } //private set?
+        public BuildingModel CarbonFiberBuilding { get;  private set; } //private set?
+        public BuildingModel QuantumGlassBuilding { get; private set; } //private set?
+        public BuildingModel HiggsBosonBuilding { get;  private set; } //private set?
+        public BuildingModel SolarEnergyBuilding { get;  private set; } //private set?
 
         // Research
 
-        public ResearchModel FasterBuildingsResearch { get;  set; } // private set?
-        public ResearchModel MoreResourcesResearch { get;  set; } // private set?
-        public ResearchModel FasterInnovationResearch { get;  set; } // private set?
+        public ResearchModel FasterBuildingsResearch { get;  private set; } // private set?
+        public ResearchModel MoreResourcesResearch { get;  private set; } // private set?
+        public ResearchModel FasterInnovationResearch { get;  private set; } // private set?
 
-        public ResearchModel UnlockShipsResearch { get;  set; } // private set?
-        public ResearchModel FasterShipsResearch { get;  set; } // private set?
+        public ResearchModel UnlockShipsResearch { get;  private set; } // private set?
+        public ResearchModel FasterShipsResearch { get;  private set; } // private set?
 
         // Setting 'starting cost' for each building
 
@@ -46,7 +48,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Carbon Fiber", 50),
             new ResourceModel("Quantum Glass", 20),
             new ResourceModel("Higgs Boson", 0),
-            new ResourceModel("Solar Energy", 5),
+            new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] QuantumGlassBuilding_StartingCost =
@@ -130,22 +132,23 @@ namespace QuantumWorld_v1._0.Model
                 new ResourceModel("Solar Energy", 0),
             };
 
-            Multipliers = new int[]{
+            /* Multipliers = new int[]{
             2,
             1,
             0,
             0,
 };
+            */
 
             CarbonFiberBuilding = new BuildingModel("Carbon Fiber Building", CarbonFiberBuilding_StartingCost, 0);
             QuantumGlassBuilding = new BuildingModel("Quantum Glass Building", QuantumGlassBuilding_StartingCost, 0);
             HiggsBosonBuilding = new BuildingModel("Higgs Boson Building", HiggsBosonBuilding_StartingCost, 0);
             SolarEnergyBuilding = new BuildingModel("Solar Energy Building", SolarEnergyBuilding_StartingCost, 0);
 
-            //Multipliers = new Dictionary<BuildingModel, int>();
-            //Multipliers.Add(CarbonFiberBuilding, 2);
-            //Multipliers.Add(QuantumGlassBuilding, 1);
-            //Multipliers.Add(HiggsBosonBuilding, 0);
+            Multipliers = new Dictionary<BuildingModel, int>();
+            Multipliers.Add(CarbonFiberBuilding, 2);
+            Multipliers.Add(QuantumGlassBuilding, 1);
+            Multipliers.Add(HiggsBosonBuilding, 0);
 
             FasterBuildingsResearch = new ResearchModel("Faster Buildings", FasterBuildingsResearch_StartingCost, 0);
             MoreResourcesResearch = new ResearchModel("More Resources", MoreResourcesResearch_StartingCost, 0);
@@ -155,17 +158,19 @@ namespace QuantumWorld_v1._0.Model
         }
             public void upgradeBuilding(BuildingModel building)
             {
+            
+
                 for (int i = 0; i < PlayerResources.Length; i++)
                 {
-                //this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
-                //building.SetNewCost(i, Multipliers[building]);
-                this.PlayerResources[i].Value -= building.Cost[i].Value;
-                building.Cost[i].Value *= 2;
+                this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
+                building.SetNewCost(i, Multipliers[CarbonFiberBuilding]);
+                //this.PlayerResources[i].Value -= building.Cost[i].Value;
+                //building.Cost[i].Value *= 2;
                 }
-                //building.IncreaseLevel();
-                //Multipliers[CarbonFiberBuilding]++;
-                building.Level++;
-                this.Multipliers[0] += 1;
+                building.IncreaseLevel();
+                Multipliers[CarbonFiberBuilding]++;
+                //building.Level++;
+                //this.Multipliers[0] += 1;
 
             }
 
@@ -180,9 +185,9 @@ namespace QuantumWorld_v1._0.Model
 
         public void StableResourceIncome()
         {
-            this.PlayerResources[0].AddTo(this.Multipliers[0]);
-            this.PlayerResources[1].AddTo(this.Multipliers[1]);
-            this.PlayerResources[2].AddTo(this.Multipliers[2]);
+            this.PlayerResources[0].AddTo(this.Multipliers[CarbonFiberBuilding]);
+            this.PlayerResources[1].AddTo(this.Multipliers[QuantumGlassBuilding]);
+            this.PlayerResources[2].AddTo(this.Multipliers[HiggsBosonBuilding]);
             
         }
 

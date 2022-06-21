@@ -53,11 +53,11 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label x:Name="QuantumGlassBuildingCarbonFiberCostLabel" Content="CF: "/>
-                <Label x:Name="QuantumGlassBuildingCarbonFiberCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[0].Value}"/>
+                <Label x:Name="QuantumGlassBuildingCarbonFiberCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
                 <Label x:Name="QuantumGlassBuildingQuantumGlassCostLabel" Content="QG:"/>
-                <Label x:Name="QuantumGlassBuildingQuantumGlassCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[1].Value}"/>
+                <Label x:Name="QuantumGlassBuildingQuantumGlassCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
                 <Label x:Name="QuantumGlassBuildingTimeToBuildLabel" Content="0:0:10"/>
-                <Button x:Name="QuantumGlassBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeQuantumGlassBuilding}"/>
+                <Button x:Name="QuantumGlassBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeQuantumGlassBuilding}" ContentStringFormat="{}{0:F2}"/>
             </StackPanel>
         </StackPanel>
 

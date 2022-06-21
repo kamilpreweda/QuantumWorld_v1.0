@@ -26,11 +26,11 @@
         </StackPanel>
         <StackPanel x:Name="resourcesStackPanel" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Center">
             <Label x:Name="carbonFiberTextLabel" Content="Carbon Fiber:" Margin="10,10,10,10"/>
-            <Label x:Name="carbonFiberValueLabel" Content="{Binding Player.PlayerResources[0].Value}" Margin="10,10,10,10"/>
+            <Label x:Name="carbonFiberValueLabel" Content="{Binding Player.PlayerResources[0].Value}" ContentStringFormat="{}{0:F2}" Margin="10,10,10,10"/>
             <Label x:Name="quantumGlassTextLabel" Content="Quantum Glass:" Margin="10,10,10,10"/>
-            <Label x:Name="quantumGlassValueLabel" Content="{Binding Player.PlayerResources[1].Value}" Margin="10,10,10,10"/>
+            <Label x:Name="quantumGlassValueLabel" Content="{Binding Player.PlayerResources[1].Value}" ContentStringFormat="{}{0:F2}" Margin="10,10,10,10"/>
             <Label x:Name="higgsBosonTextLabel" Content="Higgs Boson:" Margin="10,10,10,10"/>
-            <Label x:Name="higgsBosonValueLabel" Content="{Binding Player.PlayerResources[2].Value}" Margin="10,10,10,10"/>
+            <Label x:Name="higgsBosonValueLabel" Content="{Binding Player.PlayerResources[2].Value}" ContentStringFormat="{}{0:F2}" Margin="10,10,10,10"/>
             <Label x:Name="solarEnergyTextLabel" Content="Solar Energy:" Margin="10,10,10,10"/>
             <Label x:Name="solarEnergyValueLabel" Content="{Binding Player.PlayerResources[3].Value}" Margin="10,10,10,10"/>
         </StackPanel>

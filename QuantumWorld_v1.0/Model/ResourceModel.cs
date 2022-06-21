@@ -9,9 +9,9 @@ namespace QuantumWorld_v1._0.Model
     public class ResourceModel
     {
         public string Name { get; private set; }
-        public int Value { get; private set; }
+        public float Value { get; private set; }
 
-        public ResourceModel(string name, int value)
+        public ResourceModel(string name, float value)
         {
             Name = name;
             Value = value;
@@ -21,17 +21,17 @@ namespace QuantumWorld_v1._0.Model
         /// This method calculates new values for resources used to upgrade building
         /// </summary>
         /// <param name="value">Cost that we need to subtract from Resources</param>
-        public void SubtractFromResources(int value)
+        public void SubtractFromResources(float value)
         {
             Value -= value;
         }
         
-        public void MultiplyBy(int multiplier)
+        public void MultiplyBy(float multiplier)
         {
             Value *= multiplier;
         }
 
-        public void AddTo(int value)
+        public void AddTo(float value)
         {
             Value += value;
         }

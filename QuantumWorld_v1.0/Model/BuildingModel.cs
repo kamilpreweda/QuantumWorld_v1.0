@@ -25,14 +25,13 @@ namespace QuantumWorld_v1._0.Model
             Level = level;
         }
 
-        public void SetNewCost(int index, int multiplier)
+        public void SetNewCost(int index, float multiplier)
         {
-           
+            
             Cost[index].MultiplyBy(multiplier);
-           
         }
-    
-        
+
+
         public void IncreaseLevel()
         {
             Level++;

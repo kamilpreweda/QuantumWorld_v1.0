@@ -48,7 +48,7 @@ namespace QuantumWorld_v1._0.Model
 
         public ResourceModel[] CarbonFiberBuilding_StartingCost =
         {
-            new ResourceModel("Carbon Fiber", 50),
+            new ResourceModel("Carbon Fiber", 50F),
             new ResourceModel("Quantum Glass", 20),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 0),
@@ -146,6 +146,11 @@ namespace QuantumWorld_v1._0.Model
             Multipliers.Add(QuantumGlassBuilding, 1);
             Multipliers.Add(HiggsBosonBuilding, 0);
 
+            CostMultipliers = new Dictionary<BuildingModel, float>();
+            CostMultipliers.Add(CarbonFiberBuilding, 1.1F);
+            CostMultipliers.Add(QuantumGlassBuilding, 1.2F);
+            CostMultipliers.Add(HiggsBosonBuilding, 1.3F);
+
             FasterBuildingsResearch = new ResearchModel("Faster Buildings", FasterBuildingsResearch_StartingCost, 0);
             MoreResourcesResearch = new ResearchModel("More Resources", MoreResourcesResearch_StartingCost, 0);
             FasterInnovationResearch = new ResearchModel("Faster Innovation", FasterInnovationResearch_StartingCost, 0);
@@ -162,15 +167,15 @@ namespace QuantumWorld_v1._0.Model
                 this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
                 if (building == CarbonFiberBuilding)
                 {
-                    building.SetNewCost(i, Multipliers[CarbonFiberBuilding]);
+                    building.SetNewCost(i, CostMultipliers[CarbonFiberBuilding]);
                 }
                 else if (building == QuantumGlassBuilding)
                 {
-                    building.SetNewCost(i, Multipliers[QuantumGlassBuilding]);
+                    building.SetNewCost(i, CostMultipliers[QuantumGlassBuilding]);
                 }
                 else if (building == HiggsBosonBuilding)
                 {
-                    building.SetNewCost(i, Multipliers[HiggsBosonBuilding]);
+                    building.SetNewCost(i, CostMultipliers[HiggsBosonBuilding]);
                 }
 
 

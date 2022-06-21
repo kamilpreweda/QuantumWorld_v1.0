@@ -9,7 +9,7 @@ namespace QuantumWorld_v1._0.Model
     public class ResourceModel
     {
         public string Name { get; private set; }
-        public int Value { get; set; } // private set?
+        public int Value { get; private set; }
 
         public ResourceModel(string name, int value)
         {

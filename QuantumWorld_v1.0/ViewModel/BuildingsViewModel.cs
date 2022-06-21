@@ -30,7 +30,19 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(CarbonFiberBuilding));
             }
         }
+
+        public BuildingModel QuantumGlassBuilding
+        {
+            get => _player.QuantumGlassBuilding;
+            set
+            {
+                _player.QuantumGlassBuilding.SetBuilding(QuantumGlassBuilding);
+                OnPropertyChanged(nameof(QuantumGlassBuilding));
+            }
+        }
+
         public RelayCommand UpgradeCarbonFiberBuilding { get; set; }
+        public RelayCommand UpgradeQuantumGlassBuilding { get; set; }
         public BuildingsViewModel(PlayerModel player)
         {
             Player = player;
@@ -48,8 +60,22 @@ namespace QuantumWorld_v1._0.ViewModel
                 CommandManager.InvalidateRequerySuggested();
                 return _player.canUpgradeBuilding(CarbonFiberBuilding);
             }));
-        
-                
+
+            UpgradeQuantumGlassBuilding = new RelayCommand(o =>
+            {
+                _player.upgradeBuilding(QuantumGlassBuilding);
+                OnPropertyChanged(nameof(QuantumGlassBuilding));
+                OnPropertyChanged(nameof(Player.PlayerResources));
+
+
+            },
+            (o =>
+            {
+                CommandManager.InvalidateRequerySuggested();
+                return _player.canUpgradeBuilding(QuantumGlassBuilding);
+            }));
+
+
         }
     }
 }

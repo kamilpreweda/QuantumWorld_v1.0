@@ -26,9 +26,9 @@
             </StackPanel>
             <StackPanel x:Name="CarbonFiberBuildingImageAndDescriptionStackPanel" Margin="10,10,10,10" Orientation="Horizontal">
                 <Image x:Name="CarbonFiberBuildingImage" Height="100" Width="100" HorizontalAlignment="Left" Margin="10,10,10,10"/>
-                
-                    <TextBox x:Name="CarbonFiberBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Carbon Fiber Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" Margin="10,10,10,10" Width="180" Height="90" BorderThickness="0"/>
-                
+
+                <TextBox x:Name="CarbonFiberBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Carbon Fiber Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" Margin="10,10,10,10" Width="180" Height="90" BorderThickness="0"/>
+
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label x:Name="CarbonFiberBuildingCarbonFiberCostLabel" Content="CF: "/>
@@ -37,6 +37,27 @@
                 <Label x:Name="CarbonFiberBuildingQuantumGlassCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[1].Value}"/>
                 <Label x:Name="CarbonFiberBuildingTimeToBuildLabel" Content="0:0:10"/>
                 <Button x:Name="CarbonFiberBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeCarbonFiberBuilding}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="QuantumGlassBuildingStackPanel" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Grid.Column="1">
+            <StackPanel x:Name="QuantumGlassNameAndLevelStackPanel1" Margin="10,10,10,10" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="QuantumGlassBuildingNameLabel" Content="QuantumGlassBuilding"/>
+                <Label x:Name="QuantumGlassBuildingLevelLabel" Content="Level:"/>
+                <Label x:Name="QuantumGlassBuildingLeveValueLabel" Content="{Binding QuantumGlassBuilding.Level}"/>
+            </StackPanel>
+            <StackPanel x:Name="QuantumGlassBuildingImageAndDescriptionStackPanel" Margin="10,10,10,10" Orientation="Horizontal">
+                <Image x:Name="QuantumGlassBuildingImage" Height="100" Width="100" HorizontalAlignment="Left" Margin="10,10,10,10"/>
+
+                <TextBox x:Name="QuantumGlassBuildingDescriptionTextBox1" TextWrapping="Wrap" Text="Quantum Glass Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" Margin="10,10,10,10" Width="180" Height="90" BorderThickness="0"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="QuantumGlassBuildingCarbonFiberCostLabel" Content="CF: "/>
+                <Label x:Name="QuantumGlassBuildingCarbonFiberCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[0].Value}"/>
+                <Label x:Name="QuantumGlassBuildingQuantumGlassCostLabel" Content="QG:"/>
+                <Label x:Name="QuantumGlassBuildingQuantumGlassCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[1].Value}"/>
+                <Label x:Name="QuantumGlassBuildingTimeToBuildLabel" Content="0:0:10"/>
+                <Button x:Name="QuantumGlassBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeQuantumGlassBuilding}"/>
             </StackPanel>
         </StackPanel>
 

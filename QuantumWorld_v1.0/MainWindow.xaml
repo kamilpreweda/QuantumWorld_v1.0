@@ -32,7 +32,7 @@
             <Label x:Name="higgsBosonTextLabel" Content="Higgs Boson:" Margin="10,10,10,10"/>
             <Label x:Name="higgsBosonValueLabel" Content="{Binding Player.PlayerResources[2].Value}" ContentStringFormat="{}{0:F2}" Margin="10,10,10,10"/>
             <Label x:Name="solarEnergyTextLabel" Content="Solar Energy:" Margin="10,10,10,10"/>
-            <Label x:Name="solarEnergyValueLabel" Content="{Binding Player.PlayerResources[3].Value}" Margin="10,10,10,10"/>
+            <Label x:Name="solarEnergyValueLabel" Content="{Binding Player.PlayerResources[3].Value}" ContentStringFormat="{}{0:F0}" Margin="10,10,10,10"/>
         </StackPanel>
         <ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding CurrentView}" Margin="10"/>
 

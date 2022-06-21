@@ -49,11 +49,23 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(HiggsBosonBuilding));
             }
         }
+        public BuildingModel SolarEnergyBuilding
+        {
+            get => _player.SolarEnergyBuilding;
+            set
+            {
+                _player.SolarEnergyBuilding.SetBuilding(SolarEnergyBuilding);
+                OnPropertyChanged(nameof(SolarEnergyBuilding));
+            }
+        }
 
         public RelayCommand UpgradeCarbonFiberBuilding { get; set; }
         public RelayCommand UpgradeQuantumGlassBuilding { get; set; }
 
         public RelayCommand UpgradeHiggsBosonBuilding { get; set; }
+        public RelayCommand UpgradeSolarEnergyBuilding { get; set; }
+
+
         public BuildingsViewModel(PlayerModel player)
         {
             Player = player;
@@ -99,7 +111,19 @@ namespace QuantumWorld_v1._0.ViewModel
                 CommandManager.InvalidateRequerySuggested();
                 return _player.canUpgradeBuilding(HiggsBosonBuilding);
             }));
+            UpgradeSolarEnergyBuilding = new RelayCommand(o =>
+            {
+                _player.upgradeBuilding(SolarEnergyBuilding);
+                OnPropertyChanged(nameof(SolarEnergyBuilding));
+                OnPropertyChanged(nameof(Player.PlayerResources));
 
+
+            },
+            (o =>
+            {
+                CommandManager.InvalidateRequerySuggested();
+                return _player.canUpgradeBuilding(SolarEnergyBuilding);
+            }));
 
         }
     }

@@ -35,5 +35,11 @@ namespace QuantumWorld_v1._0.Model
         {
             Value += value;
         }
+
+        public void AddEnergy(float multiplier)
+        {
+            Value += (100 * multiplier);
+            
+        }
     }
 }

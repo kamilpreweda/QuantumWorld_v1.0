@@ -48,7 +48,7 @@ namespace QuantumWorld_v1._0.Model
 
         public ResourceModel[] CarbonFiberBuilding_StartingCost =
         {
-            new ResourceModel("Carbon Fiber", 50F),
+            new ResourceModel("Carbon Fiber", 50),
             new ResourceModel("Quantum Glass", 20),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 0),
@@ -68,7 +68,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Carbon Fiber", 100),
             new ResourceModel("Quantum Glass", 50),
             new ResourceModel("Higgs Boson", 0),
-            new ResourceModel("Solar Energy", 15),
+            new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] SolarEnergyBuilding_StartingCost =
@@ -183,14 +183,14 @@ namespace QuantumWorld_v1._0.Model
             building.IncreaseLevel();
             if (building == CarbonFiberBuilding)
             {
-                Multipliers[CarbonFiberBuilding]++;
-            }else if (building == QuantumGlassBuilding)
+                Multipliers[CarbonFiberBuilding] += 5;
+            } else if (building == QuantumGlassBuilding)
             {
-                Multipliers[QuantumGlassBuilding]++;
+                Multipliers[QuantumGlassBuilding] += 4;
             }
             else if (building == HiggsBosonBuilding)
             {
-                Multipliers[HiggsBosonBuilding]++;
+                Multipliers[HiggsBosonBuilding] += 3;
             }
         }
 

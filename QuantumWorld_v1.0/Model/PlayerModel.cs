@@ -148,10 +148,10 @@ namespace QuantumWorld_v1._0.Model
             Multipliers.Add(SolarEnergyBuilding, 1.1F);
 
             CostMultipliers = new Dictionary<BuildingModel, float>();
-            CostMultipliers.Add(CarbonFiberBuilding, 1.1F);
-            CostMultipliers.Add(QuantumGlassBuilding, 1.2F);
-            CostMultipliers.Add(HiggsBosonBuilding, 1.3F);
-            CostMultipliers.Add(SolarEnergyBuilding, 1.5F);
+            CostMultipliers.Add(CarbonFiberBuilding, 1.5F);
+            CostMultipliers.Add(QuantumGlassBuilding, 1.6F);
+            CostMultipliers.Add(HiggsBosonBuilding, 1.7F);
+            CostMultipliers.Add(SolarEnergyBuilding, 2F);
             
 
             FasterBuildingsResearch = new ResearchModel("Faster Buildings", FasterBuildingsResearch_StartingCost, 0);

@@ -37,7 +37,7 @@
                 <Label x:Name="CarbonFiberBuildingQuantumGlassCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
                 <Label x:Name="CarbonFiberBuildingSolarEnergyLabel" Content="SE:"/>
                 <Label x:Name="CarbonFiberBuildingSolarEnergyCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
-                <Label x:Name="CarbonFiberBuildingTimeToBuildLabel" Content="0:0:10"/>
+                <Label x:Name="CarbonFiberBuildingTimeToBuildLabel" Content="{Binding CarbonFiberBuilding.TimeToBuild}"/>
                 <Button x:Name="CarbonFiberBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeCarbonFiberBuilding}"/>
             </StackPanel>
         </StackPanel>

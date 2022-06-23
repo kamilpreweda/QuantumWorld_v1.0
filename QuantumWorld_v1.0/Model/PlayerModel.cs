@@ -1,8 +1,11 @@
-﻿using System;
+﻿using QuantumWorld_v1._0.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace QuantumWorld_v1._0.Model
 {
@@ -10,13 +13,18 @@ namespace QuantumWorld_v1._0.Model
     {
         public string Name { get; set; }
 
+        DispatcherTimer buildingTimer = new DispatcherTimer();
+
+        
+        
+        
         // Resources
         public ResourceModel CarbonFiber { get; private set; }
         public ResourceModel QuantumGlass { get; private set; }
         public ResourceModel HiggsBoson { get; private set; }
         public ResourceModel SolarEnergy { get; private set; }
 
-        public ResourceModel[] PlayerResources { get; private set; } 
+        public ResourceModel[] PlayerResources { get; private set; }
 
         // Resource multipliers
 
@@ -26,7 +34,7 @@ namespace QuantumWorld_v1._0.Model
 
         // Buildings
 
-        public BuildingModel CarbonFiberBuilding { get;  private set; }
+        public BuildingModel CarbonFiberBuilding { get; private set; }
         public BuildingModel QuantumGlassBuilding { get; private set; }
         public BuildingModel HiggsBosonBuilding { get;  private set; }
         public BuildingModel SolarEnergyBuilding { get;  private set; }
@@ -127,6 +135,11 @@ namespace QuantumWorld_v1._0.Model
         {
             Name = "Kamil";
 
+            
+
+
+
+
             PlayerResources = new ResourceModel[]
             {
                 new ResourceModel("Carbon Fiber", 500),
@@ -135,10 +148,10 @@ namespace QuantumWorld_v1._0.Model
                 new ResourceModel("Solar Energy", 0),
             };
 
-            CarbonFiberBuilding = new BuildingModel("Carbon Fiber Building", CarbonFiberBuilding_StartingCost, 0);
-            QuantumGlassBuilding = new BuildingModel("Quantum Glass Building", QuantumGlassBuilding_StartingCost, 0);
-            HiggsBosonBuilding = new BuildingModel("Higgs Boson Building", HiggsBosonBuilding_StartingCost, 0);
-            SolarEnergyBuilding = new BuildingModel("Solar Energy Building", SolarEnergyBuilding_StartingCost, 0);
+            CarbonFiberBuilding = new BuildingModel("CarbonFiberBuilding", CarbonFiberBuilding_StartingCost, 0, 2);
+            QuantumGlassBuilding = new BuildingModel("QuantumGlassBuilding", QuantumGlassBuilding_StartingCost, 0, 1);
+            HiggsBosonBuilding = new BuildingModel("HiggsBosonBuilding", HiggsBosonBuilding_StartingCost, 0, 1);
+            SolarEnergyBuilding = new BuildingModel("SolarEnergyBuilding", SolarEnergyBuilding_StartingCost, 0, 1);
 
 
             Multipliers = new Dictionary<BuildingModel, float>();
@@ -160,17 +173,23 @@ namespace QuantumWorld_v1._0.Model
             UnlockShipsResearch = new ResearchModel("Unlock Ships", UnlockShipsResearch_StartingCost, 0);
             FasterShipsResearch = new ResearchModel("Faster Ships", FasterShipsResearch_StartingCost, 0);
         }
+
+        
+
         public void upgradeBuilding(BuildingModel building)
         {
-
-
+            
 
             for (int i = 0; i < PlayerResources.Length; i++)
             {
+                
                 this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
+                
                 if (building == CarbonFiberBuilding)
                 {
                     building.SetNewCost(i, CostMultipliers[CarbonFiberBuilding]);
+                    
+                    
                 }
                 else if (building == QuantumGlassBuilding)
                 {
@@ -187,6 +206,7 @@ namespace QuantumWorld_v1._0.Model
 
             }
             building.IncreaseLevel();
+            building.SetNewTime();
             if (building == CarbonFiberBuilding)
             {
                 Multipliers[CarbonFiberBuilding] += 5;
@@ -200,6 +220,7 @@ namespace QuantumWorld_v1._0.Model
             }
             else if (building == SolarEnergyBuilding)
             {
+                // PlayerResources[3] means Solar Energy resource value
                 PlayerResources[3].AddEnergy(Multipliers[SolarEnergyBuilding]);
                 Multipliers[SolarEnergyBuilding] += 0.1F;
             }
@@ -207,6 +228,7 @@ namespace QuantumWorld_v1._0.Model
 
         public bool canUpgradeBuilding(BuildingModel building)
         {
+            
             for (int i = 0; i < PlayerResources.Length; i++)
             {
                 if (this.PlayerResources[i].Value < building.Cost[i].Value) { return false; }
@@ -222,9 +244,8 @@ namespace QuantumWorld_v1._0.Model
             
         }
 
-
-
-        }
+        
+    }
 
 
     }

@@ -6,12 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace QuantumWorld_v1._0.ViewModel
 {
     public class BuildingsViewModel : ObservableObject
     {
         private PlayerModel _player;
+
+        int timeToEnd;
+
+        DispatcherTimer buildingTimer;
+
         public PlayerModel Player
         {
             get => _player;
@@ -65,23 +71,24 @@ namespace QuantumWorld_v1._0.ViewModel
         public RelayCommand UpgradeHiggsBosonBuilding { get; set; }
         public RelayCommand UpgradeSolarEnergyBuilding { get; set; }
 
+       
+
 
         public BuildingsViewModel(PlayerModel player)
         {
             Player = player;
 
+            // buildingTimer.Interval = TimeSpan.FromSeconds(1);
+
             UpgradeCarbonFiberBuilding = new RelayCommand(o =>
             {
-                _player.upgradeBuilding(CarbonFiberBuilding);
-                OnPropertyChanged(nameof(CarbonFiberBuilding));
-                OnPropertyChanged(nameof(Player.PlayerResources));
-
-
+                UpgradeBuilding(CarbonFiberBuilding);
+                 
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return _player.canUpgradeBuilding(CarbonFiberBuilding);
+                return (_player.canUpgradeBuilding(CarbonFiberBuilding) && isTimerRunning());
             }));
 
             UpgradeQuantumGlassBuilding = new RelayCommand(o =>
@@ -125,6 +132,54 @@ namespace QuantumWorld_v1._0.ViewModel
                 return _player.canUpgradeBuilding(SolarEnergyBuilding);
             }));
 
+
         }
+
+        public void UpgradeBuilding(BuildingModel building)
+        {
+            
+            timeToEnd = building.TimeToBuild;
+            buildingTimer = new DispatcherTimer();
+            buildingTimer.Interval = TimeSpan.FromSeconds(1);
+            buildingTimer.Tick += (s, e) => BuildingTimer_Tick(building);
+            
+            buildingTimer.Start();
+        }
+
+        private void BuildingTimer_Tick(BuildingModel building)
+        {
+            timeToEnd = building.TimeToBuild;
+            
+            if (building.TimeToBuild > 0)
+            {
+                building.TimeToBuild--;
+                timeToEnd--;
+                OnPropertyChanged(building.Name);
+            }
+            else
+            {
+                buildingTimer.Stop();
+                _player.upgradeBuilding(building);
+                OnPropertyChanged(building.Name);
+                OnPropertyChanged(nameof(Player.PlayerResources));
+
+                //building.TimeToBuild += 6;
+                //OnPropertyChanged(building.Name);
+                
+            }
+        }
+
+        public bool isTimerRunning()
+        {
+            if (timeToEnd > 0)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+        }
+
+        
     }
 }

@@ -94,6 +94,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Carbon Fiber", 500),
             new ResourceModel("Quantum Glass", 500),
             new ResourceModel("Higgs Boson", 250),
+            new ResourceModel("Solar Energy", 0),
         };
         // Setting 'starting cost' for each research
 

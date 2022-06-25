@@ -9,10 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\pUyDL8E3Besa3wUY6KZU.jpg" />
     <None Remove="View\WcHGPHJi7DjPFGvDsgki.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="View\pUyDL8E3Besa3wUY6KZU.jpg" />
     <Resource Include="View\WcHGPHJi7DjPFGvDsgki.jpg" />
   </ItemGroup>
 

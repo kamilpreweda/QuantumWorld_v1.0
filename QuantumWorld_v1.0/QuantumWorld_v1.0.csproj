@@ -9,11 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\aocPiNAtJYxoL1nnRfqz.jpg" />
+    <None Remove="View\EG3NLJtqSoPh0od4GQXY.jpg" />
     <None Remove="View\pUyDL8E3Besa3wUY6KZU.jpg" />
     <None Remove="View\WcHGPHJi7DjPFGvDsgki.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="View\aocPiNAtJYxoL1nnRfqz.jpg" />
+    <Resource Include="View\EG3NLJtqSoPh0od4GQXY.jpg" />
     <Resource Include="View\pUyDL8E3Besa3wUY6KZU.jpg" />
     <Resource Include="View\WcHGPHJi7DjPFGvDsgki.jpg" />
   </ItemGroup>

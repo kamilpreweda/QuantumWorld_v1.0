@@ -39,6 +39,8 @@ namespace QuantumWorld_v1._0.Model
         public BuildingModel HiggsBosonBuilding { get;  private set; }
         public BuildingModel SolarEnergyBuilding { get;  private set; }
 
+        public BuildingModel Labolatory { get; private set; }
+
         // Research
 
         public ResearchModel FasterBuildingsResearch { get;  private set; }
@@ -87,6 +89,12 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Solar Energy", 0),
         };
 
+        public ResourceModel[] Labolatory_StartingCost =
+        {
+            new ResourceModel("Carbon Fiber", 500),
+            new ResourceModel("Quantum Glass", 500),
+            new ResourceModel("Higgs Boson", 250),
+        };
         // Setting 'starting cost' for each research
 
         public ResourceModel[] FasterBuildingsResearch_StartingCost =
@@ -152,6 +160,7 @@ namespace QuantumWorld_v1._0.Model
             QuantumGlassBuilding = new BuildingModel("QuantumGlassBuilding", QuantumGlassBuilding_StartingCost, 0, 3);
             HiggsBosonBuilding = new BuildingModel("HiggsBosonBuilding", HiggsBosonBuilding_StartingCost, 0, 4);
             SolarEnergyBuilding = new BuildingModel("SolarEnergyBuilding", SolarEnergyBuilding_StartingCost, 0, 5);
+            Labolatory = new BuildingModel("Labolatory", Labolatory_StartingCost, 0, 10);
 
 
             Multipliers = new Dictionary<BuildingModel, float>();
@@ -159,12 +168,14 @@ namespace QuantumWorld_v1._0.Model
             Multipliers.Add(QuantumGlassBuilding, 1);
             Multipliers.Add(HiggsBosonBuilding, 0);
             Multipliers.Add(SolarEnergyBuilding, 1.1F);
+           
 
             CostMultipliers = new Dictionary<BuildingModel, float>();
             CostMultipliers.Add(CarbonFiberBuilding, 1.5F);
             CostMultipliers.Add(QuantumGlassBuilding, 1.6F);
             CostMultipliers.Add(HiggsBosonBuilding, 1.7F);
             CostMultipliers.Add(SolarEnergyBuilding, 2F);
+            CostMultipliers.Add(Labolatory, 2F);
             
 
             FasterBuildingsResearch = new ResearchModel("Faster Buildings", FasterBuildingsResearch_StartingCost, 0);
@@ -201,6 +212,9 @@ namespace QuantumWorld_v1._0.Model
                 }else if (building == SolarEnergyBuilding)
                 {
                     building.SetNewCost(i, CostMultipliers[SolarEnergyBuilding]);
+                }else if (building == Labolatory)
+                {
+                    building.SetNewCost(i, CostMultipliers[Labolatory]);
                 }
 
 

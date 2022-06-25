@@ -8,14 +8,16 @@
              xmlns:view="clr-namespace:QuantumWorld_v1._0.View"
              xmlns:model="clr-namespace:QuantumWorld_v1._0.Model"
              mc:Ignorable="d" 
-             d:DesignHeight="2000" d:DesignWidth="800">
+             d:DesignHeight="3000" d:DesignWidth="800">
     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="White">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="400"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -28,35 +30,35 @@
                     <Label x:Name="CarbonFiberBuildingLeveValueLabel" Content="{Binding CarbonFiberBuilding.Level}" FontSize="16"/>
                 </StackPanel>
                 <StackPanel x:Name="CarbonFiberBuildingImageAndDescriptionStackPanel" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10" Width="320" Height="320">
-                    <Image x:Name="CarbonFiberBuildingImage" Margin="10,10,10,10" Source="/View/WcHGPHJi7DjPFGvDsgki.jpg" Width="300" Height="300"/>
+                    <Image x:Name="CarbonFiberBuildingImage" Margin="10,10,10,10" Source="/View/Images/Carbon Fiber Factory.jpg" Width="300" Height="300"/>
 
 
                 </StackPanel>
 
             </StackPanel>
-            <StackPanel x:Name="HiggsBosonBuildingStackPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Grid.Row="2">
+            <StackPanel x:Name="HiggsBosonBuildingStackPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Grid.Row="2" Grid.RowSpan="2">
                 <StackPanel x:Name="HiggsBosonNameAndLevelStackPanel" Margin="10,10,10,10" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Label x:Name="HiggsBosonBuildingNameLabel" Content="Underwater Hadron Colider" FontSize="16"/>
                     <Label x:Name="HiggsBosonBuildingLevelLabel" Content="Level:" FontSize="16"/>
                     <Label x:Name="HiggsBosonBuildingLeveValueLabel" Content="{Binding HiggsBosonBuilding.Level}" FontSize="16"/>
                 </StackPanel>
                 <StackPanel x:Name="HiggsBosonBuildingImageAndDescriptionStackPanel" Margin="10,10,10,10" Height="320" Width="320">
-                    <Image x:Name="HiggsBosonBuildingImage" Height="300" Width="300" Margin="10,10,10,10" Source="/View/EG3NLJtqSoPh0od4GQXY.jpg"/>
+                    <Image x:Name="HiggsBosonBuildingImage" Height="300" Width="300" Margin="10,10,10,10" Source="/View/Images/Underwater Hadron Colider.jpg"/>
 
                 </StackPanel>
 
             </StackPanel>
-            <StackPanel x:Name="SolarEnergyBuildingStackPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Grid.Row="3">
+            <StackPanel x:Name="SolarEnergyBuildingStackPanel" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
                 <StackPanel x:Name="SolarEnergyNameAndLevelStackPanel1" Margin="10,10,10,10" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Label x:Name="SolarEnergyBuildingNameLabel" Content="Solar Plant" FontSize="16"/>
                     <Label x:Name="SolarEnergyBuildingLevelLabel" Content="Level:" FontSize="16"/>
                     <Label x:Name="SolarEnergyBuildingLeveValueLabel" Content="{Binding SolarEnergyBuilding.Level}" FontSize="16"/>
                 </StackPanel>
                 <StackPanel x:Name="SolarEnergyBuildingImageAndDescriptionStackPanel" Margin="10,10,10,10" Orientation="Vertical" Width="320" Height="320">
-                    <Image x:Name="SolarEnergyBuildingImage" Height="300" Width="300" Margin="10,10,10,10" Source="/View/aocPiNAtJYxoL1nnRfqz.jpg"/>
+                    <Image x:Name="SolarEnergyBuildingImage" Height="300" Width="300" Margin="10,10,10,10" Source="/View/Images/Solar Plant.jpg"/>
 
                 </StackPanel>
-                
+
             </StackPanel>
 
             <StackPanel x:Name="QuantumGlassBuildingStackPanel" Margin="10,10,10,10" Grid.Row="1">
@@ -66,12 +68,12 @@
                     <Label x:Name="QuantumGlassBuildingLeveValueLabel" Content="{Binding QuantumGlassBuilding.Level}" FontSize="16"/>
                 </StackPanel>
                 <StackPanel x:Name="QuantumGlassBuildingImageAndDescriptionStackPanel" Grid.Row="1" Grid.Column="0" Margin="10,10,10,10" Width="320">
-                    <Image x:Name="QuantumGlassBuildingImage" Margin="10,10,10,10" Source="/View/pUyDL8E3Besa3wUY6KZU.jpg" Width="300" Height="300"/>
+                    <Image x:Name="QuantumGlassBuildingImage" Margin="10,10,10,10" Source="/View/Images/Quantum Glass Factory.jpg" Width="300" Height="300"/>
 
                 </StackPanel>
 
             </StackPanel>
-            <TextBox x:Name="CarbonFiberBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Carbon Fiber Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" BorderThickness="0" Grid.Column="1" Margin="50,100,50,150" HorizontalAlignment="Left"/>
+            <TextBox x:Name="CarbonFiberBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Carbon Fiber Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" BorderThickness="0" Grid.Column="1" Margin="50,100,0,150" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="50,0,0,100" VerticalAlignment="Bottom">
                 <Label x:Name="CarbonFiberBuildingCarbonFiberCostLabel" Content="CF: "/>
                 <Label x:Name="CarbonFiberBuildingCarbonFiberCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
@@ -82,7 +84,7 @@
                 <Label x:Name="CarbonFiberBuildingTimeToBuildLabel" Content="{Binding CarbonFiberBuilding.TimeToBuild}"/>
                 <Button x:Name="CarbonFiberBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeCarbonFiberBuilding}"/>
             </StackPanel>
-            <TextBox x:Name="QuantumGlassBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Quantum Glass Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" BorderThickness="0" Grid.Column="1" Grid.Row="1" Margin="50,100,50,150" HorizontalAlignment="Left"/>
+            <TextBox x:Name="QuantumGlassBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Quantum Glass Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" BorderThickness="0" Grid.Column="1" Grid.Row="1" Margin="50,100,0,150" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="50,0,0,100">
                 <Label x:Name="QuantumGlassBuildingCarbonFiberCostLabel" Content="CF: "/>
                 <Label x:Name="QuantumGlassBuildingCarbonFiberCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
@@ -90,10 +92,10 @@
                 <Label x:Name="QuantumGlassBuildingQuantumGlassCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
                 <Label x:Name="QuantumGlassBuildingSolarEnergyLabel" Content="SE:"/>
                 <Label x:Name="QuantumGlassBuildingSolarEnergyCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
-                <Label x:Name="QuantumGlassBuildingTimeToBuildLabel" Content="0:0:10"/>
+                <Label x:Name="QuantumGlassBuildingTimeToBuildLabel" Content="{Binding QuantumGlassBuilding.TimeToBuild}"/>
                 <Button x:Name="QuantumGlassBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeQuantumGlassBuilding}"/>
             </StackPanel>
-            <TextBox x:Name="HiggsBosonBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Higgs Boson Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" BorderThickness="0" Grid.Column="1" Margin="50,100,50,150" Grid.Row="2" HorizontalAlignment="Left"/>
+            <TextBox x:Name="HiggsBosonBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Higgs Boson Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" BorderThickness="0" Grid.Column="1" Margin="50,100,0,150" Grid.Row="2" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,100">
                 <Label x:Name="HiggsBosonBuildingCarbonFiberCostLabel" Content="CF: "/>
                 <Label x:Name="HiggsBosonBuildingCarbonFiberCostValueLabel" Content="{Binding HiggsBosonBuilding.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
@@ -101,18 +103,45 @@
                 <Label x:Name="HiggsBosonBuildingQuantumGlassCostValueLabel" Content="{Binding HiggsBosonBuilding.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
                 <Label x:Name="HiggsBosonBuildingSolarEnergyLabel" Content="SE:"/>
                 <Label x:Name="HiggsBosonBuildingSolarEnergyCostValueLabel" Content="{Binding HiggsBosonBuilding.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
-                <Label x:Name="HiggsBosonBuildingTimeToBuildLabel" Content="0:0:10"/>
+                <Label x:Name="HiggsBosonBuildingTimeToBuildLabel" Content="{Binding HiggsBosonBuilding.TimeToBuild}"/>
                 <Button x:Name="HiggsBosonBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeHiggsBosonBuilding}"/>
             </StackPanel>
-            <TextBox x:Name="SolarEnergyBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Solar Energy Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" Margin="50,100,50,150" BorderThickness="0" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left"/>
+            <TextBox x:Name="SolarEnergyBuildingDescriptionTextBox" TextWrapping="Wrap" Text="Solar Energy Building Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" Margin="50,100,0,150" BorderThickness="0" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left"/>
             <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Panel.ZIndex="-1" Margin="50,0,0,100">
                 <Label x:Name="SolarEnergyBuildingCarbonFiberCostLabel" Content="CF: "/>
                 <Label x:Name="SolarEnergyBuildingCarbonFiberCostValueLabel" Content="{Binding SolarEnergyBuilding.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
                 <Label x:Name="SolarEnergyBuildingQuantumGlassCostLabel" Content="QG:"/>
                 <Label x:Name="SolarEnergyBuildingQuantumGlassCostValueLabel" Content="{Binding SolarEnergyBuilding.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
-                <Label x:Name="SolarEnergyBuildingTimeToBuildLabel" Content="0:0:10"/>
+                <Label x:Name="SolarEnergyBuildingTimeToBuildLabel" Content="{Binding SolarEnergyBuilding.TimeToBuild}"/>
                 <Button x:Name="SolarEnergyBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeSolarEnergyBuilding}"/>
             </StackPanel>
+
+            <StackPanel x:Name="LaboratoryStackPanel" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0">
+                <StackPanel x:Name="LaboratoryNameAndLevelStackPanel1" Margin="10,10,10,10" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label x:Name="LaboratoryNameLabel" Content="Labolatory" FontSize="16"/>
+                    <Label x:Name="LaboratoryLevelLabel" Content="Level:" FontSize="16"/>
+                    <Label x:Name="LaboratoryLeveValueLabel" Content="{Binding LaboratoryBuilding.Level}" FontSize="16"/>
+                </StackPanel>
+                <StackPanel x:Name="LaboratoryImageAndDescriptionStackPanel" Margin="10,10,10,10" Orientation="Vertical" Width="320" Height="320">
+                    <Image x:Name="LaboratoryImage" Height="300" Width="300" Margin="10,10,10,10" Source="/View/Labolatory.jpg"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <TextBox x:Name="LabolatoryDescriptionTextBox" TextWrapping="Wrap" Text="Labolatory Description" AllowDrop="True" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Focusable="False" BorderBrush="{x:Null}" Margin="50,100,0,150" BorderThickness="0" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"/>
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Panel.ZIndex="-1" Margin="50,0,0,100">
+                <Label x:Name="LabolatoryCarbonFiberCostLabel" Content="CF: "/>
+                <Label x:Name="LabolatoryCarbonFiberCostValueLabel" Content="{Binding Labolatory.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                <Label x:Name="LabolatoryQuantumGlassCostLabel" Content="QG:"/>
+                <Label x:Name="LabolatoryQuantumGlassCostValueLabel" Content="{Binding Labolatory.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                <Label x:Name="LabolatoryHiggsBosonCostLabel" Content="HB:"/>
+                <Label x:Name="LabolatoryHiggsBosonCostValueLabel" Content="{Binding Labolatory.Cost[2].Value}" ContentStringFormat="{}{0:F2}"/>
+                <Label x:Name="LabolatoryTimeToBuildLabel" Content="{Binding Labolatory.TimeToBuild}"/>
+                <Button x:Name="LabolatoryUpgradeButton" Content="Upgrade" Command="{Binding UpgradeLabolatory}"/>
+            </StackPanel>
+
+
 
 
 

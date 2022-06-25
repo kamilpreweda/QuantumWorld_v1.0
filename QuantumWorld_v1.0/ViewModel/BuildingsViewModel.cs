@@ -65,13 +65,25 @@ namespace QuantumWorld_v1._0.ViewModel
             }
         }
 
+        public BuildingModel Labolatory
+        {
+            get => _player.Labolatory;
+            set
+            {
+                _player.Labolatory.SetBuilding(Labolatory);
+                OnPropertyChanged(nameof(Labolatory));
+            }
+        }
+
         public RelayCommand UpgradeCarbonFiberBuilding { get; set; }
         public RelayCommand UpgradeQuantumGlassBuilding { get; set; }
 
         public RelayCommand UpgradeHiggsBosonBuilding { get; set; }
         public RelayCommand UpgradeSolarEnergyBuilding { get; set; }
 
-       
+        public RelayCommand UpgradeLabolatory { get; set; }
+
+
 
 
         public BuildingsViewModel(PlayerModel player)
@@ -83,7 +95,7 @@ namespace QuantumWorld_v1._0.ViewModel
             UpgradeCarbonFiberBuilding = new RelayCommand(o =>
             {
                 UpgradeBuilding(CarbonFiberBuilding);
-                 
+
             },
             (o =>
             {
@@ -93,47 +105,49 @@ namespace QuantumWorld_v1._0.ViewModel
 
             UpgradeQuantumGlassBuilding = new RelayCommand(o =>
             {
-                _player.upgradeBuilding(QuantumGlassBuilding);
-                OnPropertyChanged(nameof(QuantumGlassBuilding));
-                OnPropertyChanged(nameof(Player.PlayerResources));
-
-
+                UpgradeBuilding(QuantumGlassBuilding);
+                
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return _player.canUpgradeBuilding(QuantumGlassBuilding);
+                return (_player.canUpgradeBuilding(QuantumGlassBuilding) && isTimerRunning());
             }));
 
             UpgradeHiggsBosonBuilding = new RelayCommand(o =>
             {
-                _player.upgradeBuilding(HiggsBosonBuilding);
-                OnPropertyChanged(nameof(HiggsBosonBuilding));
-                OnPropertyChanged(nameof(Player.PlayerResources));
-
-
+                UpgradeBuilding(HiggsBosonBuilding);
+                
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return _player.canUpgradeBuilding(HiggsBosonBuilding);
+                return (_player.canUpgradeBuilding(HiggsBosonBuilding) && isTimerRunning());
             }));
             UpgradeSolarEnergyBuilding = new RelayCommand(o =>
             {
-                _player.upgradeBuilding(SolarEnergyBuilding);
-                OnPropertyChanged(nameof(SolarEnergyBuilding));
-                OnPropertyChanged(nameof(Player.PlayerResources));
-
-
+                UpgradeBuilding(SolarEnergyBuilding);
+                
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return _player.canUpgradeBuilding(SolarEnergyBuilding);
+                return (_player.canUpgradeBuilding(SolarEnergyBuilding) && isTimerRunning());
             }));
-
-
+            UpgradeLabolatory = new RelayCommand(o =>
+            {
+                UpgradeBuilding(Labolatory);
+                
+            },
+            (o =>
+            {
+                CommandManager.InvalidateRequerySuggested();
+                return (_player.canUpgradeBuilding(Labolatory) && isTimerRunning());
+            }));
         }
+
+
+       
 
         public void UpgradeBuilding(BuildingModel building)
         {

@@ -227,7 +227,7 @@ namespace QuantumWorld_v1._0.Model
 
             }
             building.IncreaseLevel();
-            building.SetNewTime();
+            building.SetNewTime(AIRobotsResearch.GetLevel());
             if (building == CarbonFiberBuilding)
             {
                 Multipliers[CarbonFiberBuilding] += 5;
@@ -250,7 +250,7 @@ namespace QuantumWorld_v1._0.Model
 
         public bool canUpgradeBuilding(BuildingModel building)
         {
-
+           
             for (int i = 0; i < PlayerResources.Length; i++)
             {
                 if (this.PlayerResources[i].Value < building.Cost[i].Value) { return false; }

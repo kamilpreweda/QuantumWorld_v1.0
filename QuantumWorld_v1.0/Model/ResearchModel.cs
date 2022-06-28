@@ -39,6 +39,11 @@ namespace QuantumWorld_v1._0.Model
             Level++;
         }
 
+        public int GetLevel()
+        {
+            return Level;
+        }
+
         public void SetResearch(ResearchModel research)
         {
             this.Name = research.Name;

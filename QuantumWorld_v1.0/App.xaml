@@ -15,6 +15,10 @@
             <view:BuildingsView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModel:ResearchViewModel}">
+            <view:ResearchView/>
+        </DataTemplate>
+
 
     </Application.Resources>
     

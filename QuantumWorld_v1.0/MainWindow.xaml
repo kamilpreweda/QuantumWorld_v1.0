@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QuantumWorld_v1._0" 
         xmlns:viewModel="clr-namespace:QuantumWorld_v1._0.ViewModel"
         mc:Ignorable="d"
-        Title="QuantumWorld_v1.0" Height="600" Width="920">
+        Title="QuantumWorld_v1.0" Height="900" Width="1600">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -22,7 +22,7 @@
         <StackPanel x:Name="menuStackPanel" Grid.Row="1">
             <Button x:Name="menuOverviewButton" Content="Overview" Margin="10,10,10,10" Command="{Binding OverviewViewCommand}"/>
             <Button x:Name="menuBuildingsButton" Content="Buildings" Margin="10,10,10,10" Command="{Binding BuildingsViewCommand}"/>
-            <Button x:Name="menuResearchButton" Content="Research" Margin="10,10,10,10"/>
+            <Button x:Name="menuResearchButton" Content="Research" Margin="10,10,10,10" Command="{Binding ResearchViewCommand}"/>
         </StackPanel>
         <StackPanel x:Name="resourcesStackPanel" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Center">
             <Label x:Name="carbonFiberTextLabel" Content="Carbon Fiber:" Margin="10,10,10,10"/>

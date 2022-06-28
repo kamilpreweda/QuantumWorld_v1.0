@@ -15,9 +15,9 @@ namespace QuantumWorld_v1._0.Model
 
         DispatcherTimer buildingTimer = new DispatcherTimer();
 
-        
-        
-        
+
+
+
         // Resources
         public ResourceModel CarbonFiber { get; private set; }
         public ResourceModel QuantumGlass { get; private set; }
@@ -32,23 +32,25 @@ namespace QuantumWorld_v1._0.Model
 
         public Dictionary<BuildingModel, float> CostMultipliers { get; private set; }
 
+        public Dictionary<ResearchModel, float> ResearchMultipliers { get; private set; }
+
         // Buildings
 
         public BuildingModel CarbonFiberBuilding { get; private set; }
         public BuildingModel QuantumGlassBuilding { get; private set; }
-        public BuildingModel HiggsBosonBuilding { get;  private set; }
-        public BuildingModel SolarEnergyBuilding { get;  private set; }
+        public BuildingModel HiggsBosonBuilding { get; private set; }
+        public BuildingModel SolarEnergyBuilding { get; private set; }
 
         public BuildingModel Labolatory { get; private set; }
 
         // Research
 
-        public ResearchModel FasterBuildingsResearch { get;  private set; }
-        public ResearchModel MoreResourcesResearch { get;  private set; } 
-        public ResearchModel FasterInnovationResearch { get;  private set; }
+        public ResearchModel AIRobotsResearch { get; private set; }
+        public ResearchModel MoreResourcesResearch { get; private set; }
+        public ResearchModel FasterInnovationResearch { get; private set; }
 
-        public ResearchModel UnlockShipsResearch { get;  private set; }
-        public ResearchModel FasterShipsResearch { get;  private set; }
+        public ResearchModel UnlockShipsResearch { get; private set; }
+        public ResearchModel FasterShipsResearch { get; private set; }
 
         public BuildingModel CarbonFiberCostMultiplier { get; private set; }
         public BuildingModel QuantumGlasCostMultiplier { get; private set; }
@@ -98,10 +100,10 @@ namespace QuantumWorld_v1._0.Model
         };
         // Setting 'starting cost' for each research
 
-        public ResourceModel[] FasterBuildingsResearch_StartingCost =
+        public ResourceModel[] AIRobotsResearch_StartingCost =
         {
-            new ResourceModel("Carbon Fiber", 100),
-            new ResourceModel("Quantum Glass", 100),
+            new ResourceModel("Carbon Fiber", 50),
+            new ResourceModel("Quantum Glass", 40),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 0),
         };
@@ -144,7 +146,7 @@ namespace QuantumWorld_v1._0.Model
         {
             Name = "Kamil";
 
-            
+
 
 
 
@@ -169,7 +171,7 @@ namespace QuantumWorld_v1._0.Model
             Multipliers.Add(QuantumGlassBuilding, 1);
             Multipliers.Add(HiggsBosonBuilding, 0);
             Multipliers.Add(SolarEnergyBuilding, 1.1F);
-           
+
 
             CostMultipliers = new Dictionary<BuildingModel, float>();
             CostMultipliers.Add(CarbonFiberBuilding, 1.5F);
@@ -177,31 +179,33 @@ namespace QuantumWorld_v1._0.Model
             CostMultipliers.Add(HiggsBosonBuilding, 1.7F);
             CostMultipliers.Add(SolarEnergyBuilding, 2F);
             CostMultipliers.Add(Labolatory, 2F);
-            
 
-            FasterBuildingsResearch = new ResearchModel("Faster Buildings", FasterBuildingsResearch_StartingCost, 0);
-            MoreResourcesResearch = new ResearchModel("More Resources", MoreResourcesResearch_StartingCost, 0);
-            FasterInnovationResearch = new ResearchModel("Faster Innovation", FasterInnovationResearch_StartingCost, 0);
-            UnlockShipsResearch = new ResearchModel("Unlock Ships", UnlockShipsResearch_StartingCost, 0);
-            FasterShipsResearch = new ResearchModel("Faster Ships", FasterShipsResearch_StartingCost, 0);
+
+            AIRobotsResearch = new ResearchModel("AIRobotsResearch", AIRobotsResearch_StartingCost, 0, 1);
+            MoreResourcesResearch = new ResearchModel("More Resources", MoreResourcesResearch_StartingCost, 0, 20);
+            FasterInnovationResearch = new ResearchModel("Faster Innovation", FasterInnovationResearch_StartingCost, 0, 30);
+            UnlockShipsResearch = new ResearchModel("Unlock Ships", UnlockShipsResearch_StartingCost, 0, 40);
+            FasterShipsResearch = new ResearchModel("Faster Ships", FasterShipsResearch_StartingCost, 0, 50);
+
+
+            ResearchMultipliers = new Dictionary<ResearchModel, float>();
+            ResearchMultipliers.Add(AIRobotsResearch, 2F);
         }
 
-        
+
 
         public void upgradeBuilding(BuildingModel building)
         {
-            
+
 
             for (int i = 0; i < PlayerResources.Length; i++)
             {
-                
+
                 this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
-                
+
                 if (building == CarbonFiberBuilding)
                 {
                     building.SetNewCost(i, CostMultipliers[CarbonFiberBuilding]);
-                    
-                    
                 }
                 else if (building == QuantumGlassBuilding)
                 {
@@ -210,10 +214,12 @@ namespace QuantumWorld_v1._0.Model
                 else if (building == HiggsBosonBuilding)
                 {
                     building.SetNewCost(i, CostMultipliers[HiggsBosonBuilding]);
-                }else if (building == SolarEnergyBuilding)
+                }
+                else if (building == SolarEnergyBuilding)
                 {
                     building.SetNewCost(i, CostMultipliers[SolarEnergyBuilding]);
-                }else if (building == Labolatory)
+                }
+                else if (building == Labolatory)
                 {
                     building.SetNewCost(i, CostMultipliers[Labolatory]);
                 }
@@ -225,7 +231,8 @@ namespace QuantumWorld_v1._0.Model
             if (building == CarbonFiberBuilding)
             {
                 Multipliers[CarbonFiberBuilding] += 5;
-            } else if (building == QuantumGlassBuilding)
+            }
+            else if (building == QuantumGlassBuilding)
             {
                 Multipliers[QuantumGlassBuilding] += 4;
             }
@@ -243,7 +250,7 @@ namespace QuantumWorld_v1._0.Model
 
         public bool canUpgradeBuilding(BuildingModel building)
         {
-            
+
             for (int i = 0; i < PlayerResources.Length; i++)
             {
                 if (this.PlayerResources[i].Value < building.Cost[i].Value) { return false; }
@@ -256,12 +263,37 @@ namespace QuantumWorld_v1._0.Model
             this.PlayerResources[0].AddTo(this.Multipliers[CarbonFiberBuilding]);
             this.PlayerResources[1].AddTo(this.Multipliers[QuantumGlassBuilding]);
             this.PlayerResources[2].AddTo(this.Multipliers[HiggsBosonBuilding]);
-            
+
         }
 
-        
-    }
+        public void upgradeResearch(ResearchModel research)
+        {
+            for (int i = 0; i < PlayerResources.Length; i++)
+            {
+
+                this.PlayerResources[i].SubtractFromResources(research.Cost[i].Value);
+
+                if (research == AIRobotsResearch)
+                {
+                    research.SetNewCost(i, ResearchMultipliers[AIRobotsResearch]);
+                }
+            }
+            research.IncreaseLevel();
+            research.SetNewTime();
+
+        }
+
+        public bool canUpgradeResearch(ResearchModel research)
+        {
+
+            for (int i = 0; i < PlayerResources.Length; i++)
+            {
+                if (this.PlayerResources[i].Value < research.Cost[i].Value) { return false; }
+            }
+            return true;
 
 
+        }
     }
+}
 

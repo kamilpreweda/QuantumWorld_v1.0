@@ -83,6 +83,8 @@ namespace QuantumWorld_v1._0.ViewModel
 
         public RelayCommand UpgradeLabolatory { get; set; }
 
+       
+
 
 
 

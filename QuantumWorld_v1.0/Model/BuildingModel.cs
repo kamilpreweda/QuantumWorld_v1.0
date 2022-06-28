@@ -50,8 +50,14 @@ namespace QuantumWorld_v1._0.Model
 }
         public void SetNewTime(int aiRobotsMultiplier)
         {
-            this.TimeToBuild = (this.TimeToBuild + (this.Level + 1) * 2) - aiRobotsMultiplier;
+            this.TimeToBuild += (this.Level * 2) - (aiRobotsMultiplier * 10);
+            if (this.TimeToBuild < 0)
+            {
+                TimeToBuild = 0;
+            }
+            
         }
 
+       
     }
 }

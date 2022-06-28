@@ -12,6 +12,7 @@
     <None Remove="View\AIRobotsResearch.jpg" />
     <None Remove="View\aocPiNAtJYxoL1nnRfqz.jpg" />
     <None Remove="View\EG3NLJtqSoPh0od4GQXY.jpg" />
+    <None Remove="View\Labolatory.jpg" />
     <None Remove="View\pUyDL8E3Besa3wUY6KZU.jpg" />
     <None Remove="View\WcHGPHJi7DjPFGvDsgki.jpg" />
   </ItemGroup>
@@ -22,6 +23,7 @@
     <Resource Include="View\Images\Underwater Hadron Colider.jpg" />
     <Resource Include="View\Images\Quantum Glass Factory.jpg" />
     <Resource Include="View\Images\Carbon Fiber Factory.jpg" />
+    <Resource Include="View\Labolatory.jpg" />
   </ItemGroup>
 
 </Project>

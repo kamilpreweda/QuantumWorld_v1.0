@@ -179,8 +179,6 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(building.Name);
                 OnPropertyChanged(nameof(Player.PlayerResources));
 
-                //building.TimeToBuild += 6;
-                //OnPropertyChanged(building.Name);
                 
             }
         }

@@ -159,11 +159,11 @@ namespace QuantumWorld_v1._0.Model
                 new ResourceModel("Solar Energy", 0),
             };
 
-            CarbonFiberBuilding = new BuildingModel("CarbonFiberBuilding", CarbonFiberBuilding_StartingCost, 0, 2);
-            QuantumGlassBuilding = new BuildingModel("QuantumGlassBuilding", QuantumGlassBuilding_StartingCost, 0, 3);
-            HiggsBosonBuilding = new BuildingModel("HiggsBosonBuilding", HiggsBosonBuilding_StartingCost, 0, 4);
+            CarbonFiberBuilding = new BuildingModel("CarbonFiberBuilding", CarbonFiberBuilding_StartingCost, 0, 1);
+            QuantumGlassBuilding = new BuildingModel("QuantumGlassBuilding", QuantumGlassBuilding_StartingCost, 0, 1);
+            HiggsBosonBuilding = new BuildingModel("HiggsBosonBuilding", HiggsBosonBuilding_StartingCost, 0, 1);
             SolarEnergyBuilding = new BuildingModel("SolarEnergyBuilding", SolarEnergyBuilding_StartingCost, 0, 5);
-            Labolatory = new BuildingModel("Labolatory", Labolatory_StartingCost, 0, 10);
+            Labolatory = new BuildingModel("Labolatory", Labolatory_StartingCost, 0, 1);
 
 
             Multipliers = new Dictionary<BuildingModel, float>();
@@ -206,6 +206,7 @@ namespace QuantumWorld_v1._0.Model
                 if (building == CarbonFiberBuilding)
                 {
                     building.SetNewCost(i, CostMultipliers[CarbonFiberBuilding]);
+               
                 }
                 else if (building == QuantumGlassBuilding)
                 {
@@ -218,6 +219,7 @@ namespace QuantumWorld_v1._0.Model
                 else if (building == SolarEnergyBuilding)
                 {
                     building.SetNewCost(i, CostMultipliers[SolarEnergyBuilding]);
+                                        
                 }
                 else if (building == Labolatory)
                 {
@@ -280,6 +282,11 @@ namespace QuantumWorld_v1._0.Model
             }
             research.IncreaseLevel();
             research.SetNewTime();
+            CarbonFiberBuilding.SetNewTime(AIRobotsResearch.GetLevel());
+            QuantumGlassBuilding.SetNewTime(AIRobotsResearch.GetLevel());
+            HiggsBosonBuilding.SetNewTime(AIRobotsResearch.GetLevel());
+            SolarEnergyBuilding.SetNewTime(AIRobotsResearch.GetLevel());
+            Labolatory.SetNewTime(AIRobotsResearch.GetLevel());
 
         }
 
@@ -288,11 +295,24 @@ namespace QuantumWorld_v1._0.Model
 
             for (int i = 0; i < PlayerResources.Length; i++)
             {
-                if (this.PlayerResources[i].Value < research.Cost[i].Value) { return false; }
+                if (this.PlayerResources[i].Value < research.Cost[i].Value || !(CanUpgradeAIRobotsResearch())) { 
+                    
+                    return false; 
+                }
+
             }
             return true;
 
 
+        }
+
+        private bool CanUpgradeAIRobotsResearch()
+        {
+            if (Labolatory.Level >= 2)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

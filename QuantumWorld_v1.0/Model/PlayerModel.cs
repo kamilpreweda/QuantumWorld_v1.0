@@ -219,6 +219,7 @@ namespace QuantumWorld_v1._0.Model
                 else if (building == SolarEnergyBuilding)
                 {
                     building.SetNewCost(i, CostMultipliers[SolarEnergyBuilding]);
+                    
                                         
                 }
                 else if (building == Labolatory)

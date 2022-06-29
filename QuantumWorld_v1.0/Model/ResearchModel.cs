@@ -13,6 +13,7 @@ namespace QuantumWorld_v1._0.Model
         public int Level { get; private set; }
 
         public int TimeToBuild { get; set; }
+        public int NewTime { get; set; }
         public float CarbonFiberCostMultiplier { get; private set; }
         public float QuantumGlassCostMultiplier { get; private set; }
         public float HiggsBosonCostMultiplier { get; private set; }
@@ -53,7 +54,8 @@ namespace QuantumWorld_v1._0.Model
         }
         public void SetNewTime()
         {
-            this.TimeToBuild = (this.TimeToBuild + (this.Level + 1) * 2);
+            this.TimeToBuild = (this.NewTime + (this.Level + 1) * 2);
         }
+
     }
 }

@@ -11,9 +11,10 @@ namespace QuantumWorld_v1._0.Model
         public int Level { get; private set; }
         public string Name { get; private set; }
 
-        public int TimeToBuild { get; set; }
+        public int TimeToBuild { get; private set; }
 
-        
+        public int NewTime { get; set; } = 0;
+
         public float CarbonFiberCostMultiplier { get; private set; }
         public float QuantumGlassCostMultiplier { get; private set; }
         public float HiggsBosonCostMultiplier { get; private set; }
@@ -42,20 +43,33 @@ namespace QuantumWorld_v1._0.Model
         }
                 
         public void SetBuilding(BuildingModel building)
-{
-    this.Name = building.Name;
-    this.Cost = building.Cost;
-    this.Level = building.Level;
-    this.TimeToBuild = building.TimeToBuild;
-}
+        {
+            this.Name = building.Name;
+            this.Cost = building.Cost;
+            this.Level = building.Level;
+            this.TimeToBuild = building.TimeToBuild;
+            
+        }
         public void SetNewTime(int aiRobotsMultiplier)
         {
+            
+
             this.TimeToBuild += (this.Level * 2) - (aiRobotsMultiplier * 10);
             if (this.TimeToBuild < 0)
             {
                 TimeToBuild = 0;
             }
             
+        }
+
+        public void ResetTimer(int time)
+        {
+            this.TimeToBuild = time;
+        }
+     
+        public void DecreaseTimer()
+        {
+            TimeToBuild--;
         }
 
        

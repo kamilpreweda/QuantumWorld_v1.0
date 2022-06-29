@@ -166,22 +166,27 @@ namespace QuantumWorld_v1._0.ViewModel
         {
             timeToEnd = building.TimeToBuild;
             
+            
             if (building.TimeToBuild > 0)
             {
-                building.TimeToBuild--;
+                building.DecreaseTimer();
                 timeToEnd--;
+                building.NewTime++;
                 OnPropertyChanged(building.Name);
             }
             else
             {
                 buildingTimer.Stop();
+                building.ResetTimer(building.NewTime);
                 _player.upgradeBuilding(building);
                 OnPropertyChanged(building.Name);
                 OnPropertyChanged(nameof(Player.PlayerResources));
 
+
                 
             }
-        }
+            
+        } 
 
         public bool isTimerRunning()
         {

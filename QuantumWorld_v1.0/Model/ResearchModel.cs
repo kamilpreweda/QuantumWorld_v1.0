@@ -54,8 +54,11 @@ namespace QuantumWorld_v1._0.Model
         }
         public void SetNewTime()
         {
-            this.TimeToBuild = (this.NewTime + (this.Level + 1) * 2);
+            this.TimeToBuild = (this.NewTime + this.Level + 1);
         }
-
+        public void ResetTimer(int time)
+        {
+            this.NewTime = time;
+        }
     }
 }

@@ -75,12 +75,14 @@ namespace QuantumWorld_v1._0.ViewModel
             {
                 research.TimeToBuild--;
                 timeToEnd--;
+                research.NewTime++;
                 OnPropertyChanged(research.Name);
             }
             else
             {
                 researchTimer.Stop();
                 _player.upgradeResearch(research);
+                research.ResetTimer(research.NewTime);
                 OnPropertyChanged(research.Name);
                 OnPropertyChanged(nameof(Player.PlayerResources));
 

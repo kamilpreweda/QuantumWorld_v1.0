@@ -162,22 +162,22 @@ namespace QuantumWorld_v1._0.Model
             CarbonFiberBuilding = new BuildingModel("CarbonFiberBuilding", CarbonFiberBuilding_StartingCost, 0, 1);
             QuantumGlassBuilding = new BuildingModel("QuantumGlassBuilding", QuantumGlassBuilding_StartingCost, 0, 1);
             HiggsBosonBuilding = new BuildingModel("HiggsBosonBuilding", HiggsBosonBuilding_StartingCost, 0, 1);
-            SolarEnergyBuilding = new BuildingModel("SolarEnergyBuilding", SolarEnergyBuilding_StartingCost, 0, 5);
+            SolarEnergyBuilding = new BuildingModel("SolarEnergyBuilding", SolarEnergyBuilding_StartingCost, 0, 1);
             Labolatory = new BuildingModel("Labolatory", Labolatory_StartingCost, 0, 1);
 
 
             Multipliers = new Dictionary<BuildingModel, float>();
-            Multipliers.Add(CarbonFiberBuilding, 2);
-            Multipliers.Add(QuantumGlassBuilding, 1);
+            Multipliers.Add(CarbonFiberBuilding, 20);
+            Multipliers.Add(QuantumGlassBuilding, 15);
             Multipliers.Add(HiggsBosonBuilding, 0);
-            Multipliers.Add(SolarEnergyBuilding, 1.1F);
+            Multipliers.Add(SolarEnergyBuilding, 2.5F);
 
 
             CostMultipliers = new Dictionary<BuildingModel, float>();
             CostMultipliers.Add(CarbonFiberBuilding, 1.5F);
             CostMultipliers.Add(QuantumGlassBuilding, 1.6F);
             CostMultipliers.Add(HiggsBosonBuilding, 1.7F);
-            CostMultipliers.Add(SolarEnergyBuilding, 2F);
+            CostMultipliers.Add(SolarEnergyBuilding, 1.8F);
             CostMultipliers.Add(Labolatory, 2F);
 
 

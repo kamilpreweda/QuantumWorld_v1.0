@@ -46,11 +46,11 @@ namespace QuantumWorld_v1._0.Model
         // Research
 
         public ResearchModel AIRobotsResearch { get; private set; }
-        public ResearchModel MoreResourcesResearch { get; private set; }
-        public ResearchModel FasterInnovationResearch { get; private set; }
+        public ResearchModel SpaceOrganizing { get; private set; }
+        public ResearchModel TheExpanse{ get; private set; }
 
-        public ResearchModel UnlockShipsResearch { get; private set; }
-        public ResearchModel FasterShipsResearch { get; private set; }
+        public ResearchModel ArtOfWar { get; private set; }
+        public ResearchModel Hyperdrive { get; private set; }
 
         public BuildingModel CarbonFiberCostMultiplier { get; private set; }
         public BuildingModel QuantumGlasCostMultiplier { get; private set; }
@@ -108,7 +108,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Solar Energy", 0),
         };
 
-        public ResourceModel[] MoreResourcesResearch_StartingCost =
+        public ResourceModel[] SpaceOrganizing_StartingCost =
         {
             new ResourceModel("Carbon Fiber", 150),
             new ResourceModel("Quantum Glass", 150),
@@ -116,7 +116,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Solar Energy", 0),
         };
 
-        public ResourceModel[] FasterInnovationResearch_StartingCost =
+        public ResourceModel[] TheExpanse_StartingCost =
        {
             new ResourceModel("Carbon Fiber", 200),
             new ResourceModel("Quantum Glass", 200),
@@ -124,7 +124,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Solar Energy", 0),
         };
 
-        public ResourceModel[] UnlockShipsResearch_StartingCost =
+        public ResourceModel[] ArtOfWar_StartingCost =
      {
             new ResourceModel("Carbon Fiber", 250),
             new ResourceModel("Quantum Glass", 250),
@@ -132,7 +132,7 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Solar Energy", 0),
         };
 
-        public ResourceModel[] FasterShipsResearch_StartingCost =
+        public ResourceModel[] Hyperdrive_StartingCost =
      {
             new ResourceModel("Carbon Fiber", 300),
             new ResourceModel("Quantum Glass", 300),
@@ -182,10 +182,10 @@ namespace QuantumWorld_v1._0.Model
 
 
             AIRobotsResearch = new ResearchModel("AIRobotsResearch", AIRobotsResearch_StartingCost, 0, 1);
-            MoreResourcesResearch = new ResearchModel("More Resources", MoreResourcesResearch_StartingCost, 0, 20);
-            FasterInnovationResearch = new ResearchModel("Faster Innovation", FasterInnovationResearch_StartingCost, 0, 30);
-            UnlockShipsResearch = new ResearchModel("Unlock Ships", UnlockShipsResearch_StartingCost, 0, 40);
-            FasterShipsResearch = new ResearchModel("Faster Ships", FasterShipsResearch_StartingCost, 0, 50);
+            SpaceOrganizing = new ResearchModel("More Resources", SpaceOrganizing_StartingCost, 0, 1);
+            TheExpanse = new ResearchModel("TheExpanse", TheExpanse_StartingCost, 0, 1);
+            ArtOfWar = new ResearchModel("ArtOfWar", ArtOfWar_StartingCost, 0, 1);
+            Hyperdrive = new ResearchModel("FasterShips", Hyperdrive_StartingCost, 0, 1);
 
 
             ResearchMultipliers = new Dictionary<ResearchModel, float>();

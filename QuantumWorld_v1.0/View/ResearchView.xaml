@@ -7,40 +7,49 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1000">
     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
-        <Grid Background="White">
+        <Grid Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
-            <StackPanel x:Name="AIRobotsResearchNameAndLevel" Margin="10,10,10,10" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Label x:Name="AIRobotsResearchName" Content="A.I. Robots"/>
-                <Label x:Name="AIRobotsLevelLabel" Content="Level: "/>
-                <Label x:Name="AIRobotsLevelValue" Content="{Binding AIRobotsResearch.Level}"/>
-            </StackPanel>
-            <StackPanel Margin="10,10,10,10" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
-            
-            <StackPanel x:Name="AIRobotsResearchUpgradeStackPanel" Margin="10,10,10,10" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Left">
-                <Label x:Name="AIRobotsResearchCarbonFiberCostLabel" Content="CF: " VerticalAlignment="Bottom" Margin="0,0,0,10"/>
-                <Label x:Name="AIRobotsResearchCarbonFiberCostValue" Content="{Binding AIRobotsResearch.Cost[0].Value}" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
-                <Label x:Name="AIRobotsResearchQuantumGlassCostLabel" Content="QG: " VerticalAlignment="Bottom" Margin="0,0,0,10"/>
-                    <Label x:Name="AIRobotsResearchQuantumGlassCostValue" Content="{Binding AIRobotsResearch.Cost[1].Value}" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
-                <Label x:Name="AIRobotsResearchHiggsBosonCostLabel" Content="HB: " VerticalAlignment="Bottom" Margin="0,0,0,10"/>
-                    <Label x:Name="AIRobotsResearchUpgradeButton" Content="{Binding AIRobotsResearch.Cost[2].Value}" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
-                    <Label x:Name="AIRobotsTimeToBuildLabel" Content="{Binding AIRobotsResearch.TimeToBuild}" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
-                    <Button Content="Upgrade" VerticalAlignment="Bottom" Margin="0,0,0,10" Command="{Binding UpgradeAIRobotsResearch}"/>
-                    <StackPanel x:Name="AIRobotsResearchImageStackPanel" Margin="10,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="175">
-                        <Image x:Name="AIRobotsResearchImage" Source="/View/AIRobotsResearch.jpg" Stretch="Fill" StretchDirection="Both"/>
-                    </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="480" Height="230" Margin="10,10,10,10">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Label x:Name="AIRobotsResearchName" Content="A.I. Robots" FontSize="16"/>
+                <Label x:Name="AIRobotsLevelLabel" Content="Level: " FontSize="16"/>
+                <Label x:Name="AIRobotsLevelValue" Content="{Binding AIRobotsResearch.Level}" FontSize="16"/>
                 </StackPanel>
-            </StackPanel>
-            <StackPanel x:Name="AIRobotsResearchDescriptionStackPanel" Grid.Column="1" Margin="10,10,10,10">
-                <Label Content="A.I. Robots Research Description"/>
-            </StackPanel>
+                <Image x:Name="AIRobotsResearchImage" Source="/View/AIRobotsResearch.jpg" Stretch="Fill" StretchDirection="Both" Width="175" Height="175" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,0"/>
+                </StackPanel>
+                    
+             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Vertical" Margin="50,0,0,0">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Label Content="Required Lab level 2" VerticalAlignment="Top"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,1,0,0">
+                        <Label Content="A.I. Robots Research Description" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,80,0,0">
+                                <Label x:Name="AIRobotsResearchCarbonFiberCostLabel" Content="CF: " VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                                <Label x:Name="AIRobotsResearchCarbonFiberCostValue" Content="{Binding AIRobotsResearch.Cost[0].Value}" VerticalAlignment="Bottom"/>
+                                <Label x:Name="AIRobotsResearchQuantumGlassCostLabel" Content="QG: " VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+                                <Label x:Name="AIRobotsResearchQuantumGlassCostValue" Content="{Binding AIRobotsResearch.Cost[1].Value}" VerticalAlignment="Bottom"/>
+                                <Label x:Name="AIRobotsResearchHiggsBosonCostLabel" Content="HB: " VerticalAlignment="Bottom"/>
+                                <Label x:Name="AIRobotsResearchUpgradeCostValue" Content="{Binding AIRobotsResearch.Cost[2].Value}" VerticalAlignment="Bottom"/>
+                                <Label x:Name="AIRobotsTimeToBuildLabel" Content="{Binding AIRobotsResearch.TimeToBuild}" VerticalAlignment="Bottom"/>
+                                <Button Content="Upgrade" Command="{Binding UpgradeAIRobotsResearch}" VerticalAlignment="Bottom"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="AIRobotsResearchImageStackPanel" Margin="10,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="175"/>
+                
+  
 
         </Grid>
     </ScrollViewer>

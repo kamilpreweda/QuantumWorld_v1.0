@@ -74,6 +74,15 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(Labolatory));
             }
         }
+        public BuildingModel CarbonFiberStorage
+        {
+            get => _player.CarbonFiberStrorage;
+            set
+            {
+                _player.CarbonFiberStrorage.SetBuilding(CarbonFiberStrorage);
+                OnPropertyChanged(nameof(CarbonFiberStrorage));
+            }
+        }
 
         public RelayCommand UpgradeCarbonFiberBuilding { get; set; }
         public RelayCommand UpgradeQuantumGlassBuilding { get; set; }

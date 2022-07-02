@@ -8,7 +8,7 @@
              xmlns:view="clr-namespace:QuantumWorld_v1._0.View"
              xmlns:model="clr-namespace:QuantumWorld_v1._0.Model"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1000">
+             d:DesignHeight="2000" d:DesignWidth="1000">
     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="White">
             <Grid.RowDefinitions>
@@ -63,7 +63,44 @@
                 </StackPanel>
             </StackPanel>
 
-            
+
+            <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Carbon Fiber Storage"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Level:"/>
+                                <Label Content="{Binding CarbonFiberStorage.Level}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="150" Height="150" HorizontalAlignment="Left">
+                            <Image Source="/View/Images/Carbon Fiber Factory.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content=""/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Carbon Fiber Storage Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding CarbonFiberStorage.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="QG:"/>
+                        <Label Content="{Binding CarbonFiberStorage.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="SE:"/>
+                        <Label Content="{Binding CarbonFiberStorage.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding CarbonFiberStorage.TimeToBuild}"/>
+                        <Button Content="Upgrade" Command="{Binding UpgradeCarbonFiberStorage}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
             <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
                 <StackPanel>
                     <StackPanel>
@@ -100,7 +137,44 @@
                 </StackPanel>
             </StackPanel>
 
-            
+
+            <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Quantum Glass Storage"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Level:"/>
+                                <Label Content="{Binding QuantumGlassStorage.Level}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="150" Height="150" HorizontalAlignment="Left">
+                            <Image Source="/View/Images/Carbon Fiber Factory.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content=""/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Quantum Glass Storage Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding QuantumGlassStorage.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="QG:"/>
+                        <Label Content="{Binding QuantumGlassStorage.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="SE:"/>
+                        <Label Content="{Binding QuantumGlassStorage.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding QuantumGlassStorage.TimeToBuild}"/>
+                        <Button Content="Upgrade" Command="{Binding UpgradeQuantumGlassStorage}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
             <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
                 <StackPanel>
                     <StackPanel Margin="0,0,0,0">
@@ -134,6 +208,43 @@
                         <Label x:Name="HiggsBosonBuildingTimeToBuildLabel" Content="{Binding HiggsBosonBuilding.TimeToBuild}"/>
                         <Button x:Name="HiggsBosonBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeHiggsBosonBuilding}"/>
 
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Higgs Boson Detector"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Level:"/>
+                                <Label Content="{Binding HiggsBosonDetector.Level}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="150" Height="150" HorizontalAlignment="Left">
+                            <Image Source="/View/Images/Carbon Fiber Factory.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content=""/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Higgs Boson Detector Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding HiggsBosonDetector.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="QG:"/>
+                        <Label Content="{Binding HiggsBosonDetector.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="SE:"/>
+                        <Label Content="{Binding HiggsBosonDetector.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding HiggsBosonDetector.TimeToBuild}"/>
+                        <Button Content="Upgrade" Command="{Binding UpgradeHiggsBosonDetector}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -175,6 +286,43 @@
             </StackPanel>
 
 
+            <StackPanel Grid.Column="2" Grid.Row="4" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Spaceship Factory"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Level:"/>
+                                <Label Content="{Binding SpaceshipFactory.Level}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="150" Height="150" HorizontalAlignment="Left">
+                            <Image Source="/View/Images/Carbon Fiber Factory.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content=""/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Spaceship Factory Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding SpaceshipFactory.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="QG:"/>
+                        <Label Content="{Binding SpaceshipFactory.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="SE:"/>
+                        <Label Content="{Binding SpaceshipFactory.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding SpaceshipFactory.TimeToBuild}"/>
+                        <Button Content="Upgrade" Command="{Binding UpgradeSpaceshipFactory}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
             <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Horizontal">
                 <StackPanel>
                     <StackPanel>
@@ -208,6 +356,43 @@
                 <Label x:Name="LabolatoryHiggsBosonCostValueLabel" Content="{Binding Labolatory.Cost[2].Value}" ContentStringFormat="{}{0:F2}"/>
                 <Label x:Name="LabolatoryTimeToBuildLabel" Content="{Binding Labolatory.TimeToBuild}"/>
                 <Button x:Name="LabolatoryUpgradeButton" Content="Upgrade" Command="{Binding UpgradeLabolatory}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="2" Grid.Row="5" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Nanite Factory"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Level:"/>
+                                <Label Content="{Binding NaniteFactory.Level}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="150" Height="150" HorizontalAlignment="Left">
+                            <Image Source="/View/Images/Carbon Fiber Factory.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content=""/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Nanite Factory Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding NaniteFactory.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="QG:"/>
+                        <Label Content="{Binding NaniteFactory.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="SE:"/>
+                        <Label Content="{Binding NaniteFactory.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding NaniteFactory.TimeToBuild}"/>
+                        <Button Content="Upgrade" Command="{Binding UpgradeNaniteFactory}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

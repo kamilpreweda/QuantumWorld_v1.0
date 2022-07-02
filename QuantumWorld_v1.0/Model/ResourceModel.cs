@@ -8,8 +8,10 @@ namespace QuantumWorld_v1._0.Model
 {
     public class ResourceModel
     {
-        public string Name { get; private set; }
-        public float Value { get; private set; }
+        public string Name { get;  set; }
+        public float Value { get;  set; }
+
+        public float Cap { get;  set; }
 
         public ResourceModel(string name, float value)
         {
@@ -17,10 +19,21 @@ namespace QuantumWorld_v1._0.Model
             Value = value;
         }
 
-        /// <summary>
-        /// This method calculates new values for resources used to upgrade building
-        /// </summary>
-        /// <param name="value">Cost that we need to subtract from Resources</param>
+        public ResourceModel(float cap)
+        {
+            Cap = cap;
+        }
+
+        public void SetValue(float value)
+        {
+            this.Value = value;
+        }
+
+        public void SetCap(float cap)
+        {
+            this.Cap = cap;
+        }
+
         public void SubtractFromResources(float value)
         {
             Value -= value;
@@ -41,5 +54,6 @@ namespace QuantumWorld_v1._0.Model
             Value += (100 * multiplier);
             
         }
+
     }
 }

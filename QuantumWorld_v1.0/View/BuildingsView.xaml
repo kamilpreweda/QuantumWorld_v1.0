@@ -8,7 +8,7 @@
              xmlns:view="clr-namespace:QuantumWorld_v1._0.View"
              xmlns:model="clr-namespace:QuantumWorld_v1._0.Model"
              mc:Ignorable="d" 
-             d:DesignHeight="2000" d:DesignWidth="1000">
+             d:DesignHeight="1250" d:DesignWidth="1000">
     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="White">
             <Grid.RowDefinitions>
@@ -23,8 +23,8 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">

@@ -37,6 +37,9 @@ namespace QuantumWorld_v1._0.Model
         public BuildingModel SolarEnergyBuilding { get; private set; }
         public BuildingModel Labolatory { get; private set; }
         public BuildingModel CarbonFiberStorage { get; private set; }
+        public BuildingModel QuantumGlassStorage { get; private set; }
+        public BuildingModel HiggsBosonDetector { get; private set; }
+        public BuildingModel SpaceshipFactory { get; private set; }
 
         public ResearchModel AIRobotsResearch { get; private set; }
         public ResearchModel SpaceOrganizing { get; private set; }
@@ -91,9 +94,30 @@ namespace QuantumWorld_v1._0.Model
 
         public ResourceModel[] CarbonFiberStorage_StartingCost =
        {
-            new ResourceModel("Carbon Fiber", 1000),
+            new ResourceModel("Carbon Fiber", 100),
             new ResourceModel("Quantum Glass", 0),
             new ResourceModel("Higgs Boson", 0),
+            new ResourceModel("Solar Energy", 0),
+        };
+        public ResourceModel[] QuantumGlassStorage_StartingCost =
+    {
+            new ResourceModel("Carbon Fiber", 100),
+            new ResourceModel("Quantum Glass", 50),
+            new ResourceModel("Higgs Boson", 0),
+            new ResourceModel("Solar Energy", 0),
+        };
+        public ResourceModel[] HiggsBosonDetector_StartingCost =
+    {
+            new ResourceModel("Carbon Fiber", 100),
+            new ResourceModel("Quantum Glass", 100),
+            new ResourceModel("Higgs Boson", 0),
+            new ResourceModel("Solar Energy", 0),
+        };
+        public ResourceModel[] SpaceshipFactory_StartingCost =
+    {
+            new ResourceModel("Carbon Fiber", 100),
+            new ResourceModel("Quantum Glass", 100),
+            new ResourceModel("Higgs Boson", 100),
             new ResourceModel("Solar Energy", 0),
         };
 
@@ -159,6 +183,10 @@ namespace QuantumWorld_v1._0.Model
             SolarEnergyBuilding = new BuildingModel("SolarEnergyBuilding", SolarEnergyBuilding_StartingCost, 0, 1);
             Labolatory = new BuildingModel("Labolatory", Labolatory_StartingCost, 0, 1);
             CarbonFiberStorage = new BuildingModel("CarbonFiberStorage", CarbonFiberStorage_StartingCost, 0, 1);
+            QuantumGlassStorage = new BuildingModel("QuantumGlassStorage", QuantumGlassStorage_StartingCost, 0, 1);
+            HiggsBosonDetector = new BuildingModel("HiggsBosonDetector", HiggsBosonDetector_StartingCost, 0, 1);
+            SpaceshipFactory = new BuildingModel("SpaceshipFactory", SpaceshipFactory_StartingCost, 0, 1);
+
 
             Multipliers = new Dictionary<BuildingModel, float>();
             Multipliers.Add(CarbonFiberBuilding, 20);
@@ -173,6 +201,9 @@ namespace QuantumWorld_v1._0.Model
             CostMultipliers.Add(SolarEnergyBuilding, 1.8F);
             CostMultipliers.Add(Labolatory, 2F);
             CostMultipliers.Add(CarbonFiberStorage, 2F);
+            CostMultipliers.Add(QuantumGlassStorage, 2F);
+            CostMultipliers.Add(HiggsBosonDetector, 2F);
+            CostMultipliers.Add(SpaceshipFactory, 2F);
 
             AIRobotsResearch = new ResearchModel("AIRobotsResearch", AIRobotsResearch_StartingCost, 0, 1);
             SpaceOrganizing = new ResearchModel("More Resources", SpaceOrganizing_StartingCost, 0, 1);
@@ -192,7 +223,7 @@ namespace QuantumWorld_v1._0.Model
                 if (building == CarbonFiberBuilding)
                 {
                     building.SetNewCost(i, CostMultipliers[CarbonFiberBuilding]);
-               
+
                 }
                 else if (building == QuantumGlassBuilding)
                 {
@@ -204,7 +235,7 @@ namespace QuantumWorld_v1._0.Model
                 }
                 else if (building == SolarEnergyBuilding)
                 {
-                    building.SetNewCost(i, CostMultipliers[SolarEnergyBuilding]);                                  
+                    building.SetNewCost(i, CostMultipliers[SolarEnergyBuilding]);
                 }
                 else if (building == Labolatory)
                 {
@@ -213,6 +244,18 @@ namespace QuantumWorld_v1._0.Model
                 else if (building == CarbonFiberStorage)
                 {
                     building.SetNewCost(i, CostMultipliers[CarbonFiberStorage]);
+                }
+                else if (building == QuantumGlassStorage)
+                {
+                    building.SetNewCost(i, CostMultipliers[QuantumGlassStorage]);
+                }
+                else if (building == HiggsBosonDetector)
+                {
+                    building.SetNewCost(i, CostMultipliers[HiggsBosonDetector]);
+                }
+                else if (building == SpaceshipFactory)
+                {
+                    building.SetNewCost(i, CostMultipliers[SpaceshipFactory]);
                 }
             }
             building.IncreaseLevel();
@@ -237,6 +280,14 @@ namespace QuantumWorld_v1._0.Model
             else if (building == CarbonFiberStorage)
             {
                 CarbonFiberCap.Cap *= 2;
+            }
+            else if (building == QuantumGlassStorage)
+            {
+                QuantumGlassCap.Cap *= 2;
+            }
+            else if (building == HiggsBosonDetector)
+            {
+                HiggsBosonCap.Cap *= 2;
             }
         }
         public bool canUpgradeBuilding(BuildingModel building)
@@ -271,6 +322,10 @@ namespace QuantumWorld_v1._0.Model
             HiggsBosonBuilding.SetNewTime(AIRobotsResearch.GetLevel());
             SolarEnergyBuilding.SetNewTime(AIRobotsResearch.GetLevel());
             Labolatory.SetNewTime(AIRobotsResearch.GetLevel());
+            CarbonFiberStorage.SetNewTime(AIRobotsResearch.GetLevel());
+            QuantumGlassStorage.SetNewTime(AIRobotsResearch.GetLevel());
+            HiggsBosonDetector.SetNewTime(AIRobotsResearch.GetLevel());
+            SpaceshipFactory.SetNewTime(AIRobotsResearch.GetLevel());
         }
         public bool canUpgradeResearch(ResearchModel research)
         {

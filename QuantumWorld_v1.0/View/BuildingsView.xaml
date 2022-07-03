@@ -314,6 +314,8 @@
                         <Label Content="{Binding SpaceshipFactory.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
                         <Label Content="QG:"/>
                         <Label Content="{Binding SpaceshipFactory.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="HB:"/>
+                        <Label Content="{Binding SpaceshipFactory.Cost[2].Value}" ContentStringFormat="{}{0:F2}"/>                        
                         <Label Content="SE:"/>
                         <Label Content="{Binding SpaceshipFactory.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
                         <Label Content="{Binding SpaceshipFactory.TimeToBuild}"/>

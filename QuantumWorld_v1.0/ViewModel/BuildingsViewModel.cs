@@ -76,11 +76,38 @@ namespace QuantumWorld_v1._0.ViewModel
         }
         public BuildingModel CarbonFiberStorage
         {
-            get => _player.CarbonFiberStrorage;
+            get => _player.CarbonFiberStorage;
             set
             {
-                _player.CarbonFiberStrorage.SetBuilding(CarbonFiberStrorage);
-                OnPropertyChanged(nameof(CarbonFiberStrorage));
+                _player.CarbonFiberStorage.SetBuilding(CarbonFiberStorage);
+                OnPropertyChanged(nameof(CarbonFiberStorage));
+            }
+        }
+        public BuildingModel QuantumGlassStorage
+        {
+            get => _player.QuantumGlassStorage;
+            set
+            {
+                _player.QuantumGlassStorage.SetBuilding(QuantumGlassStorage);
+                OnPropertyChanged(nameof(QuantumGlassStorage));
+            }
+        }
+        public BuildingModel HiggsBosonDetector
+        {
+            get => _player.HiggsBosonDetector;
+            set
+            {
+                _player.HiggsBosonDetector.SetBuilding(HiggsBosonDetector);
+                OnPropertyChanged(nameof(HiggsBosonDetector));
+            }
+        }
+        public BuildingModel SpaceshipFactory
+        {
+            get => _player.SpaceshipFactory;
+            set
+            {
+                _player.SpaceshipFactory.SetBuilding(SpaceshipFactory);
+                OnPropertyChanged(nameof(SpaceshipFactory));
             }
         }
 
@@ -91,6 +118,10 @@ namespace QuantumWorld_v1._0.ViewModel
         public RelayCommand UpgradeSolarEnergyBuilding { get; set; }
 
         public RelayCommand UpgradeLabolatory { get; set; }
+        public RelayCommand UpgradeCarbonFiberStorage { get; set; }
+        public RelayCommand UpgradeQuantumGlassStorage { get; set; }
+        public RelayCommand UpgradeHiggsBosonDetector { get; set; }
+        public RelayCommand UpgradeSpaceshipFactory { get; set; }
 
        
 
@@ -155,6 +186,46 @@ namespace QuantumWorld_v1._0.ViewModel
                 CommandManager.InvalidateRequerySuggested();
                 return (_player.canUpgradeBuilding(Labolatory) && isTimerRunning());
             }));
+            UpgradeCarbonFiberStorage = new RelayCommand(o =>
+            {
+                UpgradeBuilding(CarbonFiberStorage);
+
+            },
+           (o =>
+           {
+               CommandManager.InvalidateRequerySuggested();
+               return (_player.canUpgradeBuilding(QuantumGlassStorage) && isTimerRunning());
+           }));
+            UpgradeQuantumGlassStorage = new RelayCommand(o =>
+            {
+                UpgradeBuilding(QuantumGlassStorage);
+
+            },
+           (o =>
+           {
+               CommandManager.InvalidateRequerySuggested();
+               return (_player.canUpgradeBuilding(QuantumGlassStorage) && isTimerRunning());
+           }));
+            UpgradeHiggsBosonDetector = new RelayCommand(o =>
+            {
+                UpgradeBuilding(HiggsBosonDetector);
+
+            },
+           (o =>
+           {
+               CommandManager.InvalidateRequerySuggested();
+               return (_player.canUpgradeBuilding(HiggsBosonDetector) && isTimerRunning());
+           }));
+            UpgradeSpaceshipFactory = new RelayCommand(o =>
+            {
+                UpgradeBuilding(SpaceshipFactory);
+
+            },
+           (o =>
+           {
+               CommandManager.InvalidateRequerySuggested();
+               return (_player.canUpgradeBuilding(SpaceshipFactory) && isTimerRunning());
+           }));
         }
 
 

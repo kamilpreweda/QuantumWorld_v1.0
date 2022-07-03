@@ -61,6 +61,14 @@ namespace QuantumWorld_v1._0.Model
             }
             
         }
+        public void CutTimeToBuildByHalf()
+        {
+            this.TimeToBuild /= 2;
+            if (this.TimeToBuild < 0)
+            {
+                TimeToBuild = 0;
+            }
+        }
 
         public void ResetTimer(int time)
         {

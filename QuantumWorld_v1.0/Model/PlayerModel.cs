@@ -40,6 +40,7 @@ namespace QuantumWorld_v1._0.Model
         public BuildingModel QuantumGlassStorage { get; private set; }
         public BuildingModel HiggsBosonDetector { get; private set; }
         public BuildingModel SpaceshipFactory { get; private set; }
+        public BuildingModel NaniteFactory { get; private set; }
 
         public ResearchModel AIRobotsResearch { get; private set; }
         public ResearchModel SpaceOrganizing { get; private set; }
@@ -120,6 +121,13 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Higgs Boson", 100),
             new ResourceModel("Solar Energy", 0),
         };
+        public ResourceModel[] NaniteFactory_StartingCost =
+    {
+            new ResourceModel("Carbon Fiber", 1000),
+            new ResourceModel("Quantum Glass", 1000),
+            new ResourceModel("Higgs Boson", 1000),
+            new ResourceModel("Solar Energy", 0),
+        };
 
         public ResourceModel[] AIRobotsResearch_StartingCost =
         {
@@ -173,9 +181,9 @@ namespace QuantumWorld_v1._0.Model
                 new ResourceModel("Solar Energy", 0),
             };
 
-            CarbonFiberCap = new ResourceModel(600);
-            QuantumGlassCap = new ResourceModel(600);
-            HiggsBosonCap = new ResourceModel(600);
+            CarbonFiberCap = new ResourceModel(1000);
+            QuantumGlassCap = new ResourceModel(1000);
+            HiggsBosonCap = new ResourceModel(1000);
 
             CarbonFiberBuilding = new BuildingModel("CarbonFiberBuilding", CarbonFiberBuilding_StartingCost, 0, 1);
             QuantumGlassBuilding = new BuildingModel("QuantumGlassBuilding", QuantumGlassBuilding_StartingCost, 0, 1);
@@ -186,6 +194,7 @@ namespace QuantumWorld_v1._0.Model
             QuantumGlassStorage = new BuildingModel("QuantumGlassStorage", QuantumGlassStorage_StartingCost, 0, 1);
             HiggsBosonDetector = new BuildingModel("HiggsBosonDetector", HiggsBosonDetector_StartingCost, 0, 1);
             SpaceshipFactory = new BuildingModel("SpaceshipFactory", SpaceshipFactory_StartingCost, 0, 1);
+            NaniteFactory = new BuildingModel("NaniteFactory", NaniteFactory_StartingCost, 0, 1);
 
 
             Multipliers = new Dictionary<BuildingModel, float>();
@@ -204,6 +213,7 @@ namespace QuantumWorld_v1._0.Model
             CostMultipliers.Add(QuantumGlassStorage, 2F);
             CostMultipliers.Add(HiggsBosonDetector, 2F);
             CostMultipliers.Add(SpaceshipFactory, 2F);
+            CostMultipliers.Add(NaniteFactory, 2F);
 
             AIRobotsResearch = new ResearchModel("AIRobotsResearch", AIRobotsResearch_StartingCost, 0, 1);
             SpaceOrganizing = new ResearchModel("More Resources", SpaceOrganizing_StartingCost, 0, 1);
@@ -257,6 +267,10 @@ namespace QuantumWorld_v1._0.Model
                 {
                     building.SetNewCost(i, CostMultipliers[SpaceshipFactory]);
                 }
+                else if (building == NaniteFactory)
+                {
+                    building.SetNewCost(i, CostMultipliers[NaniteFactory]);
+                }
             }
             building.IncreaseLevel();
             building.SetNewTime(AIRobotsResearch.GetLevel());
@@ -288,6 +302,19 @@ namespace QuantumWorld_v1._0.Model
             else if (building == HiggsBosonDetector)
             {
                 HiggsBosonCap.Cap *= 2;
+            }
+            else if (building == NaniteFactory)
+            {
+                CarbonFiberBuilding.CutTimeToBuildByHalf();
+                QuantumGlassBuilding.CutTimeToBuildByHalf();
+                HiggsBosonBuilding.CutTimeToBuildByHalf();
+                SolarEnergyBuilding.CutTimeToBuildByHalf();
+                Labolatory.CutTimeToBuildByHalf();
+                CarbonFiberStorage.CutTimeToBuildByHalf();
+                QuantumGlassStorage.CutTimeToBuildByHalf();
+                HiggsBosonDetector.CutTimeToBuildByHalf();
+                SpaceshipFactory.CutTimeToBuildByHalf();
+                NaniteFactory.CutTimeToBuildByHalf();
             }
         }
         public bool canUpgradeBuilding(BuildingModel building)
@@ -326,6 +353,7 @@ namespace QuantumWorld_v1._0.Model
             QuantumGlassStorage.SetNewTime(AIRobotsResearch.GetLevel());
             HiggsBosonDetector.SetNewTime(AIRobotsResearch.GetLevel());
             SpaceshipFactory.SetNewTime(AIRobotsResearch.GetLevel());
+            NaniteFactory.SetNewTime(AIRobotsResearch.GetLevel());
         }
         public bool canUpgradeResearch(ResearchModel research)
         {

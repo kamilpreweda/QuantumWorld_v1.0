@@ -110,6 +110,15 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(SpaceshipFactory));
             }
         }
+        public BuildingModel NaniteFactory
+        {
+            get => _player.NaniteFactory;
+            set
+            {
+                _player.NaniteFactory.SetBuilding(NaniteFactory);
+                OnPropertyChanged(nameof(NaniteFactory));
+            }
+        }
 
         public RelayCommand UpgradeCarbonFiberBuilding { get; set; }
         public RelayCommand UpgradeQuantumGlassBuilding { get; set; }
@@ -122,6 +131,7 @@ namespace QuantumWorld_v1._0.ViewModel
         public RelayCommand UpgradeQuantumGlassStorage { get; set; }
         public RelayCommand UpgradeHiggsBosonDetector { get; set; }
         public RelayCommand UpgradeSpaceshipFactory { get; set; }
+        public RelayCommand UpgradeNaniteFactory { get; set; }
 
        
 
@@ -225,6 +235,16 @@ namespace QuantumWorld_v1._0.ViewModel
            {
                CommandManager.InvalidateRequerySuggested();
                return (_player.canUpgradeBuilding(SpaceshipFactory) && isTimerRunning());
+           }));
+            UpgradeNaniteFactory = new RelayCommand(o =>
+            {
+                UpgradeBuilding(NaniteFactory);
+
+            },
+           (o =>
+           {
+               CommandManager.InvalidateRequerySuggested();
+               return (_player.canUpgradeBuilding(NaniteFactory) && isTimerRunning());
            }));
         }
 

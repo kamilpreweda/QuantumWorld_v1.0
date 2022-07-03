@@ -391,6 +391,8 @@
                         <Label Content="{Binding NaniteFactory.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
                         <Label Content="QG:"/>
                         <Label Content="{Binding NaniteFactory.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="HB:"/>
+                        <Label Content="{Binding NaniteFactory.Cost[2].Value}" ContentStringFormat="{}{0:F2}"/>
                         <Label Content="SE:"/>
                         <Label Content="{Binding NaniteFactory.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
                         <Label Content="{Binding NaniteFactory.TimeToBuild}"/>

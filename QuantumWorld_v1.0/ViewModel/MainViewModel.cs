@@ -20,7 +20,7 @@ namespace QuantumWorld_v1._0.ViewModel
         public OverviewViewModel OverviewVM { get; set; }
         public BuildingsViewModel BuildingsVM { get; set; }
         public ResearchViewModel ResearchVM { get; set; }
-        public ResearchViewModel DocksVM { get; set; }
+        public DocksViewModel DocksVM { get; set; }
 
        
         private PlayerModel _player;
@@ -49,7 +49,7 @@ namespace QuantumWorld_v1._0.ViewModel
             OverviewVM = new OverviewViewModel(Player);
             BuildingsVM = new BuildingsViewModel(Player);
             ResearchVM = new ResearchViewModel(Player);
-            DocksVM = new ResearchViewModel(Player);
+            DocksVM = new DocksViewModel(Player);
 
             CurrentView = OverviewVM;
 

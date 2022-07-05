@@ -56,6 +56,45 @@
                 </StackPanel>
             </StackPanel>
             </StackPanel>
+
+
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Space Organizing"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Level: "/>
+                                <Label Content="{Binding SpaceOrganizing.Level}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required Lab level 4"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Space Organizing Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding SpaceOrganizing.Cost[0].Value}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding SpaceOrganizing.Cost[1].Value}"/>
+                        <Label Content="HB: "/>
+                        <Label Content="{Binding SpaceOrganizing.Cost[2].Value}"/>
+                        <Label Content="{Binding SpaceOrganizing.TimeToBuild}"/>
+                        <Button Content="Upgrade" Command="{Binding UpgradeSpaceOrganizing}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
         </Grid>
     </ScrollViewer>
 </UserControl>

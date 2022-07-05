@@ -37,8 +37,18 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(AIRobotsResearch));
             }
         }
+        public ResearchModel SpaceOrganizing
+        {
+            get => _player.AIRobotsResearch;
+            set
+            {
+                _player.SpaceOrganizing.SetResearch(SpaceOrganizing);
+                OnPropertyChanged(nameof(SpaceOrganizing));
+            }
+        }
 
         public RelayCommand UpgradeAIRobotsResearch { get; set; }
+        public RelayCommand UpgradeSpaceOrganizing { get; set; }
 
         public ResearchViewModel(PlayerModel player)
         {
@@ -53,6 +63,17 @@ namespace QuantumWorld_v1._0.ViewModel
             {
                 CommandManager.InvalidateRequerySuggested();
                 return (_player.canUpgradeResearch(AIRobotsResearch) && isTimerRunning());
+            }));
+
+            UpgradeSpaceOrganizing = new RelayCommand(o =>
+            {
+                UpgradeResearch(SpaceOrganizing);
+
+            },
+            (o =>
+            {
+                CommandManager.InvalidateRequerySuggested();
+                return (_player.canUpgradeResearch(SpaceOrganizing) && isTimerRunning());
             }));
         }
 

@@ -280,16 +280,11 @@ namespace QuantumWorld_v1._0.ViewModel
             {
                 buildingTimer.Stop();
                 building.ResetTimer(building.NewTime);
-                _player.upgradeBuilding(building);                
+                _player.upgradeBuilding(building);
+                CheckChanges();
                 OnPropertyChanged(building.Name);
-                OnPropertyChanged(nameof(Player.PlayerResources));
-                
-                
-
-
-                
-            }
-            
+                OnPropertyChanged(nameof(Player.PlayerResources));                
+            }            
         } 
 
         public bool isTimerRunning()
@@ -301,6 +296,21 @@ namespace QuantumWorld_v1._0.ViewModel
             {
                 return true;
             }
+        }
+
+        public void CheckChanges()
+        {
+            OnPropertyChanged(nameof(Player.CarbonFiberBuilding));
+            OnPropertyChanged(nameof(Player.QuantumGlassBuilding));
+            OnPropertyChanged(nameof(Player.HiggsBosonBuilding));
+            OnPropertyChanged(nameof(Player.SolarEnergyBuilding));
+            OnPropertyChanged(nameof(Player.Labolatory));
+            OnPropertyChanged(nameof(Player.CarbonFiberStorage));
+            OnPropertyChanged(nameof(Player.QuantumGlassStorage));
+            OnPropertyChanged(nameof(Player.HiggsBosonDetector));
+            OnPropertyChanged(nameof(Player.HiggsBosonDetector));
+            OnPropertyChanged(nameof(Player.SpaceshipFactory));
+            OnPropertyChanged(nameof(Player.NaniteFactory));
         }
 
         

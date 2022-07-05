@@ -68,7 +68,7 @@ namespace QuantumWorld_v1._0.Model
             {
                 TimeToBuild = 0;
             }
-        }
+        }      
 
         public void ResetTimer(int time)
         {

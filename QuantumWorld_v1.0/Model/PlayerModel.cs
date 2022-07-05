@@ -55,117 +55,117 @@ namespace QuantumWorld_v1._0.Model
 
         public ResourceModel[] CarbonFiberBuilding_StartingCost =
         {
-            new ResourceModel("Carbon Fiber", 50),
-            new ResourceModel("Quantum Glass", 20),
+            new ResourceModel("Carbon Fiber", 5),
+            new ResourceModel("Quantum Glass", 2),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 5),
         };
 
         public ResourceModel[] QuantumGlassBuilding_StartingCost =
         {
-            new ResourceModel("Carbon Fiber", 75),
-            new ResourceModel("Quantum Glass", 30),
+            new ResourceModel("Carbon Fiber", 7),
+            new ResourceModel("Quantum Glass", 3),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 10),
         };
 
         public ResourceModel[] HiggsBosonBuilding_StartingCost =
        {
-            new ResourceModel("Carbon Fiber", 100),
-            new ResourceModel("Quantum Glass", 50),
+            new ResourceModel("Carbon Fiber", 10),
+            new ResourceModel("Quantum Glass", 5),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 15),
         };
 
         public ResourceModel[] SolarEnergyBuilding_StartingCost =
         {
-            new ResourceModel("Carbon Fiber", 75),
-            new ResourceModel("Quantum Glass", 75),
+            new ResourceModel("Carbon Fiber", 7),
+            new ResourceModel("Quantum Glass", 7),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] Labolatory_StartingCost =
         {
-            new ResourceModel("Carbon Fiber", 500),
-            new ResourceModel("Quantum Glass", 500),
-            new ResourceModel("Higgs Boson", 250),
+            new ResourceModel("Carbon Fiber", 50),
+            new ResourceModel("Quantum Glass", 50),
+            new ResourceModel("Higgs Boson", 25),
             new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] CarbonFiberStorage_StartingCost =
        {
-            new ResourceModel("Carbon Fiber", 100),
+            new ResourceModel("Carbon Fiber", 10),
             new ResourceModel("Quantum Glass", 0),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 0),
         };
         public ResourceModel[] QuantumGlassStorage_StartingCost =
     {
-            new ResourceModel("Carbon Fiber", 100),
-            new ResourceModel("Quantum Glass", 50),
+            new ResourceModel("Carbon Fiber", 10),
+            new ResourceModel("Quantum Glass", 5),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 0),
         };
         public ResourceModel[] HiggsBosonDetector_StartingCost =
     {
-            new ResourceModel("Carbon Fiber", 100),
-            new ResourceModel("Quantum Glass", 100),
+            new ResourceModel("Carbon Fiber", 10),
+            new ResourceModel("Quantum Glass", 10),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 0),
         };
         public ResourceModel[] SpaceshipFactory_StartingCost =
+    {
+            new ResourceModel("Carbon Fiber", 10),
+            new ResourceModel("Quantum Glass", 10),
+            new ResourceModel("Higgs Boson", 10),
+            new ResourceModel("Solar Energy", 0),
+        };
+        public ResourceModel[] NaniteFactory_StartingCost =
     {
             new ResourceModel("Carbon Fiber", 100),
             new ResourceModel("Quantum Glass", 100),
             new ResourceModel("Higgs Boson", 100),
             new ResourceModel("Solar Energy", 0),
         };
-        public ResourceModel[] NaniteFactory_StartingCost =
-    {
-            new ResourceModel("Carbon Fiber", 1000),
-            new ResourceModel("Quantum Glass", 1000),
-            new ResourceModel("Higgs Boson", 1000),
-            new ResourceModel("Solar Energy", 0),
-        };
 
         public ResourceModel[] AIRobotsResearch_StartingCost =
         {
-            new ResourceModel("Carbon Fiber", 50),
-            new ResourceModel("Quantum Glass", 40),
+            new ResourceModel("Carbon Fiber", 5),
+            new ResourceModel("Quantum Glass", 4),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] SpaceOrganizing_StartingCost =
         {
-            new ResourceModel("Carbon Fiber", 150),
-            new ResourceModel("Quantum Glass", 150),
+            new ResourceModel("Carbon Fiber", 15),
+            new ResourceModel("Quantum Glass", 15),
             new ResourceModel("Higgs Boson", 0),
             new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] TheExpanse_StartingCost =
        {
-            new ResourceModel("Carbon Fiber", 200),
-            new ResourceModel("Quantum Glass", 200),
-            new ResourceModel("Higgs Boson", 100),
+            new ResourceModel("Carbon Fiber", 20),
+            new ResourceModel("Quantum Glass", 20),
+            new ResourceModel("Higgs Boson", 10),
             new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] ArtOfWar_StartingCost =
      {
-            new ResourceModel("Carbon Fiber", 250),
-            new ResourceModel("Quantum Glass", 250),
-            new ResourceModel("Higgs Boson", 150),
+            new ResourceModel("Carbon Fiber", 25),
+            new ResourceModel("Quantum Glass", 25),
+            new ResourceModel("Higgs Boson", 15),
             new ResourceModel("Solar Energy", 0),
         };
 
         public ResourceModel[] Hyperdrive_StartingCost =
      {
-            new ResourceModel("Carbon Fiber", 300),
-            new ResourceModel("Quantum Glass", 300),
-            new ResourceModel("Higgs Boson", 200),
+            new ResourceModel("Carbon Fiber", 30),
+            new ResourceModel("Quantum Glass", 30),
+            new ResourceModel("Higgs Boson", 20),
             new ResourceModel("Solar Energy", 0),
         };
 
@@ -175,15 +175,15 @@ namespace QuantumWorld_v1._0.Model
 
             PlayerResources = new ResourceModel[]
             {
-                new ResourceModel("Carbon Fiber", 500),
-                new ResourceModel("Quantum Glass", 500),
+                new ResourceModel("Carbon Fiber", 1000),
+                new ResourceModel("Quantum Glass", 1000),
                 new ResourceModel("Higgs Boson", 0),
                 new ResourceModel("Solar Energy", 0),
             };
 
-            CarbonFiberCap = new ResourceModel(1000);
-            QuantumGlassCap = new ResourceModel(1000);
-            HiggsBosonCap = new ResourceModel(1000);
+            CarbonFiberCap = new ResourceModel(2000);
+            QuantumGlassCap = new ResourceModel(2000);
+            HiggsBosonCap = new ResourceModel(2000);
 
             CarbonFiberBuilding = new BuildingModel("CarbonFiberBuilding", CarbonFiberBuilding_StartingCost, 0, 1);
             QuantumGlassBuilding = new BuildingModel("QuantumGlassBuilding", QuantumGlassBuilding_StartingCost, 0, 1);
@@ -215,14 +215,18 @@ namespace QuantumWorld_v1._0.Model
             CostMultipliers.Add(SpaceshipFactory, 2F);
             CostMultipliers.Add(NaniteFactory, 2F);
 
-            AIRobotsResearch = new ResearchModel("AIRobotsResearch", AIRobotsResearch_StartingCost, 0, 1);
-            SpaceOrganizing = new ResearchModel("More Resources", SpaceOrganizing_StartingCost, 0, 1);
-            TheExpanse = new ResearchModel("TheExpanse", TheExpanse_StartingCost, 0, 1);
-            ArtOfWar = new ResearchModel("ArtOfWar", ArtOfWar_StartingCost, 0, 1);
-            Hyperdrive = new ResearchModel("FasterShips", Hyperdrive_StartingCost, 0, 1);
+            AIRobotsResearch = new ResearchModel("AIRobotsResearch", AIRobotsResearch_StartingCost, 0, 1, 2);
+            SpaceOrganizing = new ResearchModel("SpaceOrganizing", SpaceOrganizing_StartingCost, 0, 1, 4);
+            TheExpanse = new ResearchModel("TheExpanse", TheExpanse_StartingCost, 0, 1, 6);
+            ArtOfWar = new ResearchModel("ArtOfWar", ArtOfWar_StartingCost, 0, 1, 8);
+            Hyperdrive = new ResearchModel("Hyperdrive", Hyperdrive_StartingCost, 0, 1, 10);
 
             ResearchMultipliers = new Dictionary<ResearchModel, float>();
             ResearchMultipliers.Add(AIRobotsResearch, 2F);
+            ResearchMultipliers.Add(SpaceOrganizing, 2F);
+            ResearchMultipliers.Add(TheExpanse, 2F);
+            ResearchMultipliers.Add(ArtOfWar, 2F);
+            ResearchMultipliers.Add(Hyperdrive, 2F);
         }
 
         public void upgradeBuilding(BuildingModel building)
@@ -314,8 +318,8 @@ namespace QuantumWorld_v1._0.Model
                 QuantumGlassStorage.CutTimeToBuildByHalf();
                 HiggsBosonDetector.CutTimeToBuildByHalf();
                 SpaceshipFactory.CutTimeToBuildByHalf();
-                NaniteFactory.CutTimeToBuildByHalf();
-            }
+                NaniteFactory.CutTimeToBuildByHalf();              
+            }            
         }
         public bool canUpgradeBuilding(BuildingModel building)
         {           
@@ -340,6 +344,24 @@ namespace QuantumWorld_v1._0.Model
                 {
                     research.SetNewCost(i, ResearchMultipliers[AIRobotsResearch]);
                 }
+                else if (research == SpaceOrganizing)
+                {
+                    research.SetNewCost(i, ResearchMultipliers[SpaceOrganizing]);
+                }
+                else if (research == TheExpanse)
+                {
+                    research.SetNewCost(i, ResearchMultipliers[TheExpanse]);
+                }
+                else if (research == ArtOfWar)
+                {
+                    research.SetNewCost(i, ResearchMultipliers[ArtOfWar]);
+                }
+                else if (research == Hyperdrive)
+                {
+                    research.SetNewCost(i, ResearchMultipliers[Hyperdrive]);
+                }
+
+
             }
 
             research.IncreaseLevel();
@@ -359,15 +381,15 @@ namespace QuantumWorld_v1._0.Model
         {
             for (int i = 0; i < PlayerResources.Length; i++)
             {
-                if (this.PlayerResources[i].Value < research.Cost[i].Value || !(CanUpgradeAIRobotsResearch())) {                     
+                if (this.PlayerResources[i].Value < research.Cost[i].Value || !(IsLabRequiredLevel(research))) {                     
                     return false; 
                 }
             }
             return true;
         }
-        private bool CanUpgradeAIRobotsResearch()
+        private bool IsLabRequiredLevel(ResearchModel research)
         {
-            if (Labolatory.Level >= 2)
+            if (Labolatory.Level >= research.LabLevelRequirement)
             {
                 return true;
             }

@@ -239,6 +239,8 @@ namespace QuantumWorld_v1._0.ViewModel
             UpgradeNaniteFactory = new RelayCommand(o =>
             {
                 UpgradeBuilding(NaniteFactory);
+                
+                
 
             },
            (o =>
@@ -278,9 +280,11 @@ namespace QuantumWorld_v1._0.ViewModel
             {
                 buildingTimer.Stop();
                 building.ResetTimer(building.NewTime);
-                _player.upgradeBuilding(building);
+                _player.upgradeBuilding(building);                
                 OnPropertyChanged(building.Name);
                 OnPropertyChanged(nameof(Player.PlayerResources));
+                
+                
 
 
                 

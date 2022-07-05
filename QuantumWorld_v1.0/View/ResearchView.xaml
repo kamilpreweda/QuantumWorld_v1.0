@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QuantumWorld_v1._0.View"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="1000">
+             d:DesignHeight="750" d:DesignWidth="1000">
     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
@@ -17,8 +17,8 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
@@ -90,6 +90,117 @@
                         <Label Content="{Binding SpaceOrganizing.Cost[2].Value}"/>
                         <Label Content="{Binding SpaceOrganizing.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeSpaceOrganizing}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="The Expanse"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Level: "/>
+                                <Label Content="{Binding TheExpanse.Level}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required Lab level 6"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="The Expanse Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding TheExpanse.Cost[0].Value}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding TheExpanse.Cost[1].Value}"/>
+                        <Label Content="HB: "/>
+                        <Label Content="{Binding TheExpanse.Cost[2].Value}"/>
+                        <Label Content="{Binding TheExpanse.TimeToBuild}"/>
+                        <Button Content="Upgrade" Command="{Binding UpgradeTheExpanse}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Art Of War"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Level: "/>
+                                <Label Content="{Binding ArtOfWar.Level}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required Lab level 8"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Art Of War Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding ArtOfWar.Cost[0].Value}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding ArtOfWar.Cost[1].Value}"/>
+                        <Label Content="HB: "/>
+                        <Label Content="{Binding ArtOfWar.Cost[2].Value}"/>
+                        <Label Content="{Binding ArtOfWar.TimeToBuild}"/>
+                        <Button Content="Upgrade" Command="{Binding UpgradeArtOfWar}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Hyperdrive"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Level: "/>
+                                <Label Content="{Binding Hyperdrive.Level}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required Lab level 10"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Hyperdrive Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Hyperdrive.Cost[0].Value}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Hyperdrive.Cost[1].Value}"/>
+                        <Label Content="HB: "/>
+                        <Label Content="{Binding Hyperdrive.Cost[2].Value}"/>
+                        <Label Content="{Binding Hyperdrive.TimeToBuild}"/>
+                        <Button Content="Upgrade" Command="{Binding UpgradeHyperdrive}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

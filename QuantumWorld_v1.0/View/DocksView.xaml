@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="QuantumWorld_v1._0.View.DocksView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuantumWorld_v1._0.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+    <Grid Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+            <StackPanel>
+                <StackPanel>
+                    <StackPanel>
+                        <Label Content="Light Fighter"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Count: "/>
+                            <Label Content="{Binding LightFighter.Count}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Required SpaceshipFactory level 2"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Light Fighter Description"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="CF: "/>
+                    <Label Content="{Binding LightFighter.Cost[0].Value}"/>
+                    <Label Content="QG: "/>
+                    <Label Content="{Binding LightFighter.Cost[1].Value}"/>
+                    <Label Content="{Binding LightFighter.TimeToBuild}"/>
+                    <Button Content="Build" Command="{Binding BuildLightFighter}"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+        
+        
+    </Grid>
+        </ScrollViewer>
+</UserControl>

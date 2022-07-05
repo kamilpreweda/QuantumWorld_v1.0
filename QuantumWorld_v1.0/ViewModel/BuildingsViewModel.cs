@@ -270,7 +270,7 @@ namespace QuantumWorld_v1._0.ViewModel
             
             
             if (building.TimeToBuild > 0)
-            {
+            {                
                 building.DecreaseTimer();
                 timeToEnd--;
                 building.NewTime++;

@@ -19,6 +19,10 @@
             <view:ResearchView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModel:DocksViewModel}">
+            <view:DocksView/>
+        </DataTemplate>
+
 
     </Application.Resources>
     

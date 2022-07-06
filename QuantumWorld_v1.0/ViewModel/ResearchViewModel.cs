@@ -97,7 +97,7 @@ namespace QuantumWorld_v1._0.ViewModel
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(AIRobotsResearch) && isTimerRunning() && !isBusy);
+                return (_player.canUpgradeResearch(AIRobotsResearch) && !isBusy);
             }));
 
             UpgradeSpaceOrganizing = new RelayCommand(o =>
@@ -108,7 +108,7 @@ namespace QuantumWorld_v1._0.ViewModel
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(SpaceOrganizing) && isTimerRunning() && !isBusy);
+                return (_player.canUpgradeResearch(SpaceOrganizing) && !isBusy);
             }));
 
             UpgradeTheExpanse = new RelayCommand(o =>
@@ -119,7 +119,7 @@ namespace QuantumWorld_v1._0.ViewModel
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(TheExpanse) && isTimerRunning() && !isBusy);
+                return (_player.canUpgradeResearch(TheExpanse) && !isBusy);
             }));
 
             UpgradeArtOfWar = new RelayCommand(o =>
@@ -130,7 +130,7 @@ namespace QuantumWorld_v1._0.ViewModel
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(ArtOfWar) && isTimerRunning() && !isBusy);
+                return (_player.canUpgradeResearch(ArtOfWar) && !isBusy);
             }));
 
             UpgradeHyperdrive = new RelayCommand(o =>
@@ -141,7 +141,7 @@ namespace QuantumWorld_v1._0.ViewModel
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(Hyperdrive) && isTimerRunning() && !isBusy);
+                return (_player.canUpgradeResearch(Hyperdrive) && !isBusy);
             }));
         }
 
@@ -177,19 +177,6 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(Player.PlayerResources));
 
             }
-        }
-
-        public bool isTimerRunning()
-        {
-            if (timeToEnd > 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
+        }        
     }
 }

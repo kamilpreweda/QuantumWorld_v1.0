@@ -15,6 +15,7 @@ namespace QuantumWorld_v1._0.ViewModel
         private PlayerModel _player;
 
         int timeToEnd;
+        bool isBusy;
 
         DispatcherTimer researchTimer;
 
@@ -86,60 +87,61 @@ namespace QuantumWorld_v1._0.ViewModel
         public ResearchViewModel(PlayerModel player)
         {
             Player = player;
+            isBusy = false;
 
             UpgradeAIRobotsResearch = new RelayCommand(o =>
             {
                 UpgradeResearch(AIRobotsResearch);
-
+                isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(AIRobotsResearch) && isTimerRunning());
+                return (_player.canUpgradeResearch(AIRobotsResearch) && isTimerRunning() && !isBusy);
             }));
 
             UpgradeSpaceOrganizing = new RelayCommand(o =>
             {
                 UpgradeResearch(SpaceOrganizing);
-
+                 isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(SpaceOrganizing) && isTimerRunning());
+                return (_player.canUpgradeResearch(SpaceOrganizing) && isTimerRunning() && !isBusy);
             }));
 
             UpgradeTheExpanse = new RelayCommand(o =>
             {
                 UpgradeResearch(TheExpanse);
-
+                isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(TheExpanse) && isTimerRunning());
+                return (_player.canUpgradeResearch(TheExpanse) && isTimerRunning() && !isBusy);
             }));
 
             UpgradeArtOfWar = new RelayCommand(o =>
             {
                 UpgradeResearch(ArtOfWar);
-
+                isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(ArtOfWar) && isTimerRunning());
+                return (_player.canUpgradeResearch(ArtOfWar) && isTimerRunning() && !isBusy);
             }));
 
             UpgradeHyperdrive = new RelayCommand(o =>
             {
                 UpgradeResearch(Hyperdrive);
-
+                isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeResearch(Hyperdrive) && isTimerRunning());
+                return (_player.canUpgradeResearch(Hyperdrive) && isTimerRunning() && !isBusy);
             }));
         }
 
@@ -171,6 +173,7 @@ namespace QuantumWorld_v1._0.ViewModel
                 _player.upgradeResearch(research);
                 research.ResetTimer(research.NewTime);
                 OnPropertyChanged(research.Name);
+                isBusy = false;
                 OnPropertyChanged(nameof(Player.PlayerResources));
 
             }

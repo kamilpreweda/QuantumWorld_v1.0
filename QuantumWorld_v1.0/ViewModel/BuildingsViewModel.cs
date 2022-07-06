@@ -15,6 +15,7 @@ namespace QuantumWorld_v1._0.ViewModel
         private PlayerModel _player;
 
         int timeToEnd;
+        bool isBusy;
 
         DispatcherTimer buildingTimer;
 
@@ -141,112 +142,113 @@ namespace QuantumWorld_v1._0.ViewModel
         public BuildingsViewModel(PlayerModel player)
         {
             Player = player;
+            isBusy = false;
 
             // buildingTimer.Interval = TimeSpan.FromSeconds(1);
 
             UpgradeCarbonFiberBuilding = new RelayCommand(o =>
             {
                 UpgradeBuilding(CarbonFiberBuilding);
-
+                isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeBuilding(CarbonFiberBuilding) && isTimerRunning());
+                return (_player.canUpgradeBuilding(CarbonFiberBuilding) && isTimerRunning() && !isBusy);
             }));
 
             UpgradeQuantumGlassBuilding = new RelayCommand(o =>
             {
                 UpgradeBuilding(QuantumGlassBuilding);
-                
+                isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeBuilding(QuantumGlassBuilding) && isTimerRunning());
+                return (_player.canUpgradeBuilding(QuantumGlassBuilding) && isTimerRunning() && !isBusy);
             }));
 
             UpgradeHiggsBosonBuilding = new RelayCommand(o =>
             {
                 UpgradeBuilding(HiggsBosonBuilding);
-                
+                isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeBuilding(HiggsBosonBuilding) && isTimerRunning());
+                return (_player.canUpgradeBuilding(HiggsBosonBuilding) && isTimerRunning() && !isBusy);
             }));
             UpgradeSolarEnergyBuilding = new RelayCommand(o =>
             {
                 UpgradeBuilding(SolarEnergyBuilding);
-                
+                isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeBuilding(SolarEnergyBuilding) && isTimerRunning());
+                return (_player.canUpgradeBuilding(SolarEnergyBuilding) && isTimerRunning() && !isBusy);
             }));
             UpgradeLabolatory = new RelayCommand(o =>
             {
                 UpgradeBuilding(Labolatory);
-                
+                isBusy = true;
             },
             (o =>
             {
                 CommandManager.InvalidateRequerySuggested();
-                return (_player.canUpgradeBuilding(Labolatory) && isTimerRunning());
+                return (_player.canUpgradeBuilding(Labolatory) && isTimerRunning() && !isBusy);
             }));
             UpgradeCarbonFiberStorage = new RelayCommand(o =>
             {
                 UpgradeBuilding(CarbonFiberStorage);
-
+                isBusy = true;
             },
            (o =>
            {
                CommandManager.InvalidateRequerySuggested();
-               return (_player.canUpgradeBuilding(QuantumGlassStorage) && isTimerRunning());
+               return (_player.canUpgradeBuilding(QuantumGlassStorage) && isTimerRunning() && !isBusy);
            }));
             UpgradeQuantumGlassStorage = new RelayCommand(o =>
             {
                 UpgradeBuilding(QuantumGlassStorage);
-
+                isBusy = true;
             },
            (o =>
            {
                CommandManager.InvalidateRequerySuggested();
-               return (_player.canUpgradeBuilding(QuantumGlassStorage) && isTimerRunning());
+               return (_player.canUpgradeBuilding(QuantumGlassStorage) && isTimerRunning() && !isBusy);
            }));
             UpgradeHiggsBosonDetector = new RelayCommand(o =>
             {
                 UpgradeBuilding(HiggsBosonDetector);
-
+                isBusy = true;
             },
            (o =>
            {
                CommandManager.InvalidateRequerySuggested();
-               return (_player.canUpgradeBuilding(HiggsBosonDetector) && isTimerRunning());
+               return (_player.canUpgradeBuilding(HiggsBosonDetector) && isTimerRunning() && !isBusy);
            }));
             UpgradeSpaceshipFactory = new RelayCommand(o =>
             {
                 UpgradeBuilding(SpaceshipFactory);
-
+                isBusy = true;
             },
            (o =>
            {
                CommandManager.InvalidateRequerySuggested();
-               return (_player.canUpgradeBuilding(SpaceshipFactory) && isTimerRunning());
+               return (_player.canUpgradeBuilding(SpaceshipFactory) && isTimerRunning() && !isBusy);
            }));
             UpgradeNaniteFactory = new RelayCommand(o =>
             {
                 UpgradeBuilding(NaniteFactory);
-                
-                
+                isBusy = true;
+
 
             },
            (o =>
            {
                CommandManager.InvalidateRequerySuggested();
-               return (_player.canUpgradeBuilding(NaniteFactory) && isTimerRunning());
+               return (_player.canUpgradeBuilding(NaniteFactory) && isTimerRunning() && !isBusy);
            }));
         }
 
@@ -283,6 +285,7 @@ namespace QuantumWorld_v1._0.ViewModel
                 _player.upgradeBuilding(building);
                 CheckChanges();
                 OnPropertyChanged(building.Name);
+                isBusy = false;
                 OnPropertyChanged(nameof(Player.PlayerResources));                
             }            
         } 

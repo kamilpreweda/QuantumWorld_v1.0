@@ -104,6 +104,66 @@ namespace QuantumWorld_v1._0.ViewModel
                     CommandManager.InvalidateRequerySuggested();
                     return (_player.canBuildShip(LightFighter) && !isBusy);
                 }));
+
+            BuildHeavyFighter = new RelayCommand(o =>
+            {
+                BuildShip(HeavyFighter);
+                isBusy = true;
+            },
+                (o =>
+                {
+
+                    CommandManager.InvalidateRequerySuggested();
+                    return (_player.canBuildShip(HeavyFighter) && !isBusy);
+                }));
+
+            BuildBattleship = new RelayCommand(o =>
+            {
+                BuildShip(Battleship);
+                isBusy = true;
+            },
+                (o =>
+                {
+
+                    CommandManager.InvalidateRequerySuggested();
+                    return (_player.canBuildShip(Battleship) && !isBusy);
+                }));
+
+            BuildDestroyer = new RelayCommand(o =>
+            {
+                BuildShip(Destroyer);
+                isBusy = true;
+            },
+                (o =>
+                {
+
+                    CommandManager.InvalidateRequerySuggested();
+                    return (_player.canBuildShip(Destroyer) && !isBusy);
+                }));
+
+            BuildDreadnought = new RelayCommand(o =>
+            {
+                BuildShip(Dreadnought);
+                isBusy = true;
+            },
+                (o =>
+                {
+
+                    CommandManager.InvalidateRequerySuggested();
+                    return (_player.canBuildShip(Dreadnought) && !isBusy);
+                }));
+
+            BuildMothership = new RelayCommand(o =>
+            {
+                BuildShip(Mothership);
+                isBusy = true;
+            },
+                (o =>
+                {
+
+                    CommandManager.InvalidateRequerySuggested();
+                    return (_player.canBuildShip(Mothership) && !isBusy);
+                }));
         }
         public void BuildShip(ShipModel ship)
         {

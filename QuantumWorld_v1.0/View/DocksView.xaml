@@ -12,7 +12,7 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>            
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -56,9 +56,184 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
+
+
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Heavy Fighter"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Count: "/>
+                                <Label Content="{Binding HeavyFighter.Count}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required SpaceshipFactory level 4"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Heavy Fighter Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding HeavyFighter.Cost[0].Value}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding HeavyFighter.Cost[1].Value}"/>
+                        <Label Content="{Binding HeavyFighter.TimeToBuild}"/>
+                        <Button Content="Build" Command="{Binding BuildHeavyFighter}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Battleship"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Count: "/>
+                                <Label Content="{Binding Battleship.Count}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required SpaceshipFactory level 6"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Battleship Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Battleship.Cost[0].Value}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Battleship.Cost[1].Value}"/>
+                        <Label Content="{Binding Battleship.TimeToBuild}"/>
+                        <Button Content="Build" Command="{Binding BuildBattleship}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
         
+
+            <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Destroyer"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Count: "/>
+                                <Label Content="{Binding Destroyer.Count}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required SpaceshipFactory level 8"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Destroyer Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Destroyer.Cost[0].Value}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Destroyer.Cost[1].Value}"/>
+                        <Label Content="{Binding Destroyer.TimeToBuild}"/>
+                        <Button Content="Build" Command="{Binding BuildDestroyer}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
         
-        
-    </Grid>
+
+            <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Dreadnought"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Count: "/>
+                                <Label Content="{Binding Dreadnought.Count}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required SpaceshipFactory level 10"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Dreadnought Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Dreadnought.Cost[0].Value}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Dreadnought.Cost[1].Value}"/>
+                        <Label Content="{Binding Dreadnought.TimeToBuild}"/>
+                        <Button Content="Build" Command="{Binding BuildDreadnought}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Mothership"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Count: "/>
+                                <Label Content="{Binding Mothership.Count}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required SpaceshipFactory level 12"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Mothership Description"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Mothership.Cost[0].Value}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Mothership.Cost[1].Value}"/>
+                        <Label Content="{Binding Mothership.TimeToBuild}"/>
+                        <Button Content="Build" Command="{Binding BuildMothership}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+
+        </Grid>
         </ScrollViewer>
 </UserControl>

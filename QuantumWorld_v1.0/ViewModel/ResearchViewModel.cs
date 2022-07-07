@@ -171,6 +171,7 @@ namespace QuantumWorld_v1._0.ViewModel
             {
                 researchTimer.Stop();
                 _player.upgradeResearch(research);
+                research.NewTime = 0;
                 research.ResetTimer(research.NewTime);
                 OnPropertyChanged(research.Name);
                 isBusy = false;

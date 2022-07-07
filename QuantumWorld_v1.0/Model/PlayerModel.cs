@@ -31,6 +31,8 @@ namespace QuantumWorld_v1._0.Model
 
         public Dictionary<ResearchModel, float> ResearchMultipliers { get; private set; }
 
+        public List<ShipModel> PlayerShips { get; set; }
+
         public BuildingModel CarbonFiberBuilding { get; private set; }
         public BuildingModel QuantumGlassBuilding { get; private set; }
         public BuildingModel HiggsBosonBuilding { get; private set; }
@@ -52,6 +54,15 @@ namespace QuantumWorld_v1._0.Model
         public BuildingModel CarbonFiberCostMultiplier { get; private set; }
         public BuildingModel QuantumGlasCostMultiplier { get; private set; }
         public BuildingModel HiggsBosonCostMultiplier { get; private set; }
+
+        public ShipModel LightFighter { get; set; }
+        public ShipModel HeavyFighter { get; set; }
+        public ShipModel Battleship { get; set; }
+        public ShipModel Destroyer { get; set; }
+        public ShipModel Dreadnought { get; set; }
+        public ShipModel Mothership { get; set; }
+
+
 
         public ResourceModel[] CarbonFiberBuilding_StartingCost =
         {
@@ -169,6 +180,54 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Solar Energy", 0),
         };
 
+        public ResourceModel[] LightFighter_Cost =
+            {
+            new ResourceModel("Carbon Fiber", 10),
+            new ResourceModel("Quantum Glass", 10),
+            new ResourceModel("Higgs Boson", 0),
+            new ResourceModel("Solar Energy", 0),
+        };
+
+        public ResourceModel[] HeavyFighter_Cost =
+            {
+            new ResourceModel("Carbon Fiber", 50),
+            new ResourceModel("Quantum Glass", 50),
+            new ResourceModel("Higgs Boson", 0),
+            new ResourceModel("Solar Energy", 0),
+        };
+
+        public ResourceModel[] Battleship_Cost =
+            {
+            new ResourceModel("Carbon Fiber", 250),
+            new ResourceModel("Quantum Glass", 200),
+            new ResourceModel("Higgs Boson", 150),
+            new ResourceModel("Solar Energy", 0),
+        };
+
+        public ResourceModel[] Destroyer_Cost =
+           {
+            new ResourceModel("Carbon Fiber", 500),
+            new ResourceModel("Quantum Glass", 400),
+            new ResourceModel("Higgs Boson", 300),
+            new ResourceModel("Solar Energy", 0),
+        };
+
+        public ResourceModel[] Dreadnought_Cost =
+           {
+            new ResourceModel("Carbon Fiber", 800),
+            new ResourceModel("Quantum Glass", 500),
+            new ResourceModel("Higgs Boson", 200),
+            new ResourceModel("Solar Energy", 0),
+        };
+
+        public ResourceModel[] Mothership_Cost =
+           {
+            new ResourceModel("Carbon Fiber", 5000),
+            new ResourceModel("Quantum Glass", 5000),
+            new ResourceModel("Higgs Boson", 1000),
+            new ResourceModel("Solar Energy", 0),
+        };
+
         public PlayerModel()
         {
             Name = "Kamil";
@@ -227,7 +286,16 @@ namespace QuantumWorld_v1._0.Model
             ResearchMultipliers.Add(TheExpanse, 2F);
             ResearchMultipliers.Add(ArtOfWar, 2F);
             ResearchMultipliers.Add(Hyperdrive, 2F);
-        }
+
+            LightFighter = new ShipModel("LightFighter", 0, 10, 5, 1, LightFighter_Cost);
+            HeavyFighter = new ShipModel("HeavyFighter", 0, 30, 15, 2, HeavyFighter_Cost);
+            Battleship = new ShipModel("Battleship", 0, 100, 75, 3, Battleship_Cost);
+            Destroyer = new ShipModel("Destroyer", 0, 200, 300, 4, Destroyer_Cost);
+            Dreadnought = new ShipModel("Dreadnought", 0, 500, 250, 5, Dreadnought_Cost);
+            Mothership = new ShipModel("Mothership", 0, 1000, 1000, 6, Mothership_Cost);
+        }      
+                                  
+        
 
         public void upgradeBuilding(BuildingModel building)
         {
@@ -396,7 +464,25 @@ namespace QuantumWorld_v1._0.Model
             return false;
         }
 
-        private void GenerateCarbonFiber()
+        public void BuildShip(ShipModel ship)
+        {
+            for (int i = 0; i < PlayerResources.Length; i++)
+            {
+                this.PlayerResources[i].SubtractFromResources(ship.Cost[i].Value);               
+            }
+            ship.IncreaseCount();          
+        }
+
+        public bool canBuildShip(ShipModel ship) 
+        {
+            for (int i = 0; i < PlayerResources.Length; i++)
+            {
+                if (this.PlayerResources[i].Value < ship.Cost[i].Value) { return false; }
+            }
+            return true;
+        }
+
+                private void GenerateCarbonFiber()
         {
             if (this.PlayerResources[0].Value < CarbonFiberCap.Cap)
             {

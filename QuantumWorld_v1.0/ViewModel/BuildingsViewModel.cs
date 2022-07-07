@@ -132,19 +132,12 @@ namespace QuantumWorld_v1._0.ViewModel
         public RelayCommand UpgradeQuantumGlassStorage { get; set; }
         public RelayCommand UpgradeHiggsBosonDetector { get; set; }
         public RelayCommand UpgradeSpaceshipFactory { get; set; }
-        public RelayCommand UpgradeNaniteFactory { get; set; }
-
-       
-
-
-
+        public RelayCommand UpgradeNaniteFactory { get; set; }     
 
         public BuildingsViewModel(PlayerModel player)
         {
             Player = player;
             isBusy = false;
-
-            // buildingTimer.Interval = TimeSpan.FromSeconds(1);
 
             UpgradeCarbonFiberBuilding = new RelayCommand(o =>
             {
@@ -283,6 +276,7 @@ namespace QuantumWorld_v1._0.ViewModel
                 buildingTimer.Stop();
                 building.ResetTimer(building.NewTime);
                 _player.upgradeBuilding(building);
+                building.NewTime = 0;
                 CheckChanges();
                 OnPropertyChanged(building.Name);
                 isBusy = false;

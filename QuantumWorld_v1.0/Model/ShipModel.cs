@@ -15,8 +15,9 @@ namespace QuantumWorld_v1._0.Model
         public int AttackPower { get; private set; }
         public ResourceModel[] Cost { get; private set; }
         public int NewTime { get; set; } = 0;
+        public int SpaceshipFactoryLevelRequirement { get; private set; }
 
-        public ShipModel(string name, int count, int healthPoints, int attackPower, int timeToBuild, ResourceModel[] cost)
+        public ShipModel(string name, int count, int healthPoints, int attackPower, int timeToBuild, ResourceModel[] cost, int spaceshipFactoryLevelRequirement)
         {
             this.Name = name;
             this.Count = count;
@@ -24,6 +25,7 @@ namespace QuantumWorld_v1._0.Model
             this.AttackPower = attackPower;
             this.TimeToBuild = timeToBuild;
             this.Cost = cost;
+            this.SpaceshipFactoryLevelRequirement = spaceshipFactoryLevelRequirement;
         }
 
         public void SetShip(ShipModel ship)
@@ -34,6 +36,7 @@ namespace QuantumWorld_v1._0.Model
             this.HealthPoints = ship.HealthPoints;
             this.AttackPower = ship.AttackPower;
             this.Cost = ship.Cost;
+            this.SpaceshipFactoryLevelRequirement = ship.SpaceshipFactoryLevelRequirement;
         }
 
         public void IncreaseCount()

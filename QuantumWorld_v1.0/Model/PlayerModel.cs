@@ -287,12 +287,12 @@ namespace QuantumWorld_v1._0.Model
             ResearchMultipliers.Add(ArtOfWar, 2F);
             ResearchMultipliers.Add(Hyperdrive, 2F);
 
-            LightFighter = new ShipModel("LightFighter", 0, 10, 5, 1, LightFighter_Cost);
-            HeavyFighter = new ShipModel("HeavyFighter", 0, 30, 15, 2, HeavyFighter_Cost);
-            Battleship = new ShipModel("Battleship", 0, 100, 75, 3, Battleship_Cost);
-            Destroyer = new ShipModel("Destroyer", 0, 200, 300, 4, Destroyer_Cost);
-            Dreadnought = new ShipModel("Dreadnought", 0, 500, 250, 5, Dreadnought_Cost);
-            Mothership = new ShipModel("Mothership", 0, 1000, 1000, 6, Mothership_Cost);
+            LightFighter = new ShipModel("LightFighter", 0, 10, 5, 1, LightFighter_Cost, 2);
+            HeavyFighter = new ShipModel("HeavyFighter", 0, 30, 15, 2, HeavyFighter_Cost, 4);
+            Battleship = new ShipModel("Battleship", 0, 100, 75, 3, Battleship_Cost, 6);
+            Destroyer = new ShipModel("Destroyer", 0, 200, 300, 4, Destroyer_Cost, 8);
+            Dreadnought = new ShipModel("Dreadnought", 0, 500, 250, 5, Dreadnought_Cost, 10);
+            Mothership = new ShipModel("Mothership", 0, 1000, 1000, 6, Mothership_Cost, 12);
         }      
                                   
         
@@ -449,7 +449,8 @@ namespace QuantumWorld_v1._0.Model
         {
             for (int i = 0; i < PlayerResources.Length; i++)
             {
-                if (this.PlayerResources[i].Value < research.Cost[i].Value || !(IsLabRequiredLevel(research))) {                     
+                if (this.PlayerResources[i].Value < research.Cost[i].Value || !(IsLabRequiredLevel(research))) 
+                {                     
                     return false; 
                 }
             }
@@ -477,9 +478,21 @@ namespace QuantumWorld_v1._0.Model
         {
             for (int i = 0; i < PlayerResources.Length; i++)
             {
-                if (this.PlayerResources[i].Value < ship.Cost[i].Value) { return false; }
+                if (this.PlayerResources[i].Value < ship.Cost[i].Value || !(IsSpaceshipFactoryRequiredLevel(ship))) 
+                { 
+                    return false; 
+                }
             }
             return true;
+        }
+
+        private bool IsSpaceshipFactoryRequiredLevel(ShipModel ship)
+        {
+            if (SpaceshipFactory.Level >= ship.SpaceshipFactoryLevelRequirement)
+            {
+                return true;
+            }
+            return false;
         }
 
                 private void GenerateCarbonFiber()

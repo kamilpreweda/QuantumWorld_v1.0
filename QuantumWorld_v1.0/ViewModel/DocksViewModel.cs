@@ -16,6 +16,7 @@ namespace QuantumWorld_v1._0.ViewModel
 
         int timeToEnd;
         bool isBusy;
+        int ShipCount;
 
         DispatcherTimer shipTimer;
 
@@ -95,8 +96,11 @@ namespace QuantumWorld_v1._0.ViewModel
 
             BuildLightFighter = new RelayCommand(o =>
                 {
-                    BuildShip(LightFighter);
-                    isBusy = true;
+                    for (int ship = 1; ship <= ShipCount; ship++)
+                    {
+                        BuildShip(LightFighter);
+                        isBusy = true;
+                    }
                 },
                 (o =>
                 {
@@ -104,6 +108,7 @@ namespace QuantumWorld_v1._0.ViewModel
                     CommandManager.InvalidateRequerySuggested();
                     return (_player.canBuildShip(LightFighter) && !isBusy);
                 }));
+        
 
             BuildHeavyFighter = new RelayCommand(o =>
             {

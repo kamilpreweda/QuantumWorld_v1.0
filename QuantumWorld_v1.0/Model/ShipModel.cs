@@ -50,7 +50,15 @@ namespace QuantumWorld_v1._0.Model
         public void DecreaseTimer()
         {
             TimeToBuild--;
-        }         
+        }
+        public void CutTimeToBuildByHalf()
+        {
+            this.TimeToBuild /= 2;
+            if (this.TimeToBuild < 0)
+            {
+                TimeToBuild = 0;
+            }
+        }
     }
 
 

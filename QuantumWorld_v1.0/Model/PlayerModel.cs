@@ -386,7 +386,14 @@ namespace QuantumWorld_v1._0.Model
                 QuantumGlassStorage.CutTimeToBuildByHalf();
                 HiggsBosonDetector.CutTimeToBuildByHalf();
                 SpaceshipFactory.CutTimeToBuildByHalf();
-                NaniteFactory.CutTimeToBuildByHalf();              
+                NaniteFactory.CutTimeToBuildByHalf();
+
+                LightFighter.CutTimeToBuildByHalf();
+                HeavyFighter.CutTimeToBuildByHalf();
+                Battleship.CutTimeToBuildByHalf();
+                Destroyer.CutTimeToBuildByHalf();
+                Dreadnought.CutTimeToBuildByHalf();
+                Mothership.CutTimeToBuildByHalf();
             }            
         }
         public bool canUpgradeBuilding(BuildingModel building)

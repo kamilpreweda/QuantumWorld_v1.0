@@ -16,7 +16,7 @@ namespace QuantumWorld_v1._0.ViewModel
 
         int timeToEnd;
         bool isBusy;
-        int ShipCount;
+        public int ShipCount { get; set; }
 
         DispatcherTimer shipTimer;
 
@@ -89,26 +89,23 @@ namespace QuantumWorld_v1._0.ViewModel
         public RelayCommand BuildDestroyer { get; set; }
         public RelayCommand BuildDreadnought { get; set; }
         public RelayCommand BuildMothership { get; set; }
+                
         public DocksViewModel(PlayerModel player)
         {
             Player = player;
             isBusy = false;
 
             BuildLightFighter = new RelayCommand(o =>
-                {
-                    for (int ship = 1; ship <= ShipCount; ship++)
-                    {
-                        BuildShip(LightFighter);
-                        isBusy = true;
-                    }
-                },
+            {                       
+                BuildShip(LightFighter);
+                isBusy = true;
+                    
+            },
                 (o =>
                 {
-
                     CommandManager.InvalidateRequerySuggested();
                     return (_player.canBuildShip(LightFighter) && !isBusy);
-                }));
-        
+                }));     
 
             BuildHeavyFighter = new RelayCommand(o =>
             {
@@ -171,38 +168,40 @@ namespace QuantumWorld_v1._0.ViewModel
                 }));
         }
         public void BuildShip(ShipModel ship)
-        {
+        {  
+                timeToEnd = ship.TimeToBuild;
+                shipTimer = new DispatcherTimer();
+                shipTimer.Interval = TimeSpan.FromSeconds(1);
+                shipTimer.Tick += (s, e) => ShipTimer_Tick(ship);
 
-            timeToEnd = ship.TimeToBuild;
-            shipTimer = new DispatcherTimer();
-            shipTimer.Interval = TimeSpan.FromSeconds(1);
-            shipTimer.Tick += (s, e) => ShipTimer_Tick(ship);
-
-            shipTimer.Start();
+                shipTimer.Start();
+                
         }
 
         private void ShipTimer_Tick(ShipModel ship)
         {
             timeToEnd = ship.TimeToBuild;            
-
-            if (ship.TimeToBuild > 0)
-            {
-                ship.DecreaseTimer();
-                timeToEnd--;
-                ship.NewTime++;
-                OnPropertyChanged(ship.Name);
-            }
-            else
-            {
-                shipTimer.Stop();
-                ship.ResetTimer(ship.NewTime);
-                _player.BuildShip(ship);
-                ship.NewTime = 0;
-                CheckChanges();
-                OnPropertyChanged(ship.Name);                
-                isBusy = false;
-                OnPropertyChanged(nameof(Player.PlayerResources));
-            }
+            
+                if (ship.TimeToBuild > 0)
+                {
+                    ship.DecreaseTimer();
+                    timeToEnd--;
+                    ship.NewTime++;
+                    OnPropertyChanged(ship.Name);
+                }
+                else
+                {
+                    shipTimer.Stop();
+                    ship.ResetTimer(ship.NewTime);                    
+                    ship.NewTime = 0;
+                    int shipcount = GetShipCount();
+                    _player.BuildShip(ship);
+                    CheckChanges();
+                    OnPropertyChanged(ship.Name);
+                    isBusy = false;
+                    OnPropertyChanged(nameof(Player.PlayerResources));
+                }
+            
         }
         public void CheckChanges()
         {
@@ -212,7 +211,11 @@ namespace QuantumWorld_v1._0.ViewModel
             OnPropertyChanged(nameof(Player.Destroyer));
             OnPropertyChanged(nameof(Player.Dreadnought));
             OnPropertyChanged(nameof(Player.Mothership));
+        }
 
+        public int GetShipCount()
+        {
+            return ShipCount;
         }
     }
 }

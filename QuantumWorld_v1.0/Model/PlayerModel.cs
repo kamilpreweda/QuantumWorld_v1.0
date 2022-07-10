@@ -46,7 +46,7 @@ namespace QuantumWorld_v1._0.Model
 
         public ResearchModel AIRobotsResearch { get; private set; }
         public ResearchModel SpaceOrganizing { get; private set; }
-        public ResearchModel TheExpanse{ get; private set; }
+        public ResearchModel TheExpanse { get; private set; }
 
         public ResearchModel ArtOfWar { get; private set; }
         public ResearchModel Hyperdrive { get; private set; }
@@ -61,7 +61,6 @@ namespace QuantumWorld_v1._0.Model
         public ShipModel Destroyer { get; set; }
         public ShipModel Dreadnought { get; set; }
         public ShipModel Mothership { get; set; }
-
 
 
         public ResourceModel[] CarbonFiberBuilding_StartingCost =
@@ -293,9 +292,9 @@ namespace QuantumWorld_v1._0.Model
             Destroyer = new ShipModel("Destroyer", 0, 200, 300, 4, Destroyer_Cost, 8);
             Dreadnought = new ShipModel("Dreadnought", 0, 500, 250, 5, Dreadnought_Cost, 10);
             Mothership = new ShipModel("Mothership", 0, 1000, 1000, 6, Mothership_Cost, 12);
-        }      
-                                  
-        
+        }
+
+
 
         public void upgradeBuilding(BuildingModel building)
         {
@@ -359,7 +358,7 @@ namespace QuantumWorld_v1._0.Model
                 Multipliers[HiggsBosonBuilding] += 3;
             }
             else if (building == SolarEnergyBuilding)
-            {                
+            {
                 PlayerResources[3].AddEnergy(Multipliers[SolarEnergyBuilding]);
                 Multipliers[SolarEnergyBuilding] += 0.1F;
             }
@@ -394,10 +393,10 @@ namespace QuantumWorld_v1._0.Model
                 Destroyer.CutTimeToBuildByHalf();
                 Dreadnought.CutTimeToBuildByHalf();
                 Mothership.CutTimeToBuildByHalf();
-            }            
+            }
         }
         public bool canUpgradeBuilding(BuildingModel building)
-        {           
+        {
             for (int i = 0; i < PlayerResources.Length; i++)
             {
                 if (this.PlayerResources[i].Value < building.Cost[i].Value) { return false; }
@@ -408,7 +407,7 @@ namespace QuantumWorld_v1._0.Model
         {
             GenerateCarbonFiber();
             GenerateQuantumGlass();
-            GenerateHiggsBoson();            
+            GenerateHiggsBoson();
         }
         public void upgradeResearch(ResearchModel research)
         {
@@ -456,9 +455,9 @@ namespace QuantumWorld_v1._0.Model
         {
             for (int i = 0; i < PlayerResources.Length; i++)
             {
-                if (this.PlayerResources[i].Value < research.Cost[i].Value || !(IsLabRequiredLevel(research))) 
-                {                     
-                    return false; 
+                if (this.PlayerResources[i].Value < research.Cost[i].Value || !(IsLabRequiredLevel(research)))
+                {
+                    return false;
                 }
             }
             return true;
@@ -474,22 +473,24 @@ namespace QuantumWorld_v1._0.Model
 
         public void BuildShip(ShipModel ship)
         {
-            for (int i = 0; i < PlayerResources.Length; i++)
-            {
-                this.PlayerResources[i].SubtractFromResources(ship.Cost[i].Value);               
-            }
-            ship.IncreaseCount();          
-        }
 
-        public bool canBuildShip(ShipModel ship) 
-        {
             for (int i = 0; i < PlayerResources.Length; i++)
             {
-                if (this.PlayerResources[i].Value < ship.Cost[i].Value || !(IsSpaceshipFactoryRequiredLevel(ship))) 
-                { 
-                    return false; 
-                }
+                this.PlayerResources[i].SubtractFromResources(ship.Cost[i].Value);
             }
+            ship.IncreaseCount();
+        }
+    
+
+        public bool canBuildShip(ShipModel ship)
+        {           
+            for (int i = 0; i < PlayerResources.Length; i++)
+            {
+                if (this.PlayerResources[i].Value < ship.Cost[i].Value || !(IsSpaceshipFactoryRequiredLevel(ship)))
+                {
+                    return false;
+                }
+            } 
             return true;
         }
 

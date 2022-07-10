@@ -51,8 +51,7 @@
                     <Label Content="{Binding LightFighter.Cost[0].Value}"/>
                     <Label Content="QG: "/>
                     <Label Content="{Binding LightFighter.Cost[1].Value}"/>
-                    <Label Content="{Binding LightFighter.TimeToBuild}"/>
-                    <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
+                    <Label Content="{Binding LightFighter.TimeToBuild}"/>                        
                     <Button Content="Build" Command="{Binding BuildLightFighter}"/>
                 </StackPanel>
             </StackPanel>

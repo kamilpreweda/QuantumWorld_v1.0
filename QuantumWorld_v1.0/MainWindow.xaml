@@ -24,6 +24,7 @@
             <Button x:Name="menuBuildingsButton" Content="Buildings" Margin="10,10,10,10" Command="{Binding BuildingsViewCommand}"/>
             <Button x:Name="menuResearchButton" Content="Research" Margin="10,10,10,10" Command="{Binding ResearchViewCommand}"/>
             <Button x:Name="menuDocksButton" Content="Docks" Margin="10,10,10,10" Command="{Binding DocksViewCommand}"/>
+            <Button x:Name="menuMapButton" Content="Map" Margin="10,10,10,10" Command="{Binding MapViewCommand}"/>
         </StackPanel>
         <StackPanel x:Name="resourcesStackPanel" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10,10,10,10" HorizontalAlignment="Center">
             <Label x:Name="carbonFiberTextLabel" Content="Carbon Fiber:" Margin="10,10,10,10"/>

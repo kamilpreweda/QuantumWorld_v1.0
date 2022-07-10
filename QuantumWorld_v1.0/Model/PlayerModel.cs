@@ -62,6 +62,9 @@ namespace QuantumWorld_v1._0.Model
         public ShipModel Dreadnought { get; set; }
         public ShipModel Mothership { get; set; }
 
+        public EnemyModel Pirates { get; set; }
+        public ShipModel PiratesLightFighter { get; set; }
+
 
         public ResourceModel[] CarbonFiberBuilding_StartingCost =
         {
@@ -286,12 +289,15 @@ namespace QuantumWorld_v1._0.Model
             ResearchMultipliers.Add(ArtOfWar, 2F);
             ResearchMultipliers.Add(Hyperdrive, 2F);
 
-            LightFighter = new ShipModel("LightFighter", 0, 10, 5, 1, LightFighter_Cost, 2);
-            HeavyFighter = new ShipModel("HeavyFighter", 0, 30, 15, 2, HeavyFighter_Cost, 4);
+            LightFighter = new ShipModel("LightFighter", 0, 1, 1, 1, LightFighter_Cost, 0);
+            HeavyFighter = new ShipModel("HeavyFighter", 0, 30, 8, 2, HeavyFighter_Cost, 0);
             Battleship = new ShipModel("Battleship", 0, 100, 75, 3, Battleship_Cost, 6);
             Destroyer = new ShipModel("Destroyer", 0, 200, 300, 4, Destroyer_Cost, 8);
             Dreadnought = new ShipModel("Dreadnought", 0, 500, 250, 5, Dreadnought_Cost, 10);
             Mothership = new ShipModel("Mothership", 0, 1000, 1000, 6, Mothership_Cost, 12);
+
+            Pirates = new EnemyModel("Pirates", 5000, 5000, 0, 1, 0, 0, 0);
+            PiratesLightFighter = new ShipModel("PiratesLightFighter", 10, 1, 1);
         }
 
 
@@ -492,6 +498,176 @@ namespace QuantumWorld_v1._0.Model
                 }
             } 
             return true;
+        }
+
+        public void Attack(EnemyModel enemy)
+        {
+            // zbieram wszystkie statki playera i sumuje ich łączne HP
+
+            int playerTotalHP = (LightFighter.Count * LightFighter.HealthPoints) +
+                                (HeavyFighter.Count * HeavyFighter.HealthPoints) +
+                                (Battleship.Count * Battleship.HealthPoints) +
+                                (Destroyer.Count * Destroyer.HealthPoints) +
+                                (Dreadnought.Count * Dreadnought.HealthPoints) +
+                                (Mothership.Count * Mothership.HealthPoints);
+            
+            // dodaje attack power wszystkich statków playera
+
+            int playerTotalAP = (LightFighter.Count * LightFighter.AttackPower) +
+                                (HeavyFighter.Count * HeavyFighter.AttackPower) +
+                                (Battleship.Count * Battleship.AttackPower) +
+                                (Destroyer.Count * Destroyer.AttackPower) +
+                                (Dreadnought.Count * Dreadnought.AttackPower) +
+                                (Mothership.Count * Mothership.AttackPower);
+
+            int enemyTotalHP;
+            int enemyTotalAP;
+
+            // Jeżeli enemy == Pirates 
+
+            if (enemy == Pirates)
+            {
+                // zbieram wszystkie statki enemy i sumuje ich łączne HP
+
+                enemyTotalHP = (PiratesLightFighter.Count * PiratesLightFighter.HealthPoints);
+
+                // dodaje attack power wszystkich statków enemy
+
+                enemyTotalAP = (PiratesLightFighter.Count * PiratesLightFighter.AttackPower);
+
+                // Walka się toczy dopóki HP playera albo enemy jest większe od 0
+
+                while (enemyTotalHP > 0 || playerTotalHP > 0) { 
+
+                // Statki playera atakują wartośćią totalAttackPower i odejmuje tą wartość od EnemyTotalHP
+
+                enemyTotalHP -= playerTotalAP;
+
+                    // Jeżeli EnemyTotalHP <= 0 przerywam walkę (ustawiam wartości HP na 0 żeby wyjść z pętli while)
+                    // i dodaje rewards do surowców playera i zeruje statki i rewards enemy
+
+                    if (enemyTotalHP <= 0)
+                    {
+                        PlayerResources[0].Value += enemy.CarbonFiberReward;
+                        PlayerResources[1].Value += enemy.QuantumGlassReward;
+                        enemy.CarbonFiberReward = 0;
+                        enemy.QuantumGlassReward = 0;
+                        PiratesLightFighter.Count = 0;
+                        playerTotalHP = 0;
+                        enemyTotalHP = 0;
+
+                        // Jeżeli EnemyTotalHP > 0 
+
+                    }
+                    else if (enemyTotalHP > 0)
+                    {
+                        // obliczam straty w statkach enemy
+
+                        PiratesLightFighter.Count = (enemyTotalHP / PiratesLightFighter.HealthPoints);
+
+                        // obliczam nową wartość enemyTotalAP
+
+                        enemyTotalAP = (PiratesLightFighter.Count * PiratesLightFighter.AttackPower);
+
+                        // enemy atakuje playera z enemyTotalAttackPower i odejmuje tą wartość od playerTotalHP
+
+                        playerTotalHP -= enemyTotalAP;
+
+                        // Jeżeli playerTotalHP <= 0 przerywam walkę, usuwam statki playera i resetuje statki enemy
+
+                        if (playerTotalHP <= 0)
+                        {
+                            LightFighter.Count = 0;
+                            HeavyFighter.Count = 0;
+                            Battleship.Count = 0;
+                            Destroyer.Count = 0;
+                            Dreadnought.Count = 0;
+                            Mothership.Count = 0;
+
+                            PiratesLightFighter.Count = 10;
+
+                            playerTotalHP = 0;
+                            enemyTotalHP = 0;
+
+                            // Jeżeli playerTotalHP > 0 to obliczam nową ilość statków playera i player znowu atakuje
+
+                        }
+                        else if (playerTotalHP > 0)
+                        {
+                            // dodaje statki playera do listy tylko i wyłącznie wtedy gdy player jakieś posiada
+
+                            List<ShipModel> ships = new List<ShipModel>();
+                            if(LightFighter.Count > 0)
+                            {
+                                ships.Add(LightFighter);
+                            }
+                            if(HeavyFighter.Count > 0)
+                            {
+                                ships.Add(HeavyFighter);
+                            }
+                            if(Battleship.Count > 0)
+                            {
+                                ships.Add(Battleship);
+                            }
+                            if(Destroyer.Count > 0)
+                            {
+                                ships.Add(Destroyer);
+                            }
+                            if(Dreadnought.Count > 0)
+                            {
+                                ships.Add(Dreadnought);
+                            }
+                            if(Mothership.Count > 0)
+                            {
+                                ships.Add(Mothership);
+                            }
+                            
+                            // tworzę nową zmienną playerTotalHPPool w celu obliczenia nowej ilości statków bez zmieniania wartości playerTotalHP
+
+                            int playerTotalHPPool = playerTotalHP;
+
+                            // obliczam nowe statki dopóki nie wykorzystam całej puli dostępnego HP ( najpierw niszczone są najsłabsze statki )
+
+                            while (playerTotalHPPool > 0)
+                            {
+                                foreach (ShipModel ship in ships)
+                                {
+                                    int LostShip = (int)MathF.Round(ship.Count / ship.HealthPoints);
+                                    // Operator modulo ponieważ operuje na intach
+                                    playerTotalHPPool -= (ship.Count * ship.HealthPoints);
+                                    ship.Count -= LostShip;
+                                        
+                                    if (playerTotalHPPool < ship.HealthPoints)
+                                    {
+                                        playerTotalHPPool = 0;
+                                    }
+                                 }                                   
+                            }
+
+                            // obliczam nową wartość playerTotalAP
+
+                            playerTotalAP = (LightFighter.Count * LightFighter.HealthPoints) +
+                                (HeavyFighter.Count * HeavyFighter.HealthPoints) +
+                                (Battleship.Count * Battleship.HealthPoints) +
+                                (Destroyer.Count * Destroyer.HealthPoints) +
+                                (Dreadnought.Count * Dreadnought.HealthPoints) +
+                                (Mothership.Count * Mothership.HealthPoints);
+
+                            // i wracam do pętli while
+                        }
+                    }
+
+                } // koniec walki
+            }               
+        }
+
+        public bool canAttack(EnemyModel enemy)
+        {
+            if(TheExpanse.Level >= enemy.TheExpanseLevelRequirement && ArtOfWar.Level >= enemy.ArtOfWarLevelRequirement && Hyperdrive.Level >= enemy.HyperdriveLevelRequirement)
+            {
+                return true;
+            }
+            return false;
         }
 
         private bool IsSpaceshipFactoryRequiredLevel(ShipModel ship)

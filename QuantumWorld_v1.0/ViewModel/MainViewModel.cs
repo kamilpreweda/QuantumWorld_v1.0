@@ -17,10 +17,12 @@ namespace QuantumWorld_v1._0.ViewModel
         public RelayCommand BuildingsViewCommand { get; set; }
         public RelayCommand ResearchViewCommand { get; set; }
         public RelayCommand DocksViewCommand { get; set; }
+        public RelayCommand MapViewCommand { get; set; }
         public OverviewViewModel OverviewVM { get; set; }
         public BuildingsViewModel BuildingsVM { get; set; }
         public ResearchViewModel ResearchVM { get; set; }
         public DocksViewModel DocksVM { get; set; }
+        public MapViewModel MapVM { get; set; }
 
        
         private PlayerModel _player;
@@ -50,6 +52,7 @@ namespace QuantumWorld_v1._0.ViewModel
             BuildingsVM = new BuildingsViewModel(Player);
             ResearchVM = new ResearchViewModel(Player);
             DocksVM = new DocksViewModel(Player);
+            MapVM = new MapViewModel(Player);
 
             CurrentView = OverviewVM;
 
@@ -71,6 +74,11 @@ namespace QuantumWorld_v1._0.ViewModel
             DocksViewCommand = new RelayCommand(o =>
             {
                 CurrentView = DocksVM;
+            });
+
+            MapViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = MapVM;
             });
 
             timer.Tick += Timer_Tick;

@@ -477,14 +477,17 @@ namespace QuantumWorld_v1._0.Model
             return false;
         }
 
-        public void BuildShip(ShipModel ship)
+        public void BuildShip(ShipModel ship, int validatedShipCount)
         {
-
-            for (int i = 0; i < PlayerResources.Length; i++)
+            for (int j = 0; j < validatedShipCount; j++)
             {
-                this.PlayerResources[i].SubtractFromResources(ship.Cost[i].Value);
-            }
+                for (int i = 0; i < PlayerResources.Length; i++)
+                {
+                    this.PlayerResources[i].SubtractFromResources(ship.Cost[i].Value);
+                }
+            
             ship.IncreaseCount();
+            }
         }
     
 
@@ -633,7 +636,7 @@ namespace QuantumWorld_v1._0.Model
                                 foreach (ShipModel ship in ships)
                                 {
                                     int LostShip = (int)MathF.Round(ship.Count / ship.HealthPoints);
-                                    // Operator modulo ponieważ operuje na intach
+                                    
                                     playerTotalHPPool -= (ship.Count * ship.HealthPoints);
                                     ship.Count -= LostShip;
                                         
@@ -646,12 +649,12 @@ namespace QuantumWorld_v1._0.Model
 
                             // obliczam nową wartość playerTotalAP
 
-                            playerTotalAP = (LightFighter.Count * LightFighter.HealthPoints) +
-                                (HeavyFighter.Count * HeavyFighter.HealthPoints) +
-                                (Battleship.Count * Battleship.HealthPoints) +
-                                (Destroyer.Count * Destroyer.HealthPoints) +
-                                (Dreadnought.Count * Dreadnought.HealthPoints) +
-                                (Mothership.Count * Mothership.HealthPoints);
+                            playerTotalAP = (LightFighter.Count * LightFighter.AttackPower) +
+                                (HeavyFighter.Count * HeavyFighter.AttackPower) +
+                                (Battleship.Count * Battleship.AttackPower) +
+                                (Destroyer.Count * Destroyer.AttackPower) +
+                                (Dreadnought.Count * Dreadnought.AttackPower) +
+                                (Mothership.Count * Mothership.AttackPower);
 
                             // i wracam do pętli while
                         }

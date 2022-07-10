@@ -9,7 +9,7 @@ namespace QuantumWorld_v1._0.Model
     public class ShipModel
     {
         public string Name { get; private set; }
-        public int TimeToBuild { get; private set; }
+        public int TimeToBuild { get; set; }
         public int Count { get; set; }
         public int HealthPoints { get; private set; }
         public int AttackPower { get; private set; }

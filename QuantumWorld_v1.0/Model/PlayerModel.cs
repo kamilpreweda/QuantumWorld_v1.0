@@ -64,7 +64,23 @@ namespace QuantumWorld_v1._0.Model
 
         public EnemyModel Pirates { get; set; }
         public ShipModel PiratesLightFighter { get; set; }
-
+        public EnemyModel Outsiders { get; set; }
+        public ShipModel OutsidersLightFighter { get; set; }
+        public ShipModel OutsidersHeavyFighter { get; set; }
+        public EnemyModel Rebels { get; set; }
+        public ShipModel RebelsBattleship { get; set; }
+        public ShipModel RebelsDestroyer { get; set; }
+        public EnemyModel Armaments { get; set; }
+        public ShipModel ArmamentsDestroyer { get; set; }
+        public ShipModel ArmamentsDreadnought { get; set; }
+        public EnemyModel Distants { get; set; }
+        public ShipModel DistantsBattleship { get; set; }
+        public ShipModel DistantsDestroyer { get; set; }
+        public ShipModel DistantsDreadnought { get; set; }
+        public EnemyModel Ancients { get; set; }
+        public ShipModel AncientsDestroyer { get; set; }
+        public ShipModel AncientsDreadnought { get; set; }
+        public ShipModel AncientsMothership { get; set; }
 
         public ResourceModel[] CarbonFiberBuilding_StartingCost =
         {
@@ -289,15 +305,37 @@ namespace QuantumWorld_v1._0.Model
             ResearchMultipliers.Add(ArtOfWar, 2F);
             ResearchMultipliers.Add(Hyperdrive, 2F);
 
-            LightFighter = new ShipModel("LightFighter", 0, 1, 1, 1, LightFighter_Cost, 0);
-            HeavyFighter = new ShipModel("HeavyFighter", 0, 30, 8, 2, HeavyFighter_Cost, 0);
+            LightFighter = new ShipModel("LightFighter", 0, 20, 10, 1, LightFighter_Cost, 2);
+            HeavyFighter = new ShipModel("HeavyFighter", 0, 50, 30, 2, HeavyFighter_Cost, 4);
             Battleship = new ShipModel("Battleship", 0, 100, 75, 3, Battleship_Cost, 6);
             Destroyer = new ShipModel("Destroyer", 0, 200, 300, 4, Destroyer_Cost, 8);
             Dreadnought = new ShipModel("Dreadnought", 0, 500, 250, 5, Dreadnought_Cost, 10);
             Mothership = new ShipModel("Mothership", 0, 1000, 1000, 6, Mothership_Cost, 12);
 
-            Pirates = new EnemyModel("Pirates", 5000, 5000, 0, 1, 0, 0, 0);
-            PiratesLightFighter = new ShipModel("PiratesLightFighter", 10, 1, 1);
+            Pirates = new EnemyModel("Pirates", 5000, 5000, 0, 1, 2, 0, 0);
+            PiratesLightFighter = new ShipModel("PiratesLightFighter", 10, 20, 10);
+
+            Outsiders = new EnemyModel("Outsiders", 15000, 15000, 0, 2, 4, 0, 0);
+            OutsidersLightFighter = new ShipModel("OutsidersLightFighter", 50, 20, 10);
+            OutsidersHeavyFighter = new ShipModel("HeavyFighter", 25, 50, 30);
+
+            Rebels = new EnemyModel("Rebels", 25000, 25000, 10000, 3, 4, 4, 0);
+            RebelsBattleship = new ShipModel("RebelsBattleship", 50, 100, 75);
+            RebelsDestroyer = new ShipModel("RebelsDestroyer", 25, 200, 300);
+
+            Armaments = new EnemyModel("Armaments", 50000, 50000, 50000, 4, 4, 6, 0);
+            ArmamentsDestroyer = new ShipModel("ArmamentsDestroyer", 100, 200, 300);
+            ArmamentsDreadnought = new ShipModel("ArmamentsDreadnought", 50, 500, 250);
+
+            Distants = new EnemyModel("Distants", 100000, 100000, 100000, 5, 6, 6, 6);
+            DistantsBattleship = new ShipModel("DistantsBattleship", 150, 100, 75);
+            DistantsDestroyer = new ShipModel("DistantsDestroyer", 100, 200, 300);
+            DistantsDreadnought = new ShipModel("DistantsDreadnought", 50, 500, 250);
+
+            Ancients = new EnemyModel("Ancients", 500000, 500000, 500000, 6, 8, 8, 8);
+            AncientsDestroyer = new ShipModel("AncientsDestroyer", 500, 200, 300);
+            AncientsDreadnought = new ShipModel("AncientsDreadnought", 250, 500, 250);
+            AncientsMothership = new ShipModel("AncientsMothership", 1, 1000, 1000);
         }
 
 

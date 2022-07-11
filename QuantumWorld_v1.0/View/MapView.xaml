@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QuantumWorld_v1._0.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="900">
     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
         <Grid Background="White">
             <Grid.RowDefinitions>
@@ -28,10 +28,6 @@
                     <StackPanel>
                         <StackPanel>
                             <Label Content="Pirates"/>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Light fighters: "/>
-                                <Label Content="{Binding PiratesLightFighter.Count}"/>
-                            </StackPanel>
                         </StackPanel>
                         <StackPanel>
                             <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
@@ -45,20 +41,230 @@
                     </StackPanel>
                     <StackPanel>
                         <TextBlock Text="Pirates Description"/>
-                    </StackPanel>
-                    <Label Content="Rewards:"/>
+                            <StackPanel Orientation="Horizontal">
+                        <Label Content="Light fighters: "/>
+                        <Label Content="{Binding PiratesLightFighter.Count}"/>
+                        </StackPanel>
+                    </StackPanel>                    
                     <StackPanel Orientation="Horizontal">
+                        <Label Content="Rewards:"/>
                         <Label Content="CF: "/>
                         <Label Content="{Binding Pirates.CarbonFiberReward}"/>
                         <Label Content="QG: "/>
                         <Label Content="{Binding Pirates.QuantumGlassReward}"/>
-                        <Label Content="{Binding Pirates.TimeToAttack}"/>
+                        <Label Content="{Binding Pirates.TimeToAttack}"/>                        
                         <Button Content="Attack" Command="{Binding AttackPirates}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
 
 
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Outsiders"/>                             
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required The Expanse level 4"/>
+                    </StackPanel>
+                    <StackPanel>                    
+                        <TextBlock Text="Outsiders Description"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Light fighters: "/>
+                            <Label Content="{Binding OutsidersLightFighter.Count}"/>
+                        </StackPanel>
+                        <Label Content="Heavy fighters: "/>
+                        <Label Content="{Binding OutsidersHeavyFighter.Count}"/>
+                    </StackPanel>                    
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Rewards:"/>
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Outsiders.CarbonFiberReward}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Outsiders.QuantumGlassReward}"/>
+                        <Label Content="{Binding Outsiders.TimeToAttack}"/>
+                        <Button Content="Attack" Command="{Binding AttackOutsiders}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Rebels"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required ArtOfWar Level 4"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Rebels Description"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Battleships: "/>
+                            <Label Content="{Binding RebelsBattleship.Count}"/>
+                        </StackPanel>
+                        <Label Content="Destroyers: "/>
+                        <Label Content="{Binding RebelsDestroyer.Count}"/>
+                    </StackPanel>                    
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Rewards:"/>
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Rebels.CarbonFiberReward}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Rebels.QuantumGlassReward}"/>
+                        <Label Content="HB: "/>
+                        <Label Content="{Binding Rebels.HiggsBosonReward}"/>
+                        <Label Content="{Binding Rebels.TimeToAttack}"/>
+                        <Button Content="Attack" Command="{Binding AttackRebels}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Armaments"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required ArtOfWar Level 6"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Armaments Description"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Destroyers: "/>
+                            <Label Content="{Binding ArmamentsDestroyer.Count}"/>
+                        </StackPanel>
+                        <Label Content="Dreadnoughts: "/>
+                        <Label Content="{Binding ArmamentsDreadnought.Count}"/>
+                    </StackPanel>                    
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Rewards:"/>
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Armaments.CarbonFiberReward}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Armaments.QuantumGlassReward}"/>
+                        <Label Content="HB: "/>
+                        <Label Content="{Binding Armaments.HiggsBosonReward}"/>
+                        <Label Content="{Binding Armaments.TimeToAttack}"/>
+                        <Button Content="Attack" Command="{Binding AttackArmaments}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Distants"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required Hyperdrive Level 6"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Distants Description"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Battleships: "/>
+                            <Label Content="{Binding DistantsBattleship.Count}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Destroyers: "/>
+                            <Label Content="{Binding DistantsDestroyer.Count}"/>
+                        </StackPanel>
+                        <Label Content="Dreadnoughts: "/>
+                        <Label Content="{Binding DistantsDreadnought.Count}"/>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Rewards:"/>
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Distants.CarbonFiberReward}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Distants.QuantumGlassReward}"/>
+                        <Label Content="HB: "/>
+                        <Label Content="{Binding Distants.HiggsBosonReward}"/>
+                        <Label Content="{Binding Distants.TimeToAttack}"/>
+                        <Button Content="Attack" Command="{Binding AttackDistants}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel>
+                            <Label Content="Ancients"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Image Source="/View/AIRobotsResearch.jpg" Width="150" Height="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Required Hyperdrive Level 8"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Ancients Description"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Destroyers: "/>
+                            <Label Content="{Binding AncientsDestroyer.Count}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Dreadnoughts: "/>
+                            <Label Content="{Binding AncientsDreadnought.Count}"/>
+                        </StackPanel>
+                        <Label Content="Motherships: "/>
+                        <Label Content="{Binding AncientsMothership.Count}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Rewards:"/>
+                        <Label Content="CF: "/>
+                        <Label Content="{Binding Ancients.CarbonFiberReward}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding Ancients.QuantumGlassReward}"/>
+                        <Label Content="HB: "/>
+                        <Label Content="{Binding Ancients.HiggsBosonReward}"/>
+                        <Label Content="{Binding Ancients.TimeToAttack}"/>
+                        <Button Content="Attack" Command="{Binding AttackAncients}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
 
         </Grid>
     </ScrollViewer>

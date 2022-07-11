@@ -75,15 +75,17 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Required The Expanse level 4"/>
                     </StackPanel>
-                    <StackPanel>                    
+                    <StackPanel>
                         <TextBlock Text="Outsiders Description"/>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Light fighters: "/>
                             <Label Content="{Binding OutsidersLightFighter.Count}"/>
                         </StackPanel>
-                        <Label Content="Heavy fighters: "/>
-                        <Label Content="{Binding OutsidersHeavyFighter.Count}"/>
-                    </StackPanel>                    
+                    <StackPanel Orientation="Horizontal">
+                    <Label Content="Heavy fighters: "/>
+                    <Label Content="{Binding OutsidersHeavyFighter.Count}"/>
+                    </StackPanel>
+            </StackPanel>                    
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Rewards:"/>
                         <Label Content="CF: "/>
@@ -119,8 +121,10 @@
                             <Label Content="Battleships: "/>
                             <Label Content="{Binding RebelsBattleship.Count}"/>
                         </StackPanel>
-                        <Label Content="Destroyers: "/>
-                        <Label Content="{Binding RebelsDestroyer.Count}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Destroyers: "/>
+                            <Label Content="{Binding RebelsDestroyer.Count}"/>
+                        </StackPanel>
                     </StackPanel>                    
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Rewards:"/>
@@ -159,8 +163,10 @@
                             <Label Content="Destroyers: "/>
                             <Label Content="{Binding ArmamentsDestroyer.Count}"/>
                         </StackPanel>
+                            <StackPanel Orientation="Horizontal">
                         <Label Content="Dreadnoughts: "/>
                         <Label Content="{Binding ArmamentsDreadnought.Count}"/>
+                            </StackPanel>
                     </StackPanel>                    
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Rewards:"/>
@@ -203,8 +209,10 @@
                             <Label Content="Destroyers: "/>
                             <Label Content="{Binding DistantsDestroyer.Count}"/>
                         </StackPanel>
-                        <Label Content="Dreadnoughts: "/>
-                        <Label Content="{Binding DistantsDreadnought.Count}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Dreadnoughts: "/>
+                            <Label Content="{Binding DistantsDreadnought.Count}"/>
+                        </StackPanel>
                     </StackPanel>
                     
                     <StackPanel Orientation="Horizontal">
@@ -248,8 +256,10 @@
                             <Label Content="Dreadnoughts: "/>
                             <Label Content="{Binding AncientsDreadnought.Count}"/>
                         </StackPanel>
-                        <Label Content="Motherships: "/>
-                        <Label Content="{Binding AncientsMothership.Count}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Motherships: "/>
+                            <Label Content="{Binding AncientsMothership.Count}"/>
+                        </StackPanel>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">

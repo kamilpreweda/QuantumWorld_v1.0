@@ -16,14 +16,7 @@ namespace QuantumWorld_v1._0.Model
         public ResourceModel[] Cost { get; private set; }
         public int NewTime { get; set; } = 0;
         public int SpaceshipFactoryLevelRequirement { get; private set; }        
-
-        public ShipModel(string name, int count, int healthPoints, int attackPower)
-        {
-            this.Name = name;
-            this.Count = count;
-            this.HealthPoints = healthPoints;
-            this.AttackPower = attackPower;           
-        }
+              
         public ShipModel(string name, int count, int healthPoints, int attackPower, int timeToBuild, ResourceModel[] cost, int spaceshipFactoryLevelRequirement)
         {
             this.Name = name;

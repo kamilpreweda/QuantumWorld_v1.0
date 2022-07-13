@@ -19,8 +19,15 @@ namespace QuantumWorld_v1._0.Model
         public int ArtOfWarLevelRequirement { get; private set; }
         public int HyperdriveLevelRequirement { get; private set; }
 
+        public int LightFighterCount { get; set; }
+        public int HeavyFighterCount { get; set; }
+        public int BattleshipCount { get; set; }
+        public int DestroyerCount { get; set; }
+        public int DreadnoughtCount { get; set; }
+        public int MothershipCount { get; set; }
 
-        public EnemyModel(string name, float carbonFiberReward, float quantumGlassReward, float higgsBosonReward, int timeToAttack, int theExpanseLevelRequirement, int artOfWarLevelRequirement, int hyperdriveLevelRequirement)
+
+        public EnemyModel(string name, float carbonFiberReward, float quantumGlassReward, float higgsBosonReward, int timeToAttack, int theExpanseLevelRequirement, int artOfWarLevelRequirement, int hyperdriveLevelRequirement, int lightFighterCount, int heavyFighterCount, int battleshipCount, int destroyerCount, int dreadnoughtCount, int mothershipCount)
         {
             this.Name = name;
             this.CarbonFiberReward = carbonFiberReward;
@@ -30,6 +37,12 @@ namespace QuantumWorld_v1._0.Model
             this.TheExpanseLevelRequirement = theExpanseLevelRequirement;
             this.ArtOfWarLevelRequirement = artOfWarLevelRequirement;
             this.HyperdriveLevelRequirement = hyperdriveLevelRequirement;
+            this.LightFighterCount = lightFighterCount;
+            this.HeavyFighterCount = heavyFighterCount;
+            this.BattleshipCount = battleshipCount;
+            this.DestroyerCount = destroyerCount;
+            this.DreadnoughtCount = dreadnoughtCount;
+            this.MothershipCount = mothershipCount;
         }
         public void SetEnemy(EnemyModel enemy)
         {

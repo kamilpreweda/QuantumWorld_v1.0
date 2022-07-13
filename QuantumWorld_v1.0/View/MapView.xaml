@@ -43,7 +43,7 @@
                         <TextBlock Text="Pirates Description"/>
                             <StackPanel Orientation="Horizontal">
                         <Label Content="Light fighters: "/>
-                        <Label Content="{Binding PiratesLightFighter.Count}"/>
+                        <Label Content="{Binding Pirates.LightFighterCount}"/>
                         </StackPanel>
                     </StackPanel>                    
                     <StackPanel Orientation="Horizontal">
@@ -79,11 +79,11 @@
                         <TextBlock Text="Outsiders Description"/>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Light fighters: "/>
-                            <Label Content="{Binding OutsidersLightFighter.Count}"/>
+                            <Label Content="{Binding Outsiders.LightFighterCount}"/>
                         </StackPanel>
                     <StackPanel Orientation="Horizontal">
                     <Label Content="Heavy fighters: "/>
-                    <Label Content="{Binding OutsidersHeavyFighter.Count}"/>
+                    <Label Content="{Binding Outsiders.HeavyFighterCount}"/>
                     </StackPanel>
             </StackPanel>                    
                     <StackPanel Orientation="Horizontal">
@@ -119,11 +119,11 @@
                         <TextBlock Text="Rebels Description"/>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Battleships: "/>
-                            <Label Content="{Binding RebelsBattleship.Count}"/>
+                            <Label Content="{Binding Rebels.BattleshipCount}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Destroyers: "/>
-                            <Label Content="{Binding RebelsDestroyer.Count}"/>
+                            <Label Content="{Binding Rebels.DestroyerCount}"/>
                         </StackPanel>
                     </StackPanel>                    
                     <StackPanel Orientation="Horizontal">
@@ -161,11 +161,11 @@
                         <TextBlock Text="Armaments Description"/>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Destroyers: "/>
-                            <Label Content="{Binding ArmamentsDestroyer.Count}"/>
+                            <Label Content="{Binding Armaments.DestroyerCount}"/>
                         </StackPanel>
                             <StackPanel Orientation="Horizontal">
                         <Label Content="Dreadnoughts: "/>
-                        <Label Content="{Binding ArmamentsDreadnought.Count}"/>
+                        <Label Content="{Binding Armaments.DreadnoughtCount}"/>
                             </StackPanel>
                     </StackPanel>                    
                     <StackPanel Orientation="Horizontal">
@@ -203,15 +203,15 @@
                         <TextBlock Text="Distants Description"/>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Battleships: "/>
-                            <Label Content="{Binding DistantsBattleship.Count}"/>
+                            <Label Content="{Binding Distants.BattleshipCount}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Destroyers: "/>
-                            <Label Content="{Binding DistantsDestroyer.Count}"/>
+                            <Label Content="{Binding Distants.DestroyerCount}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Dreadnoughts: "/>
-                            <Label Content="{Binding DistantsDreadnought.Count}"/>
+                            <Label Content="{Binding Distants.DreadnoughtCount}"/>
                         </StackPanel>
                     </StackPanel>
                     
@@ -250,15 +250,15 @@
                         <TextBlock Text="Ancients Description"/>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Destroyers: "/>
-                            <Label Content="{Binding AncientsDestroyer.Count}"/>
+                            <Label Content="{Binding Ancients.DestroyerCount}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Dreadnoughts: "/>
-                            <Label Content="{Binding AncientsDreadnought.Count}"/>
+                            <Label Content="{Binding Ancients.DreadnoughtCount}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Motherships: "/>
-                            <Label Content="{Binding AncientsMothership.Count}"/>
+                            <Label Content="{Binding Ancients.MothershipCount}"/>
                         </StackPanel>
                     </StackPanel>
 

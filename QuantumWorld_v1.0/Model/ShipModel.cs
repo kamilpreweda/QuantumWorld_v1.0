@@ -28,6 +28,14 @@ namespace QuantumWorld_v1._0.Model
             this.SpaceshipFactoryLevelRequirement = spaceshipFactoryLevelRequirement;
         }
 
+        public ShipModel(string name, int count, int healthPoints, int attackPower)
+        {
+            this.Name = name;
+            this.Count = count;
+            this.HealthPoints = healthPoints;
+            this.AttackPower = attackPower;
+        }
+
         public void SetShip(ShipModel ship)
         {
             this.Name = ship.Name;

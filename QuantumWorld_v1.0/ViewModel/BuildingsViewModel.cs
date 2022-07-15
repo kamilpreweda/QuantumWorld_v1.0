@@ -14,7 +14,7 @@ namespace QuantumWorld_v1._0.ViewModel
     {
         private PlayerModel _player;
 
-        int timeToEnd;
+        float timeToEnd;
         bool isBusy;
 
         DispatcherTimer buildingTimer;
@@ -249,8 +249,7 @@ namespace QuantumWorld_v1._0.ViewModel
        
 
         public void UpgradeBuilding(BuildingModel building)
-        {
-            
+        {            
             timeToEnd = building.TimeToBuild;
             buildingTimer = new DispatcherTimer();
             buildingTimer.Interval = TimeSpan.FromSeconds(1);

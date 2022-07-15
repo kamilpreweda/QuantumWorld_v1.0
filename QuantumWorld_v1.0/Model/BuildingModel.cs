@@ -11,7 +11,7 @@ namespace QuantumWorld_v1._0.Model
         public int Level { get; private set; }
         public string Name { get; private set; }
 
-        public int TimeToBuild { get; private set; }
+        public float TimeToBuild { get; private set; }
 
         public int NewTime { get; set; } = 0;
 
@@ -21,7 +21,7 @@ namespace QuantumWorld_v1._0.Model
                
         public ResourceModel[] Cost { get; private set; }
 
-        public BuildingModel(string name, ResourceModel[] cost, int level, int timeToBuild)
+        public BuildingModel(string name, ResourceModel[] cost, int level, float timeToBuild)
         {
             Name = name;
             Cost = cost;
@@ -50,25 +50,31 @@ namespace QuantumWorld_v1._0.Model
             this.TimeToBuild = building.TimeToBuild;
             
         }
-        public void SetNewTime(int aiRobotsMultiplier)
+        public void SetNewTime(int aiRobotsMultiplier, float naniteFactoryMultiplier, int naniteFactoryLevel)
         {
+            naniteFactoryMultiplier = GetNaniteFactoryMultiplier(naniteFactoryLevel);
 
-
-            this.TimeToBuild = (this.Level / (aiRobotsMultiplier + 1));
-            if (this.TimeToBuild < 0)
+            this.TimeToBuild = (this.Level / (aiRobotsMultiplier + 1) / naniteFactoryMultiplier);
+                   
+            if (this.TimeToBuild < 1)
             {
                 TimeToBuild = 0;
             }
             
         }
-        public void CutTimeToBuildByHalf()
+        public void CutTimeToBuildByHalf(BuildingModel building)
         {
-            this.TimeToBuild /= 2;
-            if (this.TimeToBuild < 0)
+            building.TimeToBuild /= 2;
+            if (building.TimeToBuild < 0)
             {
                 TimeToBuild = 0;
             }
-        }      
+        }
+        
+        public void ConvertTimeToBuildToInt(BuildingModel building)
+        {            
+            building.TimeToBuild = (int)building.TimeToBuild;
+        }
 
         public void ResetTimer(int time)
         {
@@ -80,6 +86,21 @@ namespace QuantumWorld_v1._0.Model
             TimeToBuild--;
         }
 
-       
+        public int GetLevel() {
+            return this.Level;
+        }
+
+        public float GetNaniteFactoryMultiplier(int naniteFactoryLevel)
+        {
+            float naniteFactoryLevelFloat = naniteFactoryLevel;
+
+            if (naniteFactoryLevelFloat > 0)
+            {
+                float result = (((naniteFactoryLevelFloat / 2) / naniteFactoryLevelFloat) * 4) * naniteFactoryLevelFloat;
+
+                return result;
+            }
+            else return 1;        
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace QuantumWorld_v1._0.Model
 
         DispatcherTimer buildingTimer = new DispatcherTimer();
 
+        #region Properties
+
         public ResourceModel CarbonFiber { get; private set; }
         public ResourceModel QuantumGlass { get; private set; }
         public ResourceModel HiggsBoson { get; private set; }
@@ -30,7 +32,7 @@ namespace QuantumWorld_v1._0.Model
         public Dictionary<BuildingModel, float> CostMultipliers { get; private set; }
 
         public Dictionary<ResearchModel, float> ResearchMultipliers { get; private set; }
-
+        public List<BuildingModel> PlayerBuildings { get; set; }
         public List<ShipModel> PlayerShips { get; set; }
         public List<ShipModel> PiratesShips { get; set; }
         public List<ShipModel> OutsidersShips { get; set; }
@@ -87,6 +89,10 @@ namespace QuantumWorld_v1._0.Model
         public ShipModel AncientsDestroyer { get; set; }
         public ShipModel AncientsDreadnought { get; set; }
         public ShipModel AncientsMothership { get; set; }
+
+        #endregion
+
+        #region StartingCosts
 
         public ResourceModel[] CarbonFiberBuilding_StartingCost =
         {
@@ -252,9 +258,13 @@ namespace QuantumWorld_v1._0.Model
             new ResourceModel("Solar Energy", 0),
         };
 
+        #endregion
+
         public PlayerModel()
         {
             Name = "Kamil";
+
+            #region Resources
 
             PlayerResources = new ResourceModel[]
             {
@@ -266,7 +276,11 @@ namespace QuantumWorld_v1._0.Model
 
             CarbonFiberCap = new ResourceModel(2000);
             QuantumGlassCap = new ResourceModel(2000);
-            HiggsBosonCap = new ResourceModel(2000);
+            HiggsBosonCap = new ResourceModel(2000);                     
+
+            #endregion
+
+            #region Buildings
 
             CarbonFiberBuilding = new BuildingModel("CarbonFiberBuilding", CarbonFiberBuilding_StartingCost, 0, 1);
             QuantumGlassBuilding = new BuildingModel("QuantumGlassBuilding", QuantumGlassBuilding_StartingCost, 0, 1);
@@ -278,6 +292,18 @@ namespace QuantumWorld_v1._0.Model
             HiggsBosonDetector = new BuildingModel("HiggsBosonDetector", HiggsBosonDetector_StartingCost, 0, 1);
             SpaceshipFactory = new BuildingModel("SpaceshipFactory", SpaceshipFactory_StartingCost, 0, 1);
             NaniteFactory = new BuildingModel("NaniteFactory", NaniteFactory_StartingCost, 0, 1);
+
+            PlayerBuildings = new List<BuildingModel>();
+            PlayerBuildings.Add(CarbonFiberBuilding);
+            PlayerBuildings.Add(QuantumGlassBuilding);
+            PlayerBuildings.Add(HiggsBosonBuilding);
+            PlayerBuildings.Add(SolarEnergyBuilding);
+            PlayerBuildings.Add(Labolatory);
+            PlayerBuildings.Add(CarbonFiberStorage);
+            PlayerBuildings.Add(QuantumGlassStorage);
+            PlayerBuildings.Add(HiggsBosonDetector);
+            PlayerBuildings.Add(SpaceshipFactory);
+            PlayerBuildings.Add(NaniteFactory);
 
             Multipliers = new Dictionary<BuildingModel, float>();
             Multipliers.Add(CarbonFiberBuilding, 20);
@@ -297,6 +323,10 @@ namespace QuantumWorld_v1._0.Model
             CostMultipliers.Add(SpaceshipFactory, 2F);
             CostMultipliers.Add(NaniteFactory, 2F);
 
+            #endregion
+
+            #region Research
+
             AIRobotsResearch = new ResearchModel("AIRobotsResearch", AIRobotsResearch_StartingCost, 0, 1, 2);
             SpaceOrganizing = new ResearchModel("SpaceOrganizing", SpaceOrganizing_StartingCost, 0, 1, 4);
             TheExpanse = new ResearchModel("TheExpanse", TheExpanse_StartingCost, 0, 1, 6);
@@ -309,6 +339,10 @@ namespace QuantumWorld_v1._0.Model
             ResearchMultipliers.Add(TheExpanse, 2F);
             ResearchMultipliers.Add(ArtOfWar, 2F);
             ResearchMultipliers.Add(Hyperdrive, 2F);
+
+            #endregion
+
+            #region PlayerShips
 
             LightFighter = new ShipModel("LightFighter", 0, 20, 10, 0, LightFighter_Cost, 0); // ( 0's FOR TESTS )
             HeavyFighter = new ShipModel("HeavyFighter", 0, 50, 30, 0, HeavyFighter_Cost, 0); // (0 FOR TESTS )
@@ -325,6 +359,8 @@ namespace QuantumWorld_v1._0.Model
             PlayerShips.Add(Destroyer);
             PlayerShips.Add(Dreadnought);
             PlayerShips.Add(Mothership);
+
+            #endregion
 
             #region Pirates
 
@@ -512,6 +548,8 @@ namespace QuantumWorld_v1._0.Model
                                     1);
             #endregion
 
+            #region EnemyShipsInitialization
+
             PiratesLightFighter = new ShipModel("PiratesLightFighter", Pirates.LightFighterCount, LightFighter.HealthPoints, LightFighter.AttackPower);
             OutsidersLightFighter = new ShipModel("OutsidersLightFighter", Outsiders.LightFighterCount, LightFighter.HealthPoints, LightFighter.AttackPower);
             OutsidersHeavyFighter = new ShipModel("OutsidersHeavyFighter", Outsiders.HeavyFighterCount, HeavyFighter.HealthPoints, HeavyFighter.AttackPower);
@@ -550,56 +588,20 @@ namespace QuantumWorld_v1._0.Model
             AncientsShips.Add(AncientsDestroyer);
             AncientsShips.Add(AncientsDreadnought);
             AncientsShips.Add(AncientsMothership);
+
+            #endregion
         }
         public void upgradeBuilding(BuildingModel building)
         {
             for (int i = 0; i < PlayerResources.Length; i++)
             {
                 this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
-                if (building == CarbonFiberBuilding)
-                {
-                    building.SetNewCost(i, CostMultipliers[CarbonFiberBuilding]);
-
-                }
-                else if (building == QuantumGlassBuilding)
-                {
-                    building.SetNewCost(i, CostMultipliers[QuantumGlassBuilding]);
-                }
-                else if (building == HiggsBosonBuilding)
-                {
-                    building.SetNewCost(i, CostMultipliers[HiggsBosonBuilding]);
-                }
-                else if (building == SolarEnergyBuilding)
-                {
-                    building.SetNewCost(i, CostMultipliers[SolarEnergyBuilding]);
-                }
-                else if (building == Labolatory)
-                {
-                    building.SetNewCost(i, CostMultipliers[Labolatory]);
-                }
-                else if (building == CarbonFiberStorage)
-                {
-                    building.SetNewCost(i, CostMultipliers[CarbonFiberStorage]);
-                }
-                else if (building == QuantumGlassStorage)
-                {
-                    building.SetNewCost(i, CostMultipliers[QuantumGlassStorage]);
-                }
-                else if (building == HiggsBosonDetector)
-                {
-                    building.SetNewCost(i, CostMultipliers[HiggsBosonDetector]);
-                }
-                else if (building == SpaceshipFactory)
-                {
-                    building.SetNewCost(i, CostMultipliers[SpaceshipFactory]);
-                }
-                else if (building == NaniteFactory)
-                {
-                    building.SetNewCost(i, CostMultipliers[NaniteFactory]);
-                }
+                building.SetNewCost(i, CostMultipliers[building]);                                
             }
             building.IncreaseLevel();
-            building.SetNewTime(AIRobotsResearch.GetLevel());
+            building.SetNewTime(AIRobotsResearch.GetLevel(), NaniteFactory.GetNaniteFactoryMultiplier(NaniteFactory.GetLevel()), NaniteFactory.GetLevel());
+            building.ConvertTimeToBuildToInt(building);
+
             if (building == CarbonFiberBuilding)
             {
                 Multipliers[CarbonFiberBuilding] += 5;
@@ -631,23 +633,15 @@ namespace QuantumWorld_v1._0.Model
             }
             else if (building == NaniteFactory)
             {
-                CarbonFiberBuilding.CutTimeToBuildByHalf();
-                QuantumGlassBuilding.CutTimeToBuildByHalf();
-                HiggsBosonBuilding.CutTimeToBuildByHalf();
-                SolarEnergyBuilding.CutTimeToBuildByHalf();
-                Labolatory.CutTimeToBuildByHalf();
-                CarbonFiberStorage.CutTimeToBuildByHalf();
-                QuantumGlassStorage.CutTimeToBuildByHalf();
-                HiggsBosonDetector.CutTimeToBuildByHalf();
-                SpaceshipFactory.CutTimeToBuildByHalf();
-                NaniteFactory.CutTimeToBuildByHalf();
-
-                LightFighter.CutTimeToBuildByHalf();
-                HeavyFighter.CutTimeToBuildByHalf();
-                Battleship.CutTimeToBuildByHalf();
-                Destroyer.CutTimeToBuildByHalf();
-                Dreadnought.CutTimeToBuildByHalf();
-                Mothership.CutTimeToBuildByHalf();
+                foreach (var playerBuilding in PlayerBuildings)
+                {
+                    playerBuilding.CutTimeToBuildByHalf(playerBuilding);
+                    playerBuilding.ConvertTimeToBuildToInt(playerBuilding);
+                }
+                foreach (var ship in PlayerShips)
+                {
+                    ship.CutTimeToBuildByHalf();
+                }                
             }
         }
         public bool canUpgradeBuilding(BuildingModel building)
@@ -689,22 +683,13 @@ namespace QuantumWorld_v1._0.Model
                 {
                     research.SetNewCost(i, ResearchMultipliers[Hyperdrive]);
                 }
-
-
             }
-
             research.IncreaseLevel();
             research.SetNewTime();
-            CarbonFiberBuilding.SetNewTime(AIRobotsResearch.GetLevel());
-            QuantumGlassBuilding.SetNewTime(AIRobotsResearch.GetLevel());
-            HiggsBosonBuilding.SetNewTime(AIRobotsResearch.GetLevel());
-            SolarEnergyBuilding.SetNewTime(AIRobotsResearch.GetLevel());
-            Labolatory.SetNewTime(AIRobotsResearch.GetLevel());
-            CarbonFiberStorage.SetNewTime(AIRobotsResearch.GetLevel());
-            QuantumGlassStorage.SetNewTime(AIRobotsResearch.GetLevel());
-            HiggsBosonDetector.SetNewTime(AIRobotsResearch.GetLevel());
-            SpaceshipFactory.SetNewTime(AIRobotsResearch.GetLevel());
-            NaniteFactory.SetNewTime(AIRobotsResearch.GetLevel());
+            foreach (var building in PlayerBuildings)
+            {
+                building.SetNewTime(AIRobotsResearch.GetLevel(), NaniteFactory.GetNaniteFactoryMultiplier(NaniteFactory.GetLevel()), NaniteFactory.GetLevel());
+            }            
         }
         public bool canUpgradeResearch(ResearchModel research)
         {
@@ -799,7 +784,6 @@ namespace QuantumWorld_v1._0.Model
                 }
             }
         }
-
         public bool canAttack(EnemyModel enemy)
         {
             if (TheExpanse.Level >= enemy.TheExpanseLevelRequirement && ArtOfWar.Level >= enemy.ArtOfWarLevelRequirement && Hyperdrive.Level >= enemy.HyperdriveLevelRequirement)
@@ -808,7 +792,6 @@ namespace QuantumWorld_v1._0.Model
             }
             return false;
         }
-
         private bool IsSpaceshipFactoryRequiredLevel(ShipModel ship)
         {
             if (SpaceshipFactory.Level >= ship.SpaceshipFactoryLevelRequirement)
@@ -817,7 +800,6 @@ namespace QuantumWorld_v1._0.Model
             }
             return false;
         }
-
         private void GenerateCarbonFiber()
         {
             if (this.PlayerResources[0].Value < CarbonFiberCap.Cap)
@@ -839,7 +821,6 @@ namespace QuantumWorld_v1._0.Model
                 this.PlayerResources[2].AddTo(this.Multipliers[HiggsBosonBuilding]);
             }
         }
-
         private int GetPlayerTotalHP()
         {
             int result = 0;
@@ -860,7 +841,6 @@ namespace QuantumWorld_v1._0.Model
             }
             return result;
         }
-
         private int GetEnemyTotalHP(EnemyModel enemy)
         {
             int result = 0;

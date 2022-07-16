@@ -19,8 +19,10 @@ namespace QuantumWorld_v1._0.Model
             Value = value;
         }
 
-        public ResourceModel(float cap)
+        public ResourceModel(string name, float value, float cap)
         {
+            Name = name;
+            Value = value;
             Cap = cap;
         }
 

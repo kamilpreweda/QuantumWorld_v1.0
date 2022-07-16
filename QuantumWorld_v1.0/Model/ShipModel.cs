@@ -59,13 +59,17 @@ namespace QuantumWorld_v1._0.Model
         {
             TimeToBuild--;
         }
-        public void CutTimeToBuildByHalf()
+        public void CutTimeToBuildByHalf(ShipModel ship)
         {
-            this.TimeToBuild /= 2;
-            if (this.TimeToBuild < 0)
+            ship.TimeToBuild /= 2;
+            if (ship.TimeToBuild < 0)
             {
                 TimeToBuild = 0;
             }
+        }
+        public void ConvertTimeToBuildToInt(ShipModel ship)
+        {
+            ship.TimeToBuild = (int)ship.TimeToBuild;
         }
     }
 

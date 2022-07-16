@@ -14,7 +14,7 @@ namespace QuantumWorld_v1._0.ViewModel
     {
         private PlayerModel _player;
 
-        int timeToEnd;
+        float timeToEnd;
         bool isBusy;
 
         DispatcherTimer researchTimer;

@@ -967,37 +967,41 @@ namespace QuantumWorld_v1._0.Model
         }
         private void CalculateDestroyedShips(List<ShipModel> ships, int damage)
         {
-            int result = 0;
+            int result = 2;
 
             while (damage > 0)
             {
-
-                foreach (var ship in ships)
+                while (result > 1)
                 {
-                    if (ship.Count > 0)
+                    foreach (var ship in ships)
                     {
                         result = (int)MathF.Round(damage / ship.HealthPoints);
 
-                        if (result > ship.Count)
+                        if (ship.Count > 0)
                         {
-                            damage -= ship.Count * ship.HealthPoints;
-                            ship.Count = 0;
+                            {
+                                if (result >= ship.Count)
+                                {
+                                    damage -= ship.Count * ship.HealthPoints;
+                                    result -= ship.Count;
+                                    ship.Count = 0;
+
+                                }
+                                else if (result < ship.Count)
+                                {
+                                    ship.Count -= result;
+                                    damage = 0;
+                                    result = 0;
+                                }
+                                else if (result <= 0)
+                                {
+                                    damage = 0;
+                                }
+                            }
                         }
-                        else if (result < ship.Count)
-                        {
-                            ship.Count -= result;
-                            damage = 0;
-                        }
-                        else if (result == 0)
-                        {
-                            break;                            
-                        }
+                        else result = 0;
                     }
-                    else
-                    {
-                        damage = 0;
-                    }                   
-                }
+                } damage = 0;
             }
         }        
     }

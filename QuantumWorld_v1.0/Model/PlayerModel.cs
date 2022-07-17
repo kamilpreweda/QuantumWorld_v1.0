@@ -587,11 +587,7 @@ namespace QuantumWorld_v1._0.Model
         }
         public void upgradeBuilding(BuildingModel building)
         {
-            for (int i = 0; i < PlayerResources.Length; i++)
-            {
-                this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
-                building.SetNewCost(i, CostMultipliers[building]);                                
-            }
+            CalculateNewCost(building);
             building.IncreaseLevel();
             building.SetNewTime(AIRobotsResearch.GetLevel(), NaniteFactory.GetNaniteFactoryMultiplier(NaniteFactory.GetLevel()), NaniteFactory.GetLevel());
             building.ConvertTimeToBuildToInt(building);
@@ -645,6 +641,14 @@ namespace QuantumWorld_v1._0.Model
                     ship.CutTimeToBuildByHalf(ship);
                     ship.ConvertTimeToBuildToInt(ship);
                 }                
+            }
+        }
+        public void CalculateNewCost(BuildingModel building)
+        {
+            for (int i = 0; i < PlayerResources.Length; i++)
+            {
+                this.PlayerResources[i].SubtractFromResources(building.Cost[i].Value);
+                building.SetNewCost(i, CostMultipliers[building]);
             }
         }
         public bool canUpgradeBuilding(BuildingModel building)
@@ -726,11 +730,13 @@ namespace QuantumWorld_v1._0.Model
             int playerTotalAP = GetPlayerTotalAP();
 
             int enemyTotalHP = GetEnemyTotalHP(enemy);
-            int enemyTotalAP = GetEnemyTotalAP(enemy);
+            int enemyTotalAP = GetEnemyTotalAP(enemy);           
 
             while (continueFight)
             {
-                enemyTotalHP -= playerTotalAP;
+                enemyTotalHP = PlayerAttack(playerTotalAP, enemyTotalHP);                 
+                DestroyEnemyShips(enemy, playerTotalAP);
+                enemyTotalAP = GetEnemyTotalAP(enemy);
 
                 if (enemyTotalHP <= 0)
                 {
@@ -740,35 +746,21 @@ namespace QuantumWorld_v1._0.Model
                     continueFight = false;
                     break;
                 }
-                else if (enemyTotalHP > 0)
-                {
-                    DestroyEnemyShips(enemy, playerTotalAP);
-                    enemyTotalAP = GetEnemyTotalAP(enemy);    
-                    
-                    if (enemyTotalAP == 0)
-                    {
-                        continueFight = false;
-                        CollectRewards(enemy);
-                        SetRewardsToZero(enemy);
-                        DestroyEnemyShips(enemy, playerTotalAP);                                                
-                    }
-                              
-                    playerTotalHP -= enemyTotalAP;
+                playerTotalHP = EnemyAttack(enemyTotalAP, playerTotalHP);                
                                         
-                    if (playerTotalHP <= 0)
+                if (playerTotalHP <= 0)
                     {
                         DestroyPlayerShips(PlayerShips, enemyTotalAP);                                            
                         continueFight = false;
                         break;
                     }
-                    else if (playerTotalHP > 0)
+                else if (playerTotalHP > 0)
                     {                 
                         DestroyPlayerShips(PlayerShips, enemyTotalAP);
                         playerTotalAP = GetPlayerTotalAP();                       
                     }
                 }
-            }
-        }
+            }        
         public bool canAttack(EnemyModel enemy)
         {
             if (TheExpanse.Level >= enemy.TheExpanseLevelRequirement && ArtOfWar.Level >= enemy.ArtOfWarLevelRequirement && Hyperdrive.Level >= enemy.HyperdriveLevelRequirement)
@@ -776,6 +768,16 @@ namespace QuantumWorld_v1._0.Model
                 return true;
             }
             return false;
+        }
+        private int PlayerAttack(int playerAP, int enemyHP)
+        {
+            enemyHP -= playerAP;
+            return enemyHP;
+        }
+        private int EnemyAttack(int enemyAP, int playerHP)
+        {
+            playerHP -= enemyAP;
+            return playerHP;
         }
         private bool IsSpaceshipFactoryRequiredLevel(ShipModel ship)
         {

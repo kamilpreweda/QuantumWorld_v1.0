@@ -594,53 +594,39 @@ namespace QuantumWorld_v1._0.Model
 
             if (building == CarbonFiberBuilding)
             {
-                IncomeMultipliers[CarbonFiberBuilding] += 50;
+                IncreaseCarbonFiberIncome();
             }
             else if (building == QuantumGlassBuilding)
             {
-                IncomeMultipliers[QuantumGlassBuilding] += 40;
+                IncreaseQuantumGlassIncome();
             }
             else if (building == HiggsBosonBuilding)
             {
-                IncomeMultipliers[HiggsBosonBuilding] += 30;
+                IncreaseHiggsBosonIncome();
             }
             else if (building == SolarEnergyBuilding)
             {
-                PlayerResources[3].AddEnergy(IncomeMultipliers[SolarEnergyBuilding]);
-                IncomeMultipliers[SolarEnergyBuilding] += 1F;
+                IncreaseEnergy();
             }
             else if (building == Labolatory)
             {
-                foreach (var research in PlayerResearch)
-                {
-                    research.CutTimeToBuildByHalf(research);
-                    research.ConvertTimeToBuildToInt(research);
-                }
+                ReduceResearchTimers();
             }
             else if (building == CarbonFiberStorage)
             {
-                CarbonFiber.Cap *= 2;
+                IncreaseCarbonFiberCap();
             }
             else if (building == QuantumGlassStorage)
             {
-                QuantumGlass.Cap *= 2;
+                IncreaseQuantumGlassCap();
             }
             else if (building == HiggsBosonDetector)
             {
-                HiggsBoson.Cap *= 2;
+                IncreaseHiggsBosonCap();
             }
             else if (building == NaniteFactory)
             {
-                foreach (var playerBuilding in PlayerBuildings)
-                {                    
-                    playerBuilding.CutTimeToBuildByHalf(playerBuilding);
-                    playerBuilding.ConvertTimeToBuildToInt(playerBuilding);
-                }
-                foreach (var ship in PlayerShips)
-                {
-                    ship.CutTimeToBuildByHalf(ship);
-                    ship.ConvertTimeToBuildToInt(ship);
-                }                
+                ReduceBuildingsAndShipsTimers();            
             }
         }
         public void CalculateNewCost(BuildingModel building)
@@ -658,6 +644,56 @@ namespace QuantumWorld_v1._0.Model
                 if (this.PlayerResources[i].Value < building.Cost[i].Value) { return false; }
             }
             return true;
+        }
+        private void IncreaseCarbonFiberIncome()
+        {
+            IncomeMultipliers[CarbonFiberBuilding] += 50;
+        }
+        private void IncreaseQuantumGlassIncome()
+        {
+            IncomeMultipliers[QuantumGlassBuilding] += 40;
+        }
+        private void IncreaseHiggsBosonIncome()
+        {
+            IncomeMultipliers[HiggsBosonBuilding] += 30;
+        }
+        private void IncreaseEnergy()
+        {
+            PlayerResources[3].AddEnergy(IncomeMultipliers[SolarEnergyBuilding]);
+            IncomeMultipliers[SolarEnergyBuilding] += 1F;
+        }
+        private void ReduceResearchTimers()
+        {
+            foreach (var research in PlayerResearch)
+            {
+                research.CutTimeToBuildByHalf(research);
+                research.ConvertTimeToBuildToInt(research);
+            }
+        }
+        private void IncreaseCarbonFiberCap()
+        {
+            CarbonFiber.Cap *= 2;
+        }
+        private void IncreaseQuantumGlassCap()
+        {
+            QuantumGlass.Cap *= 2;
+        }
+        private void IncreaseHiggsBosonCap()
+        {
+            HiggsBoson.Cap *= 2;
+        }
+        private void ReduceBuildingsAndShipsTimers()
+        {
+            foreach (var playerBuilding in PlayerBuildings)
+            {
+                playerBuilding.CutTimeToBuildByHalf(playerBuilding);
+                playerBuilding.ConvertTimeToBuildToInt(playerBuilding);
+            }
+            foreach (var ship in PlayerShips)
+            {
+                ship.CutTimeToBuildByHalf(ship);
+                ship.ConvertTimeToBuildToInt(ship);
+            }
         }
         public void StableResourceIncome()
         {

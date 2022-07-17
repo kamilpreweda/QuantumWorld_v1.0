@@ -13,12 +13,9 @@ namespace QuantumWorld_v1._0.ViewModel
     public class BuildingsViewModel : ObservableObject
     {
         private PlayerModel _player;
-
         float timeToEnd;
         bool isBusy;
-
         DispatcherTimer buildingTimer;
-
         public PlayerModel Player
         {
             get => _player;
@@ -37,7 +34,6 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(CarbonFiberBuilding));
             }
         }
-
         public BuildingModel QuantumGlassBuilding
         {
             get => _player.QuantumGlassBuilding;
@@ -65,7 +61,6 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(SolarEnergyBuilding));
             }
         }
-
         public BuildingModel Labolatory
         {
             get => _player.Labolatory;
@@ -120,20 +115,16 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(NaniteFactory));
             }
         }
-
         public RelayCommand UpgradeCarbonFiberBuilding { get; set; }
         public RelayCommand UpgradeQuantumGlassBuilding { get; set; }
-
         public RelayCommand UpgradeHiggsBosonBuilding { get; set; }
         public RelayCommand UpgradeSolarEnergyBuilding { get; set; }
-
         public RelayCommand UpgradeLabolatory { get; set; }
         public RelayCommand UpgradeCarbonFiberStorage { get; set; }
         public RelayCommand UpgradeQuantumGlassStorage { get; set; }
         public RelayCommand UpgradeHiggsBosonDetector { get; set; }
         public RelayCommand UpgradeSpaceshipFactory { get; set; }
         public RelayCommand UpgradeNaniteFactory { get; set; }     
-
         public BuildingsViewModel(PlayerModel player)
         {
             Player = player;
@@ -243,25 +234,18 @@ namespace QuantumWorld_v1._0.ViewModel
                CommandManager.InvalidateRequerySuggested();
                return (_player.canUpgradeBuilding(NaniteFactory) && !isBusy);
            }));
-        }
-
-
-       
-
+        }      
         public void UpgradeBuilding(BuildingModel building)
         {            
             timeToEnd = building.TimeToBuild;
             buildingTimer = new DispatcherTimer();
             buildingTimer.Interval = TimeSpan.FromSeconds(1);
-            buildingTimer.Tick += (s, e) => BuildingTimer_Tick(building);
-            
+            buildingTimer.Tick += (s, e) => BuildingTimer_Tick(building);            
             buildingTimer.Start();
         }
-
         private void BuildingTimer_Tick(BuildingModel building)
         {
-            timeToEnd = building.TimeToBuild;
-            
+            timeToEnd = building.TimeToBuild;            
             
             if (building.TimeToBuild > 0)
             {                

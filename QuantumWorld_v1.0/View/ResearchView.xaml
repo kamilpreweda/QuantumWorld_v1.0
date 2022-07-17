@@ -46,12 +46,12 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="AIRobotsResearchCarbonFiberCostLabel" Content="CF: "/>
-                    <Label x:Name="AIRobotsResearchCarbonFiberCostValue" Content="{Binding AIRobotsResearch.Cost[0].Value}"/>
-                    <Label x:Name="AIRobotsResearchQuantumGlassCostLabel" Content="QG: "/>
-                    <Label x:Name="AIRobotsResearchQuantumGlassCostValue" Content="{Binding AIRobotsResearch.Cost[1].Value}"/>
-                    <Label x:Name="AIRobotsResearchHiggsBosonCostLabel" Content="HB: "/>
-                    <Label x:Name="AIRobotsResearchUpgradeCostValue" Content="{Binding AIRobotsResearch.Cost[2].Value}"/>
-                    <Label x:Name="AIRobotsTimeToBuildLabel" Content="{Binding AIRobotsResearch.TimeToBuild}"/>
+                        <Label x:Name="AIRobotsResearchCarbonFiberCostValue" Content="{Binding AIRobotsResearch.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
+                        <Label x:Name="AIRobotsResearchQuantumGlassCostLabel" Content="QG: "/>
+                        <Label x:Name="AIRobotsResearchQuantumGlassCostValue" Content="{Binding AIRobotsResearch.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
+                        <Label x:Name="AIRobotsResearchHiggsBosonCostLabel" Content="HB: "/>
+                        <Label x:Name="AIRobotsResearchUpgradeCostValue" Content="{Binding AIRobotsResearch.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
+                        <Label x:Name="AIRobotsTimeToBuildLabel" Content="{Binding AIRobotsResearch.TimeToBuild}"/>
                     <Button Content="Upgrade" Command="{Binding UpgradeAIRobotsResearch}"/>
                 </StackPanel>
             </StackPanel>
@@ -83,11 +83,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding SpaceOrganizing.Cost[0].Value}"/>
+                        <Label Content="{Binding SpaceOrganizing.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding SpaceOrganizing.Cost[1].Value}"/>
+                        <Label Content="{Binding SpaceOrganizing.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding SpaceOrganizing.Cost[2].Value}"/>
+                        <Label Content="{Binding SpaceOrganizing.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding SpaceOrganizing.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeSpaceOrganizing}"/>
                     </StackPanel>
@@ -120,11 +120,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding TheExpanse.Cost[0].Value}"/>
+                        <Label Content="{Binding TheExpanse.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding TheExpanse.Cost[1].Value}"/>
+                        <Label Content="{Binding TheExpanse.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding TheExpanse.Cost[2].Value}"/>
+                        <Label Content="{Binding TheExpanse.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding TheExpanse.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeTheExpanse}"/>
                     </StackPanel>
@@ -157,11 +157,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding ArtOfWar.Cost[0].Value}"/>
+                        <Label Content="{Binding ArtOfWar.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding ArtOfWar.Cost[1].Value}"/>
+                        <Label Content="{Binding ArtOfWar.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding ArtOfWar.Cost[2].Value}"/>
+                        <Label Content="{Binding ArtOfWar.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding ArtOfWar.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeArtOfWar}"/>
                     </StackPanel>
@@ -194,11 +194,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Hyperdrive.Cost[0].Value}"/>
+                        <Label Content="{Binding Hyperdrive.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Hyperdrive.Cost[1].Value}"/>
+                        <Label Content="{Binding Hyperdrive.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding Hyperdrive.Cost[2].Value}"/>
+                        <Label Content="{Binding Hyperdrive.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding Hyperdrive.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeHyperdrive}"/>
                     </StackPanel>

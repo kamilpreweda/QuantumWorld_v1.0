@@ -49,9 +49,9 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Rewards:"/>
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Pirates.CarbonFiberReward}"/>
+                        <Label Content="{Binding Pirates.CarbonFiberReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Pirates.QuantumGlassReward}"/>
+                        <Label Content="{Binding Pirates.QuantumGlassReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding Pirates.TimeToAttack}"/>                        
                         <Button Content="Attack" Command="{Binding AttackPirates}"/>
                     </StackPanel>
@@ -89,9 +89,9 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Rewards:"/>
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Outsiders.CarbonFiberReward}"/>
+                        <Label Content="{Binding Outsiders.CarbonFiberReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Outsiders.QuantumGlassReward}"/>
+                        <Label Content="{Binding Outsiders.QuantumGlassReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding Outsiders.TimeToAttack}"/>
                         <Button Content="Attack" Command="{Binding AttackOutsiders}"/>
                     </StackPanel>
@@ -129,11 +129,11 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Rewards:"/>
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Rebels.CarbonFiberReward}"/>
+                        <Label Content="{Binding Rebels.CarbonFiberReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Rebels.QuantumGlassReward}"/>
+                        <Label Content="{Binding Rebels.QuantumGlassReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding Rebels.HiggsBosonReward}"/>
+                        <Label Content="{Binding Rebels.HiggsBosonReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding Rebels.TimeToAttack}"/>
                         <Button Content="Attack" Command="{Binding AttackRebels}"/>
                     </StackPanel>
@@ -171,11 +171,11 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Rewards:"/>
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Armaments.CarbonFiberReward}"/>
+                        <Label Content="{Binding Armaments.CarbonFiberReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Armaments.QuantumGlassReward}"/>
+                        <Label Content="{Binding Armaments.QuantumGlassReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding Armaments.HiggsBosonReward}"/>
+                        <Label Content="{Binding Armaments.HiggsBosonReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding Armaments.TimeToAttack}"/>
                         <Button Content="Attack" Command="{Binding AttackArmaments}"/>
                     </StackPanel>
@@ -218,11 +218,11 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Rewards:"/>
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Distants.CarbonFiberReward}"/>
+                        <Label Content="{Binding Distants.CarbonFiberReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Distants.QuantumGlassReward}"/>
+                        <Label Content="{Binding Distants.QuantumGlassReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding Distants.HiggsBosonReward}"/>
+                        <Label Content="{Binding Distants.HiggsBosonReward}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding Distants.TimeToAttack}"/>
                         <Button Content="Attack" Command="{Binding AttackDistants}"/>
                     </StackPanel>

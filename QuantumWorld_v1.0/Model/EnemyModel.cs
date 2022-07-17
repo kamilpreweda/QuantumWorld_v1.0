@@ -9,7 +9,7 @@ namespace QuantumWorld_v1._0.Model
     public class EnemyModel
     {
         public string Name { get; private set; }
-        public int TimeToAttack { get; private set; }
+        public int TimeToAttack { get; set; }
         public int NewTime { get; set; } = 0;
         public float CarbonFiberReward{ get; set; }
         public float QuantumGlassReward { get; set; }

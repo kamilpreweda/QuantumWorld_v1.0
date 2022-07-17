@@ -48,10 +48,10 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="CF: "/>
-                    <Label Content="{Binding LightFighter.Cost[0].Value}"/>
-                    <Label Content="QG: "/>
-                    <Label Content="{Binding LightFighter.Cost[1].Value}"/>
-                    <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
+                        <Label Content="{Binding LightFighter.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
+                        <Label Content="QG: "/>
+                        <Label Content="{Binding LightFighter.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
+                        <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                     <Label Content="{Binding LightFighter.TimeToBuild}"/>                       
                     <Button Content="Build" Command="{Binding BuildLightFighter}"/>
                 </StackPanel>
@@ -84,9 +84,9 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding HeavyFighter.Cost[0].Value}"/>
+                        <Label Content="{Binding HeavyFighter.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding HeavyFighter.Cost[1].Value}"/>
+                        <Label Content="{Binding HeavyFighter.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding HeavyFighter.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildHeavyFighter}"/>
@@ -120,11 +120,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Battleship.Cost[0].Value}"/>
+                        <Label Content="{Binding Battleship.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Battleship.Cost[1].Value}"/>
+                        <Label Content="{Binding Battleship.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding Battleship.Cost[2].Value}"/>
+                        <Label Content="{Binding Battleship.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                         <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding Battleship.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildBattleship}"/>
@@ -158,11 +158,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Destroyer.Cost[0].Value}"/>
+                        <Label Content="{Binding Destroyer.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Destroyer.Cost[1].Value}"/>
+                        <Label Content="{Binding Destroyer.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding Destroyer.Cost[2].Value}"/>
+                        <Label Content="{Binding Destroyer.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                         <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding Destroyer.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildDestroyer}"/>
@@ -196,11 +196,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Dreadnought.Cost[0].Value}"/>
+                        <Label Content="{Binding Dreadnought.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Dreadnought.Cost[1].Value}"/>
+                        <Label Content="{Binding Dreadnought.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding Dreadnought.Cost[2].Value}"/>
+                        <Label Content="{Binding Dreadnought.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                         <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding Dreadnought.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildDreadnought}"/>
@@ -234,11 +234,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding Mothership.Cost[0].Value}"/>
+                        <Label Content="{Binding Mothership.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG: "/>
-                        <Label Content="{Binding Mothership.Cost[1].Value}"/>
+                        <Label Content="{Binding Mothership.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB: "/>
-                        <Label Content="{Binding Mothership.Cost[2].Value}"/>
+                        <Label Content="{Binding Mothership.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                         <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding Mothership.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildMothership}"/>

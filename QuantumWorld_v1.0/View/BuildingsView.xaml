@@ -48,11 +48,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
                         <Label x:Name="CarbonFiberBuildingCarbonFiberCostLabel" Content="CF: "/>
-                        <Label x:Name="CarbonFiberBuildingCarbonFiberCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label x:Name="CarbonFiberBuildingCarbonFiberCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label x:Name="CarbonFiberBuildingQuantumGlassCostLabel" Content="QG:"/>
-                        <Label x:Name="CarbonFiberBuildingQuantumGlassCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label x:Name="CarbonFiberBuildingQuantumGlassCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label x:Name="CarbonFiberBuildingSolarEnergyLabel" Content="SE:"/>
-                        <Label x:Name="CarbonFiberBuildingSolarEnergyCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label x:Name="CarbonFiberBuildingSolarEnergyCostValueLabel" Content="{Binding CarbonFiberBuilding.Cost[3].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label x:Name="CarbonFiberBuildingTimeToBuildLabel" Content="{Binding CarbonFiberBuilding.TimeToBuild}"/>
                         <Button x:Name="CarbonFiberBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeCarbonFiberBuilding}"/>
                     </StackPanel>
@@ -85,11 +85,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding CarbonFiberStorage.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding CarbonFiberStorage.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG:"/>
-                        <Label Content="{Binding CarbonFiberStorage.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding CarbonFiberStorage.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="SE:"/>
-                        <Label Content="{Binding CarbonFiberStorage.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding CarbonFiberStorage.Cost[3].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding CarbonFiberStorage.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeCarbonFiberStorage}"/>
                     </StackPanel>
@@ -122,11 +122,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label x:Name="QuantumGlassBuildingCarbonFiberCostLabel" Content="CF: "/>
-            <Label x:Name="QuantumGlassBuildingCarbonFiberCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+            <Label x:Name="QuantumGlassBuildingCarbonFiberCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
             <Label x:Name="QuantumGlassBuildingQuantumGlassCostLabel" Content="QG:"/>
-            <Label x:Name="QuantumGlassBuildingQuantumGlassCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+            <Label x:Name="QuantumGlassBuildingQuantumGlassCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
             <Label x:Name="QuantumGlassBuildingSolarEnergyLabel" Content="SE:"/>
-            <Label x:Name="QuantumGlassBuildingSolarEnergyCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+            <Label x:Name="QuantumGlassBuildingSolarEnergyCostValueLabel" Content="{Binding QuantumGlassBuilding.Cost[3].Value}" ContentStringFormat="{}{0:N0}"/>
             <Label x:Name="QuantumGlassBuildingTimeToBuildLabel" Content="{Binding QuantumGlassBuilding.TimeToBuild}"/>
             <Button x:Name="QuantumGlassBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeQuantumGlassBuilding}"/>
                     </StackPanel>
@@ -159,11 +159,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding QuantumGlassStorage.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding QuantumGlassStorage.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG:"/>
-                        <Label Content="{Binding QuantumGlassStorage.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding QuantumGlassStorage.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="SE:"/>
-                        <Label Content="{Binding QuantumGlassStorage.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding QuantumGlassStorage.Cost[3].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding QuantumGlassStorage.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeQuantumGlassStorage}"/>
                     </StackPanel>
@@ -196,11 +196,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                     <Label x:Name="HiggsBosonBuildingCarbonFiberCostLabel" Content="CF: "/>
-                        <Label x:Name="HiggsBosonBuildingCarbonFiberCostValueLabel" Content="{Binding HiggsBosonBuilding.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label x:Name="HiggsBosonBuildingCarbonFiberCostValueLabel" Content="{Binding HiggsBosonBuilding.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label x:Name="HiggsBosonBuildingQuantumGlassCostLabel" Content="QG:"/>
-                        <Label x:Name="HiggsBosonBuildingQuantumGlassCostValueLabel" Content="{Binding HiggsBosonBuilding.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label x:Name="HiggsBosonBuildingQuantumGlassCostValueLabel" Content="{Binding HiggsBosonBuilding.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label x:Name="HiggsBosonBuildingSolarEnergyLabel" Content="SE:"/>
-                        <Label x:Name="HiggsBosonBuildingSolarEnergyCostValueLabel" Content="{Binding HiggsBosonBuilding.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label x:Name="HiggsBosonBuildingSolarEnergyCostValueLabel" Content="{Binding HiggsBosonBuilding.Cost[3].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label x:Name="HiggsBosonBuildingTimeToBuildLabel" Content="{Binding HiggsBosonBuilding.TimeToBuild}"/>
                         <Button x:Name="HiggsBosonBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeHiggsBosonBuilding}"/>
 
@@ -234,11 +234,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding HiggsBosonDetector.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding HiggsBosonDetector.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG:"/>
-                        <Label Content="{Binding HiggsBosonDetector.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding HiggsBosonDetector.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="SE:"/>
-                        <Label Content="{Binding HiggsBosonDetector.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding HiggsBosonDetector.Cost[3].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding HiggsBosonDetector.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeHiggsBosonDetector}"/>
                     </StackPanel>
@@ -272,9 +272,9 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label x:Name="SolarEnergyBuildingCarbonFiberCostLabel" Content="CF: "/>
-                <Label x:Name="SolarEnergyBuildingCarbonFiberCostValueLabel" Content="{Binding SolarEnergyBuilding.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                <Label x:Name="SolarEnergyBuildingCarbonFiberCostValueLabel" Content="{Binding SolarEnergyBuilding.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                 <Label x:Name="SolarEnergyBuildingQuantumGlassCostLabel" Content="QG:"/>
-                <Label x:Name="SolarEnergyBuildingQuantumGlassCostValueLabel" Content="{Binding SolarEnergyBuilding.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                <Label x:Name="SolarEnergyBuildingQuantumGlassCostValueLabel" Content="{Binding SolarEnergyBuilding.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                 <Label x:Name="SolarEnergyBuildingTimeToBuildLabel" Content="{Binding SolarEnergyBuilding.TimeToBuild}"/>
                 <Button x:Name="SolarEnergyBuildingUpgradeButton" Content="Upgrade" Command="{Binding UpgradeSolarEnergyBuilding}"/>
                     </StackPanel>
@@ -307,13 +307,13 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding SpaceshipFactory.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding SpaceshipFactory.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG:"/>
-                        <Label Content="{Binding SpaceshipFactory.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding SpaceshipFactory.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB:"/>
-                        <Label Content="{Binding SpaceshipFactory.Cost[2].Value}" ContentStringFormat="{}{0:F2}"/>                        
+                        <Label Content="{Binding SpaceshipFactory.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>                        
                         <Label Content="SE:"/>
-                        <Label Content="{Binding SpaceshipFactory.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding SpaceshipFactory.Cost[3].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding SpaceshipFactory.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeSpaceshipFactory}"/>
                     </StackPanel>
@@ -347,11 +347,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label x:Name="LabolatoryCarbonFiberCostLabel" Content="CF: "/>
-                <Label x:Name="LabolatoryCarbonFiberCostValueLabel" Content="{Binding Labolatory.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                <Label x:Name="LabolatoryCarbonFiberCostValueLabel" Content="{Binding Labolatory.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                 <Label x:Name="LabolatoryQuantumGlassCostLabel" Content="QG:"/>
-                <Label x:Name="LabolatoryQuantumGlassCostValueLabel" Content="{Binding Labolatory.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                <Label x:Name="LabolatoryQuantumGlassCostValueLabel" Content="{Binding Labolatory.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                 <Label x:Name="LabolatoryHiggsBosonCostLabel" Content="HB:"/>
-                <Label x:Name="LabolatoryHiggsBosonCostValueLabel" Content="{Binding Labolatory.Cost[2].Value}" ContentStringFormat="{}{0:F2}"/>
+                <Label x:Name="LabolatoryHiggsBosonCostValueLabel" Content="{Binding Labolatory.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                 <Label x:Name="LabolatoryTimeToBuildLabel" Content="{Binding Labolatory.TimeToBuild}"/>
                 <Button x:Name="LabolatoryUpgradeButton" Content="Upgrade" Command="{Binding UpgradeLabolatory}"/>
                     </StackPanel>
@@ -384,13 +384,13 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
                         <Label Content="CF: "/>
-                        <Label Content="{Binding NaniteFactory.Cost[0].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding NaniteFactory.Cost[0].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="QG:"/>
-                        <Label Content="{Binding NaniteFactory.Cost[1].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding NaniteFactory.Cost[1].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="HB:"/>
-                        <Label Content="{Binding NaniteFactory.Cost[2].Value}" ContentStringFormat="{}{0:F2}"/>
+                        <Label Content="{Binding NaniteFactory.Cost[2].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="SE:"/>
-                        <Label Content="{Binding NaniteFactory.Cost[3].Value}" ContentStringFormat="{}{0:F0}"/>
+                        <Label Content="{Binding NaniteFactory.Cost[3].Value}" ContentStringFormat="{}{0:N0}"/>
                         <Label Content="{Binding NaniteFactory.TimeToBuild}"/>
                         <Button Content="Upgrade" Command="{Binding UpgradeNaniteFactory}"/>
                     </StackPanel>

@@ -967,12 +967,10 @@ namespace QuantumWorld_v1._0.Model
         }
         private void CalculateDestroyedShips(List<ShipModel> ships, int damage)
         {
-            int result = 2;
+            int result = 0;
 
             while (damage > 0)
-            {
-                while (result > 1)
-                {
+            {               
                     foreach (var ship in ships)
                     {
                         result = (int)MathF.Round(damage / ship.HealthPoints);
@@ -983,25 +981,21 @@ namespace QuantumWorld_v1._0.Model
                                 if (result >= ship.Count)
                                 {
                                     damage -= ship.Count * ship.HealthPoints;
-                                    result -= ship.Count;
                                     ship.Count = 0;
 
                                 }
                                 else if (result < ship.Count)
                                 {
                                     ship.Count -= result;
-                                    damage = 0;
-                                    result = 0;
+                                    damage = 0;                                    
                                 }
                                 else if (result <= 0)
                                 {
                                     damage = 0;
                                 }
                             }
-                        }
-                        else result = 0;
-                    }
-                } damage = 0;
+                        }                        
+                    } damage = 0;              
             }
         }        
     }

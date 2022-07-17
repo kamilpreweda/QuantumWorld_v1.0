@@ -87,6 +87,7 @@
                         <Label Content="{Binding HeavyFighter.Cost[0].Value}"/>
                         <Label Content="QG: "/>
                         <Label Content="{Binding HeavyFighter.Cost[1].Value}"/>
+                        <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding HeavyFighter.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildHeavyFighter}"/>
                     </StackPanel>
@@ -124,6 +125,7 @@
                         <Label Content="{Binding Battleship.Cost[1].Value}"/>
                         <Label Content="HB: "/>
                         <Label Content="{Binding Battleship.Cost[2].Value}"/>
+                        <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding Battleship.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildBattleship}"/>
                     </StackPanel>
@@ -161,6 +163,7 @@
                         <Label Content="{Binding Destroyer.Cost[1].Value}"/>
                         <Label Content="HB: "/>
                         <Label Content="{Binding Destroyer.Cost[2].Value}"/>
+                        <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding Destroyer.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildDestroyer}"/>
                     </StackPanel>
@@ -198,6 +201,7 @@
                         <Label Content="{Binding Dreadnought.Cost[1].Value}"/>
                         <Label Content="HB: "/>
                         <Label Content="{Binding Dreadnought.Cost[2].Value}"/>
+                        <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding Dreadnought.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildDreadnought}"/>
                     </StackPanel>
@@ -235,6 +239,7 @@
                         <Label Content="{Binding Mothership.Cost[1].Value}"/>
                         <Label Content="HB: "/>
                         <Label Content="{Binding Mothership.Cost[2].Value}"/>
+                        <TextBox Width="30" Margin="10, 0, 10, 0" Text="{Binding ShipCount}" PreviewTextInput="PreviewTextInput" MaxLength="3"></TextBox>
                         <Label Content="{Binding Mothership.TimeToBuild}"/>
                         <Button Content="Build" Command="{Binding BuildMothership}"/>
                     </StackPanel>

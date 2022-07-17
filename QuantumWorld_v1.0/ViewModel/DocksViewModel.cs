@@ -229,7 +229,7 @@ namespace QuantumWorld_v1._0.ViewModel
             {
                 return count = 1;
             }
-            ShipCount = count;
+            ShipCount = 0;
             CheckChanges();
             return count;
         }      

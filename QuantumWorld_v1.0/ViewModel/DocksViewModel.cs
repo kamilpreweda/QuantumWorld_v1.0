@@ -88,8 +88,7 @@ namespace QuantumWorld_v1._0.ViewModel
         public RelayCommand BuildBattleship { get; set; }
         public RelayCommand BuildDestroyer { get; set; }
         public RelayCommand BuildDreadnought { get; set; }
-        public RelayCommand BuildMothership { get; set; }
-                
+        public RelayCommand BuildMothership { get; set; }                
         public DocksViewModel(PlayerModel player)
         {
             Player = player;
@@ -167,22 +166,17 @@ namespace QuantumWorld_v1._0.ViewModel
                     return (_player.canBuildShip(Mothership) && !isBusy);
                 }));
         }
-        public void BuildShip(ShipModel ship, int shipCount)
+        public void BuildShip(ShipModel ship, int count)
         {
-                int validatedShipCount = 10;
-                // walidacja wartości shipCount
+                int validatedShipCount = ValidateShipCount(ship, count);
                 timeToEnd = ship.TimeToBuild * validatedShipCount;
                 shipTimer = new DispatcherTimer();
                 shipTimer.Interval = TimeSpan.FromSeconds(1);
                 shipTimer.Tick += (s, e) => ShipTimer_Tick(ship, validatedShipCount);
-
                 shipTimer.Start();
-                
         }
-
         private void ShipTimer_Tick(ShipModel ship, int validatedShipCount)
-        {
-            
+        {            
             ship.TimeToBuild = timeToEnd;
             OnPropertyChanged(nameof(ship.TimeToBuild));
             
@@ -204,8 +198,7 @@ namespace QuantumWorld_v1._0.ViewModel
                     OnPropertyChanged(ship.Name);
                     isBusy = false;
                     OnPropertyChanged(nameof(Player.PlayerResources));
-                }
-            
+                }            
         }
         public void CheckChanges()
         {
@@ -215,11 +208,30 @@ namespace QuantumWorld_v1._0.ViewModel
             OnPropertyChanged(nameof(Player.Destroyer));
             OnPropertyChanged(nameof(Player.Dreadnought));
             OnPropertyChanged(nameof(Player.Mothership));
+            OnPropertyChanged(nameof(ShipCount));
         }
-
         public int GetShipCount()
         {
             return ShipCount;
         }
+        private int ValidateShipCount(ShipModel ship, int count)
+        {
+            count = GetShipCount();
+
+            for (int i = 0; i < _player.PlayerResources.Length; i++)
+            {
+                if (_player.PlayerResources[i].Value < (count * ship.Cost[i].Value))
+                {
+                    count = (int)(_player.PlayerResources[i].Value / ship.Cost[i].Value);                   
+                }                
+            }            
+            if(count == 0)
+            {
+                return count = 1;
+            }
+            ShipCount = count;
+            CheckChanges();
+            return count;
+        }      
     }
 }

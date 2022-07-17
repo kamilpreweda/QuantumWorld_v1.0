@@ -13,12 +13,9 @@ namespace QuantumWorld_v1._0.ViewModel
     public class MapViewModel : ObservableObject
     {
         private PlayerModel _player;
-
         int timeToEnd;
         bool isBusy;
-
         DispatcherTimer attackTimer;
-
         public PlayerModel Player
         {
             get => _player;
@@ -127,7 +124,6 @@ namespace QuantumWorld_v1._0.ViewModel
                 OnPropertyChanged(nameof(ArmamentsDreadnought));
             }
         }
-
         public EnemyModel Distants
         {
             get => _player.Distants;
@@ -206,7 +202,6 @@ namespace QuantumWorld_v1._0.ViewModel
         public RelayCommand AttackArmaments { get; set; }
         public RelayCommand AttackDistants { get; set; }
         public RelayCommand AttackAncients { get; set; }
-
         public MapViewModel(PlayerModel player)
         {
             Player = player;
@@ -216,7 +211,6 @@ namespace QuantumWorld_v1._0.ViewModel
             {
                 Attack(Pirates);
                 isBusy = true;
-
             },
                 (o =>
                 {
@@ -290,11 +284,8 @@ namespace QuantumWorld_v1._0.ViewModel
             attackTimer = new DispatcherTimer();
             attackTimer.Interval = TimeSpan.FromSeconds(1);
             attackTimer.Tick += (s, e) => AttackTimer_Tick(enemy);
-
             attackTimer.Start();
-
         }
-
         private void AttackTimer_Tick(EnemyModel enemy)
         {
             timeToEnd = enemy.TimeToAttack;
@@ -317,7 +308,6 @@ namespace QuantumWorld_v1._0.ViewModel
                 isBusy = false;
                 OnPropertyChanged(nameof(Player.PlayerResources));
             }
-
         }
         public void CheckChanges()
         {

@@ -190,7 +190,7 @@ namespace QuantumWorld_v1._0.ViewModel
            (o =>
            {
                CommandManager.InvalidateRequerySuggested();
-               return (_player.canUpgradeBuilding(QuantumGlassStorage) && !isBusy);
+               return (_player.canUpgradeBuilding(CarbonFiberStorage) && !isBusy);
            }));
             UpgradeQuantumGlassStorage = new RelayCommand(o =>
             {

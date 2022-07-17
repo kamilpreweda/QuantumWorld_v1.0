@@ -299,16 +299,16 @@ namespace QuantumWorld_v1._0.Model
             IncomeMultipliers.Add(SolarEnergyBuilding, 2F);
 
             CostMultipliers = new Dictionary<BuildingModel, float>();
-            CostMultipliers.Add(CarbonFiberBuilding, 1.11F);
-            CostMultipliers.Add(QuantumGlassBuilding, 1.12F);
-            CostMultipliers.Add(HiggsBosonBuilding, 1.13F);
-            CostMultipliers.Add(SolarEnergyBuilding, 1.14F);
-            CostMultipliers.Add(Labolatory, 1.2F);
-            CostMultipliers.Add(CarbonFiberStorage, 1.2F);
-            CostMultipliers.Add(QuantumGlassStorage, 1.2F);
-            CostMultipliers.Add(HiggsBosonDetector, 1.2F);
-            CostMultipliers.Add(SpaceshipFactory, 1.2F);
-            CostMultipliers.Add(NaniteFactory, 1.2F);
+            CostMultipliers.Add(CarbonFiberBuilding, 1.51F);
+            CostMultipliers.Add(QuantumGlassBuilding, 1.52F);
+            CostMultipliers.Add(HiggsBosonBuilding, 1.53F);
+            CostMultipliers.Add(SolarEnergyBuilding, 1.54F);
+            CostMultipliers.Add(Labolatory, 2F);
+            CostMultipliers.Add(CarbonFiberStorage, 2F);
+            CostMultipliers.Add(QuantumGlassStorage, 2F);
+            CostMultipliers.Add(HiggsBosonDetector, 2F);
+            CostMultipliers.Add(SpaceshipFactory, 2F);
+            CostMultipliers.Add(NaniteFactory, 2F);
 
             #endregion
 
@@ -727,7 +727,7 @@ namespace QuantumWorld_v1._0.Model
             {
                 foreach (var enemy in Enemies)
                 {
-                    enemy.TimeToAttack /= 2;
+                    enemy.CutTimeToAttackByHalf();                    
                 }
             }
             foreach (var building in PlayerBuildings)

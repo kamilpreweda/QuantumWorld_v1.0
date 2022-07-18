@@ -269,16 +269,16 @@ namespace QuantumWorld_v1._0.Model
 
             #region Buildings
 
-            CarbonFiberBuilding = new BuildingModel("CarbonFiberBuilding", CarbonFiberBuilding_StartingCost, 0, 1);
+            CarbonFiberBuilding = new BuildingModel("CarbonFiberBuilding", CarbonFiberBuilding_StartingCost, 0, 2);
             QuantumGlassBuilding = new BuildingModel("QuantumGlassBuilding", QuantumGlassBuilding_StartingCost, 0, 2);
-            HiggsBosonBuilding = new BuildingModel("HiggsBosonBuilding", HiggsBosonBuilding_StartingCost, 0, 3);
-            SolarEnergyBuilding = new BuildingModel("SolarEnergyBuilding", SolarEnergyBuilding_StartingCost, 0, 4);
-            Labolatory = new BuildingModel("Labolatory", Labolatory_StartingCost, 0, 5);
-            CarbonFiberStorage = new BuildingModel("CarbonFiberStorage", CarbonFiberStorage_StartingCost, 0, 6);
-            QuantumGlassStorage = new BuildingModel("QuantumGlassStorage", QuantumGlassStorage_StartingCost, 0, 6);
-            HiggsBosonDetector = new BuildingModel("HiggsBosonDetector", HiggsBosonDetector_StartingCost, 0, 6);
-            SpaceshipFactory = new BuildingModel("SpaceshipFactory", SpaceshipFactory_StartingCost, 0, 7);
-            NaniteFactory = new BuildingModel("NaniteFactory", NaniteFactory_StartingCost, 0, 8);
+            HiggsBosonBuilding = new BuildingModel("HiggsBosonBuilding", HiggsBosonBuilding_StartingCost, 0, 2);
+            SolarEnergyBuilding = new BuildingModel("SolarEnergyBuilding", SolarEnergyBuilding_StartingCost, 0, 2);
+            Labolatory = new BuildingModel("Labolatory", Labolatory_StartingCost, 0, 2);
+            CarbonFiberStorage = new BuildingModel("CarbonFiberStorage", CarbonFiberStorage_StartingCost, 0, 2);
+            QuantumGlassStorage = new BuildingModel("QuantumGlassStorage", QuantumGlassStorage_StartingCost, 0, 2);
+            HiggsBosonDetector = new BuildingModel("HiggsBosonDetector", HiggsBosonDetector_StartingCost, 0, 2);
+            SpaceshipFactory = new BuildingModel("SpaceshipFactory", SpaceshipFactory_StartingCost, 0, 2);
+            NaniteFactory = new BuildingModel("NaniteFactory", NaniteFactory_StartingCost, 0, 2);
 
             PlayerBuildings = new List<BuildingModel>();
             PlayerBuildings.Add(CarbonFiberBuilding);
@@ -601,9 +601,8 @@ namespace QuantumWorld_v1._0.Model
         {
             CalculateNewCost(building);
             building.IncreaseLevel();
-            building.SetNewTime(AIRobotsResearch.GetLevel(), NaniteFactory.GetNaniteFactoryMultiplier(NaniteFactory.GetLevel()), NaniteFactory.GetLevel());
-            building.ConvertTimeToBuildToInt(building);            
-
+            building.SetNewTime(NaniteFactory.GetLevel());          
+                        
             if (building == CarbonFiberBuilding)
             {
                 IncreaseCarbonFiberIncome();
@@ -678,8 +677,7 @@ namespace QuantumWorld_v1._0.Model
         {
             foreach (var research in PlayerResearch)
             {
-                research.CutTimeToBuildByHalf(research);
-                research.ConvertTimeToBuildToInt(research);
+                research.CutTimeToBuildByHalf(research);                
             }
         }
         private void IncreaseCarbonFiberCap()
@@ -696,15 +694,13 @@ namespace QuantumWorld_v1._0.Model
         }
         private void ReduceBuildingsAndShipsTimers()
         {
-            foreach (var playerBuilding in PlayerBuildings)
+            foreach (var playerbuilding in PlayerBuildings)
             {
-                playerBuilding.CutTimeToBuildByHalf(playerBuilding);
-                playerBuilding.ConvertTimeToBuildToInt(playerBuilding);
+                playerbuilding.CutTimeToBuildByHalf();                
             }
             foreach (var ship in PlayerShips)
             {
-                ship.CutTimeToBuildByHalf(ship);
-                ship.ConvertTimeToBuildToInt(ship);
+                ship.CutTimeToBuildByHalf(ship);               
             }
         }
         public void StableResourceIncome()
@@ -721,19 +717,14 @@ namespace QuantumWorld_v1._0.Model
                 research.SetNewCost(i, ResearchMultipliers[research]);             
             }
             research.IncreaseLevel();
-            research.SetNewTime(Labolatory.GetLabolatoryMultiplier(Labolatory.Level));
-            research.ConvertTimeToBuildToInt(research);
+            research.SetNewTime(Labolatory.GetLevel());            
             if (research == Hyperdrive)
             {
                 foreach (var enemy in Enemies)
                 {
                     enemy.CutTimeToAttackByHalf();                    
                 }
-            }
-            foreach (var building in PlayerBuildings)
-            {
-                building.SetNewTime(AIRobotsResearch.GetLevel(), NaniteFactory.GetNaniteFactoryMultiplier(NaniteFactory.GetLevel()), NaniteFactory.GetLevel());
-            }            
+            }                   
         }
         public bool canUpgradeResearch(ResearchModel research)
         {

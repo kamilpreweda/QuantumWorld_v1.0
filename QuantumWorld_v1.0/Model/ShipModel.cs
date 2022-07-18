@@ -67,10 +67,6 @@ namespace QuantumWorld_v1._0.Model
                 TimeToBuild = 0;
             }
         }
-        public void ConvertTimeToBuildToInt(ShipModel ship)
-        {
-            ship.TimeToBuild = (int)ship.TimeToBuild;
-        }
     }
 
 

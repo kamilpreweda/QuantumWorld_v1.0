@@ -20,4 +20,8 @@ I had to find out, among other things:
 
 Since it was my own idea, the solutions were not so easy to find.
 
-It's not looking great but it was a huge amount of information, and I struggled a lot. I guess that the most important thing I learned from this project is that every problem can be solved in some way given enough time. 
+It's not looking great but it was a huge amount of information, and I struggled a lot. I guess that the most important thing I learned from this project is that every problem can be solved in some way given enough time.
+
+P.S.
+
+The second most important thing I learned is that I like web applications much more.

@@ -18,4 +18,6 @@ I had to find out, among other things:
 - how to constantly increase player's resources in time
 - and so many more
 
+Since it was my own idea, the solutions were not so easy to find.
+
 It's not looking great but it was a huge amount of information, and I struggled a lot. I guess that the most important thing I learned from this project is that every problem can be solved in some way given enough time. 
